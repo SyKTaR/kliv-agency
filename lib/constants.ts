@@ -42,7 +42,7 @@ export const TARGETS = [
     bg: '#7BA7BC',
     textColor: '#080d14',
   },
-] as const
+] satisfies { id: string; title: string; description: string; bg: string; textColor: string }[]
 
 export const BENEFITS = [
   {

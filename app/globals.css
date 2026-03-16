@@ -1,26 +1,216 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────────
+   Theme Tailwind v4 — Palette & polices Kliv
+───────────────────────────────────────────── */
+@theme {
+  /* Polices */
+  --font-syne:     var(--font-syne-var), sans-serif;
+  --font-dm:       var(--font-dm-var), sans-serif;
+  --font-playfair: var(--font-playfair-var), serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─────────────────────────────────────────────
+   Variables CSS — Mode sombre (défaut)
+───────────────────────────────────────────── */
+:root,
+html.dark {
+  --bg-primary:       #080d14;
+  --bg-surface:       #0e1520;
+  --bg-footer:        #060a11;
+  --bg-card:          rgba(255, 255, 255, 0.025);
+  --bg-card-hover:    rgba(255, 255, 255, 0.04);
+  --bg-input:         rgba(255, 255, 255, 0.06);
+  --bg-header:        rgba(14, 19, 28, 0.92);
+  --bg-sidebar:       #080d14;
+
+  --text-rgb:         245, 240, 228;        /* #F5F0E4 crème */
+  --text-primary:     #F5F0E4;
+  --text-muted:       rgba(245, 240, 228, 0.55);
+  --text-faint:       rgba(245, 240, 228, 0.35);
+  --text-ghost:       rgba(245, 240, 228, 0.25);
+  --text-ultra-faint: rgba(245, 240, 228, 0.20);
+
+  --border-subtle:    rgba(245, 240, 228, 0.07);
+  --border-medium:    rgba(245, 240, 228, 0.12);
+  --border-input:     rgba(245, 240, 228, 0.15);
+
+  --accent:           #7BA7BC;
+  --accent-hover:     rgba(123, 167, 188, 0.9);
+
+  --btn-primary-bg:    #7BA7BC;
+  --btn-primary-bg-hover: rgba(123, 167, 188, 0.85);
+  --btn-primary-text:  #080d14;
+
+  --scrollbar-track:  #080d14;
+  --scrollbar-thumb:  rgba(245, 240, 228, 0.12);
+
+  --error:            rgba(255, 120, 120, 0.9);
+  --error-border:     rgba(255, 100, 100, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─────────────────────────────────────────────
+   Variables CSS — Mode clair
+───────────────────────────────────────────── */
+html.light {
+  --bg-primary:       #F5F3EE;
+  --bg-surface:       #FFFFFF;
+  --bg-footer:        #E8E5DE;
+  --bg-card:          rgba(0, 0, 0, 0.03);
+  --bg-card-hover:    rgba(0, 0, 0, 0.05);
+  --bg-input:         rgba(0, 0, 0, 0.04);
+  --bg-header:        rgba(245, 243, 238, 0.92);
+  --bg-sidebar:       #FFFFFF;
+
+  --text-rgb:         18, 22, 18;           /* quasi noir chaud */
+  --text-primary:     #121612;
+  --text-muted:       rgba(18, 22, 18, 0.60);
+  --text-faint:       rgba(18, 22, 18, 0.40);
+  --text-ghost:       rgba(18, 22, 18, 0.28);
+  --text-ultra-faint: rgba(18, 22, 18, 0.18);
+
+  --border-subtle:    rgba(18, 22, 18, 0.08);
+  --border-medium:    rgba(18, 22, 18, 0.14);
+  --border-input:     rgba(18, 22, 18, 0.18);
+
+  --accent:           #4E87A0;
+  --accent-hover:     rgba(78, 135, 160, 0.9);
+
+  --btn-primary-bg:    #F5F0E4;
+  --btn-primary-bg-hover: #EDEAE0;
+  --btn-primary-text:  #080d14;
+
+  --scrollbar-track:  #F5F3EE;
+  --scrollbar-thumb:  rgba(18, 22, 18, 0.15);
+
+  --error:            #c0392b;
+  --error-border:     rgba(192, 57, 43, 0.5);
+}
+
+/* ─────────────────────────────────────────────
+   Reset & base
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-family: var(--font-dm-var), sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─────────────────────────────────────────────
+   Marquee TrustBand — animation CSS infinie
+───────────────────────────────────────────── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ─────────────────────────────────────────────
+   Scrollbar discrète
+───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 2px; }
+
+/* ─────────────────────────────────────────────
+   Print — mise en page PDF devis/factures
+───────────────────────────────────────────── */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Hide admin sidebar entirely */
+  nav, aside, [data-sidebar] {
+    display: none !important;
+  }
+
+  /* Remove shadows, borders, backgrounds for cleaner print */
+  * {
+    box-shadow: none !important;
+  }
+
+  /* Force page to use full width */
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   prefers-reduced-motion
+───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Focus visible — accessibilité WCAG
+───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   Typo helpers Playfair Display italic
+   (utilisé dans AnimatedText)
+───────────────────────────────────────────── */
+.italic-kliv {
+  font-family: var(--font-playfair-var), serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ─────────────────────────────────────────────
+   Inputs formulaire Kliv — focus via CSS
+───────────────────────────────────────────── */
+.kliv-input:focus {
+  border-color: var(--accent) !important;
+  outline: none;
+}
+
+.kliv-input::placeholder {
+  color: var(--text-faint);
+}
+
+/* ─────────────────────────────────────────────
+   Theme transition — évite le flash au chargement
+───────────────────────────────────────────── */
+.theme-transition,
+.theme-transition * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
 }

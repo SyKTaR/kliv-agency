@@ -14,6 +14,7 @@ import {
   X,
   UserCircle,
   ChevronRight,
+  Globe,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase'
 import ThemeToggle from '@/components/ui/ThemeToggle'
@@ -130,6 +131,22 @@ export default function Sidebar() {
 
         {/* Theme toggle + Logout */}
         <div className="p-4 space-y-1" style={{ borderTop: '1px solid var(--border-subtle)' }}>
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg w-full transition-all duration-150"
+            style={{
+              fontFamily: 'var(--font-dm-var), sans-serif',
+              fontSize: '13px',
+              fontWeight: 500,
+              color: 'var(--text-faint)',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent)'; e.currentTarget.style.background = 'rgba(123,167,188,0.08)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-faint)'; e.currentTarget.style.background = 'transparent' }}
+          >
+            <Globe size={18} />
+            Voir le site
+          </Link>
           <div className="flex items-center gap-3 px-3 py-2">
             <span
               style={{

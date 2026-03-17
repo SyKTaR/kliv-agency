@@ -76,9 +76,9 @@ html.light {
   --accent:           #4E87A0;
   --accent-hover:     rgba(78, 135, 160, 0.9);
 
-  --btn-primary-bg:    #F5F0E4;
-  --btn-primary-bg-hover: #EDEAE0;
-  --btn-primary-text:  #080d14;
+  --btn-primary-bg:    #2D302B;
+  --btn-primary-bg-hover: #3A3E38;
+  --btn-primary-text:  #F5F0E4;
 
   --scrollbar-track:  #F5F3EE;
   --scrollbar-thumb:  rgba(18, 22, 18, 0.15);

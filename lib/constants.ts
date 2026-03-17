@@ -13,6 +13,7 @@ export const HERO_STATS = [
   { value: '48h',   label: 'Délai de réponse' },
   { value: '100%',  label: 'Sur mesure' },
   { value: '5★',    label: 'Note client' },
+  { value: 'Rapidité',    label: 'Des délais de livraison compétitifs' },
 ] as const
 
 export const TOOLS = [
@@ -104,18 +105,19 @@ export const REALIZATIONS = [
   {
     num: '01',
     tag: 'Site vitrine',
-    title: 'Refonte complète pour un artisan menuisier',
+    title: 'Réalisation dun site web pour une société de nettoyage de véhicule',
     result: '+40% de demandes de devis en 3 mois',
-    stack: 'WordPress · Elementor',
+    stack: 'Full code sur mesure',
+
     bg: '#EDEAE0',
     textColor: '#1a1a1a',
   },
   {
     num: '02',
-    tag: 'E-commerce',
-    title: 'Boutique en ligne pour une PME textile',
-    result: 'Mise en ligne en 3 semaines, 0 bug au lancement',
-    stack: 'Shopify · Custom theme',
+    tag: 'Application interne',
+    title: 'Outils de création de devis sur mesure pour un imprimeur',
+    result: 'Mise en ligne en 3 semaines, 100% des devis créés sur le nouvel outil',
+    stack: 'Full code sur mesure',
     bg: '#7BA7BC',
     textColor: '#080d14',
   },

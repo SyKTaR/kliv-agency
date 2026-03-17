@@ -15,7 +15,11 @@ import { Send } from 'lucide-react'
 
 interface ContactFormData {
   prenom: string
+  nom: string
   email: string
+  telephone: string
+  typeProjet: string
+  budget: string
   projet: string
 }
 
@@ -55,11 +59,17 @@ export default function CTAFinal() {
 
   const onSubmit = async (data: ContactFormData) => {
     setSubmitError(null)
+    const messageParts = [
+      `[Type de projet] ${data.typeProjet}`,
+      data.budget ? `[Budget indicatif] ${data.budget}` : null,
+      data.telephone ? `[Téléphone] ${data.telephone}` : null,
+      `[Description] ${data.projet}`,
+    ].filter(Boolean).join('\n')
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: data.prenom, email: data.email, message: data.projet }),
+        body: JSON.stringify({ name: `${data.prenom} ${data.nom}`.trim(), email: data.email, message: messageParts }),
       })
       if (!res.ok) throw new Error((await res.json()).error ?? 'Erreur serveur')
       setSubmitted(true)
@@ -192,34 +202,64 @@ export default function CTAFinal() {
             noValidate
             aria-label="Formulaire de contact Kliv"
           >
-            {/* ── Prénom ───────────────────────────────────────── */}
-            <motion.div variants={fadeUpVariant} className="mb-4">
-              <label htmlFor="prenom" style={labelStyle}>
-                Prénom <span aria-hidden="true" style={{ color: 'var(--accent)' }}>*</span>
-              </label>
-              <input
-                id="prenom"
-                type="text"
-                autoComplete="given-name"
-                placeholder="Votre prénom"
-                aria-required="true"
-                aria-invalid={!!errors.prenom}
-                aria-describedby={errors.prenom ? 'prenom-error' : undefined}
-                className="kliv-input"
-                style={{
-                  ...inputBase,
-                  borderColor: errors.prenom ? 'var(--error-border)' : 'var(--border-input)',
-                }}
-                {...register('prenom', {
-                  required: 'Votre prénom est requis',
-                  minLength: { value: 2, message: 'Minimum 2 caractères' },
-                })}
-              />
-              {errors.prenom && (
-                <p id="prenom-error" role="alert" style={{ fontFamily: 'var(--font-dm-var), sans-serif', fontSize: '12px', color: 'var(--error)', marginTop: '6px' }}>
-                  {errors.prenom.message}
-                </p>
-              )}
+            {/* ── Prénom + Nom ─────────────────────────────────── */}
+            <motion.div variants={fadeUpVariant} className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="prenom" style={labelStyle}>
+                  Prénom <span aria-hidden="true" style={{ color: 'var(--accent)' }}>*</span>
+                </label>
+                <input
+                  id="prenom"
+                  type="text"
+                  autoComplete="given-name"
+                  placeholder="Votre prénom"
+                  aria-required="true"
+                  aria-invalid={errors.prenom ? 'true' : 'false'}
+                  aria-describedby={errors.prenom ? 'prenom-error' : undefined}
+                  className="kliv-input"
+                  style={{
+                    ...inputBase,
+                    borderColor: errors.prenom ? 'var(--error-border)' : 'var(--border-input)',
+                  }}
+                  {...register('prenom', {
+                    required: 'Prénom requis',
+                    minLength: { value: 2, message: 'Minimum 2 caractères' },
+                  })}
+                />
+                {errors.prenom && (
+                  <p id="prenom-error" role="alert" style={{ fontFamily: 'var(--font-dm-var), sans-serif', fontSize: '12px', color: 'var(--error)', marginTop: '6px' }}>
+                    {errors.prenom.message}
+                  </p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="nom" style={labelStyle}>
+                  Nom <span aria-hidden="true" style={{ color: 'var(--accent)' }}>*</span>
+                </label>
+                <input
+                  id="nom"
+                  type="text"
+                  autoComplete="family-name"
+                  placeholder="Votre nom"
+                  aria-required="true"
+                  aria-invalid={errors.nom ? 'true' : 'false'}
+                  aria-describedby={errors.nom ? 'nom-error' : undefined}
+                  className="kliv-input"
+                  style={{
+                    ...inputBase,
+                    borderColor: errors.nom ? 'var(--error-border)' : 'var(--border-input)',
+                  }}
+                  {...register('nom', {
+                    required: 'Nom requis',
+                    minLength: { value: 2, message: 'Minimum 2 caractères' },
+                  })}
+                />
+                {errors.nom && (
+                  <p id="nom-error" role="alert" style={{ fontFamily: 'var(--font-dm-var), sans-serif', fontSize: '12px', color: 'var(--error)', marginTop: '6px' }}>
+                    {errors.nom.message}
+                  </p>
+                )}
+              </div>
             </motion.div>
 
             {/* ── Email ────────────────────────────────────────── */}
@@ -233,7 +273,7 @@ export default function CTAFinal() {
                 autoComplete="email"
                 placeholder="votre@email.fr"
                 aria-required="true"
-                aria-invalid={!!errors.email}
+                aria-invalid={errors.email ? 'true' : 'false'}
                 aria-describedby={errors.email ? 'email-error' : undefined}
                 className="kliv-input"
                 style={{
@@ -255,6 +295,74 @@ export default function CTAFinal() {
               )}
             </motion.div>
 
+            {/* ── Téléphone ────────────────────────────────────── */}
+            <motion.div variants={fadeUpVariant} className="mb-4">
+              <label htmlFor="telephone" style={labelStyle}>
+                Téléphone <span style={{ color: 'var(--text-ghost)' }}>(facultatif)</span>
+              </label>
+              <input
+                id="telephone"
+                type="tel"
+                autoComplete="tel"
+                placeholder="+33 6 12 34 56 78"
+                className="kliv-input"
+                style={inputBase}
+                {...register('telephone')}
+              />
+            </motion.div>
+
+            {/* ── Type de projet ───────────────────────────────── */}
+            <motion.div variants={fadeUpVariant} className="mb-4">
+              <label htmlFor="typeProjet" style={labelStyle}>
+                Type de besoin <span aria-hidden="true" style={{ color: 'var(--accent)' }}>*</span>
+              </label>
+              <select
+                id="typeProjet"
+                aria-required="true"
+                aria-invalid={errors.typeProjet ? 'true' : 'false'}
+                aria-describedby={errors.typeProjet ? 'typeProjet-error' : undefined}
+                className="kliv-input"
+                style={{
+                  ...inputBase,
+                  cursor: 'pointer',
+                  borderColor: errors.typeProjet ? 'var(--error-border)' : 'var(--border-input)',
+                }}
+                {...register('typeProjet', { required: 'Sélectionnez un type de projet' })}
+              >
+                <option value="">— Choisir —</option>
+                <option value="Site vitrine">Site vitrine</option>
+                <option value="E-commerce / boutique en ligne">E-commerce / boutique en ligne</option>
+                <option value="CRM / automatisation">CRM / automatisation</option>
+                <option value="Application web sur mesure">Application web sur mesure</option>
+                <option value="Refonte de site existant">Refonte de site existant</option>
+                <option value="Autre">Autre</option>
+              </select>
+              {errors.typeProjet && (
+                <p id="typeProjet-error" role="alert" style={{ fontFamily: 'var(--font-dm-var), sans-serif', fontSize: '12px', color: 'var(--error)', marginTop: '6px' }}>
+                  {errors.typeProjet.message}
+                </p>
+              )}
+            </motion.div>
+
+            {/* ── Budget ───────────────────────────────────────── */}
+            <motion.div variants={fadeUpVariant} className="mb-4">
+              <label htmlFor="budget" style={labelStyle}>
+                Budget indicatif <span style={{ color: 'var(--text-ghost)' }}>(facultatif)</span>
+              </label>
+              <select
+                id="budget"
+                className="kliv-input"
+                style={{ ...inputBase, cursor: 'pointer' }}
+                {...register('budget')}
+              >
+                <option value="">— Je ne sais pas encore —</option>
+                <option value="Moins de 1 500€">Moins de 1 500€</option>
+                <option value="Entre 1 500€ et 3 500€">Entre 1 500€ et 3 500€</option>
+                <option value="Entre 3 500€ et 6 000€">Entre 3 500€ et 6 000€</option>
+                <option value="Plus de 6 000€">Plus de 6 000€</option>
+              </select>
+            </motion.div>
+
             {/* ── Projet ───────────────────────────────────────── */}
             <motion.div variants={fadeUpVariant} className="mb-8">
               <label htmlFor="projet" style={labelStyle}>
@@ -265,7 +373,7 @@ export default function CTAFinal() {
                 rows={3}
                 placeholder="Décrivez votre projet en quelques mots..."
                 aria-required="true"
-                aria-invalid={!!errors.projet}
+                aria-invalid={errors.projet ? 'true' : 'false'}
                 aria-describedby={errors.projet ? 'projet-error' : undefined}
                 className="kliv-input"
                 style={{

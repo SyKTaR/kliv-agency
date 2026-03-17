@@ -69,7 +69,7 @@ export default function InvoiceDetailPage() {
   const total = subtotal + tvaAmount
 
   return (
-    <div className="p-6 lg:p-10 max-w-4xl">
+    <div className="p-6 lg:p-10 w-full">
       {/* Print header — visible only in print */}
       <div className="hidden print:block mb-8">
         <div className="flex items-start justify-between border-b border-gray-200 pb-6">

@@ -83,7 +83,7 @@ export default function ProjectDetailPage() {
   if (!project) return <div className="p-10 text-center text-[var(--text-faint)] font-[family-name:var(--font-dm)]">Projet introuvable. <Link href="/admin/projects" className="text-[#7BA7BC] hover:underline">Retour</Link></div>
 
   return (
-    <div className="p-6 lg:p-10 max-w-4xl">
+    <div className="p-6 lg:p-10 w-full">
       <Link href="/admin/projects" className="inline-flex items-center gap-2 text-[var(--text-faint)] hover:text-[var(--text-primary)] text-sm font-[family-name:var(--font-dm)] mb-6 transition-colors">
         <ArrowLeft size={16} /> Projets
       </Link>

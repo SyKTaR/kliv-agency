@@ -16,7 +16,7 @@ export default function AdminLayout({
     <div className="flex h-screen overflow-hidden" style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
       <Sidebar />
       <main className="flex-1 overflow-y-auto lg:ml-0">
-        <div className="min-h-full">
+        <div className="min-h-full pt-16 lg:pt-0">
           {children}
         </div>
       </main>

@@ -70,7 +70,7 @@ export default function NewInvoicePage() {
   }
 
   return (
-    <div className="p-6 lg:p-10 max-w-3xl">
+    <div className="p-6 lg:p-10 w-full">
       <Link href="/admin/invoices" className="inline-flex items-center gap-2 text-[var(--text-faint)] hover:text-[var(--text-primary)] text-sm font-[family-name:var(--font-dm)] mb-6 transition-colors">
         <ArrowLeft size={16} /> Devis & Factures
       </Link>

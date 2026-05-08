@@ -1,0 +1,12 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/", "destination": "/pages/index.html" },
+    { "source": "/services", "destination": "/pages/services.html" },
+    { "source": "/realisations", "destination": "/pages/realisations.html" },
+    { "source": "/agence", "destination": "/pages/agence.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/devis", "destination": "/pages/devis.html" }
+  ]
+}

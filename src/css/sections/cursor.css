@@ -1,0 +1,19 @@
+.custom-cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--color-text-primary);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 200ms var(--ease-out),
+              height 200ms var(--ease-out),
+              opacity 200ms var(--ease-out);
+  transform-origin: center;
+  mix-blend-mode: multiply;
+  will-change: transform;
+}
+.custom-cursor.is-hovering {
+  width: 40px; height: 40px;
+  opacity: 0.15;
+}
+@media (pointer: coarse) { .custom-cursor { display: none; } }

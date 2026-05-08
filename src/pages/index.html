@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kliv Agency — Agence web & digitale. Sites web sur-mesure, outils internes, automatisations et branding.">
+  <meta name="theme-color" content="#0E0E0D">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kliv Agency — Agence Web & Digitale">
+  <meta property="og:description" content="Sites web, outils métier, automatisations, branding. Du design à la mise en production.">
+  <meta property="og:image" content="/assets/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Kliv Agency — Sites Web, Outils Métier & Automatisations</title>
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <!-- ==============================
+       [01] NAVBAR
+  =============================== -->
+  <header role="banner">
+    <nav class="navbar" id="navbar" aria-label="Navigation principale">
+      <div class="navbar__inner container">
+
+        <a href="/pages/index.html" class="navbar__logo" aria-label="Kliv Agency — Accueil">
+          <img src="/assets/logo.png" alt="Kliv Agency" class="logo-img">
+        </a>
+
+        <ul class="navbar__links" role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approche">Agence</a></li>
+          <li><a href="#realisations">Réalisations</a></li>
+          <li><a href="/pages/devis.html">Devis</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <a href="/pages/contact.html" class="btn btn--primary btn--sm">Démarrer un projet</a>
+        </div>
+
+        <button class="navbar__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
+    </nav>
+
+    <!-- Menu mobile plein écran -->
+    <div class="mobile-menu" role="dialog" aria-label="Menu de navigation">
+      <a href="#services">Services</a>
+      <a href="#approche">Agence</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="/pages/devis.html">Devis</a>
+      <div class="mobile-menu__cta">
+        <a href="/pages/contact.html" class="btn btn--inverse btn--lg">Démarrer un projet</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ==============================
+         [02] HERO
+    =============================== -->
+    <section class="hero" aria-label="Présentation de Kliv Agency">
+      <div class="hero__bg-grid" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <div class="hero__label animate-reveal" data-delay="0">
+          <span>Agence Web &amp; Digitale</span>
+        </div>
+
+        <h1 class="hero__title">
+          <span class="hero__line animate-reveal" data-delay="1">On conçoit</span>
+          <span class="hero__rotating-wrapper animate-reveal" data-delay="2" aria-live="polite" aria-atomic="true">
+            <span class="hero__rotating-text hero__line--italic">des expériences qui convertissent.</span>
+          </span>
+        </h1>
+
+        <p class="hero__sub animate-reveal" data-delay="4">
+          Sites web, outils métier, automatisations, branding.<br>
+          Du design à la mise en production — Kliv s'occupe de tout.
+        </p>
+
+        <div class="hero__actions animate-reveal" data-delay="5">
+          <a href="/pages/contact.html" class="btn btn--primary btn--lg">
+            Démarrer un projet
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#realisations" class="btn btn--ghost btn--lg">Voir nos réalisations</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll-hint animate-reveal" data-delay="6" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
+        <span>Défiler</span>
+      </div>
+    </section>
+
+    <!-- ==============================
+         [03] MARQUEE CLIENTS
+    =============================== -->
+    <section class="marquee-section" aria-label="Ils nous font confiance">
+      <p class="marquee-section__label">Ils nous font confiance</p>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>ARProtect</span>
+          <span>Pep's Print</span>
+          <span>EventOrga</span>
+          <span>Opensecret</span>
+          <span>Alvea</span>
+          <span>Belvida</span>
+          <span>Orbis Tech</span>
+          <span>Lumia Studio</span>
+          <!-- Duplication pour boucle infinie -->
+          <span>ARProtect</span>
+          <span>Pep's Print</span>
+          <span>EventOrga</span>
+          <span>Opensecret</span>
+          <span>Alvea</span>
+          <span>Belvida</span>
+          <span>Orbis Tech</span>
+          <span>Lumia Studio</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         [04] SERVICES
+    =============================== -->
+    <section class="services section" id="services">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label animate-reveal">Ce qu'on fait</span>
+          <h2 class="section-title animate-reveal" data-delay="1">
+            Des solutions pensées<br><em>pour votre croissance</em>
+          </h2>
+        </div>
+
+        <div class="services__grid">
+
+          <article class="service-card">
+            <div class="service-card__number">01</div>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect x="2" y="5" width="24" height="18" rx="2" stroke="#888884" stroke-width="1.5"/>
+                <path d="M2 10h24" stroke="#888884" stroke-width="1.5"/>
+                <circle cx="6" cy="7.5" r="1" fill="#888884"/>
+                <circle cx="10" cy="7.5" r="1" fill="#888884"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Sites Web</h3>
+            <p class="service-card__desc">
+              Vitrines, e-commerces, SaaS. Des interfaces performantes,
+              optimisées SEO et conçues pour convertir vos visiteurs.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__number">02</div>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect x="3" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                <rect x="15" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                <rect x="3" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                <rect x="15" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Outils Internes</h3>
+            <p class="service-card__desc">
+              CRM, ERP, dashboards sur-mesure. On remplace vos Excel
+              par des outils pensés pour vos équipes et votre productivité.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__number">03</div>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M6 14c0-4.4 3.6-8 8-8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M22 14c0 4.4-3.6 8-8 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="6" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
+                <circle cx="22" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
+                <path d="M10 6l4-4 4 4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18 22l-4 4-4-4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Automatisations</h3>
+            <p class="service-card__desc">
+              Connectez vos outils, éliminez les tâches répétitives.
+              On automatise vos processus de A à Z.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__number">04</div>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="9" r="5" stroke="#888884" stroke-width="1.5"/>
+                <path d="M5 23c0-4.4 4-8 9-8s9 3.6 9 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Branding</h3>
+            <p class="service-card__desc">
+              Identité visuelle, logo, charte graphique. Une marque
+              cohérente qui inspire confiance dès le premier regard.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         [05] POURQUOI KLIV
+    =============================== -->
+    <section class="why-kliv section" id="approche">
+      <div class="container">
+
+        <div class="why-kliv__header">
+          <span class="section-label section-label--light animate-reveal">Notre approche</span>
+          <h2 class="why-kliv__title animate-reveal" data-delay="1">
+            Pas une agence de plus.<br>
+            <em>Votre partenaire technique.</em>
+          </h2>
+        </div>
+
+        <div class="why-kliv__stats">
+          <div class="stat animate-reveal" data-delay="0">
+            <div class="stat__value">
+              <span class="stat__number" data-count="48">0</span>
+              <span class="stat__unit">h</span>
+            </div>
+            <p class="stat__label">Délai moyen de réponse et brief projet</p>
+          </div>
+          <div class="stat animate-reveal" data-delay="1">
+            <div class="stat__value">
+              <span class="stat__number" data-count="20">0</span>
+              <span class="stat__unit">+</span>
+            </div>
+            <p class="stat__label">Projets livrés en 2025–2026</p>
+          </div>
+          <div class="stat animate-reveal" data-delay="2">
+            <div class="stat__value">
+              <span class="stat__number" data-count="100">0</span>
+              <span class="stat__unit">%</span>
+            </div>
+            <p class="stat__label">Sur-mesure</p>
+          </div>
+        </div>
+
+        <div class="why-kliv__points">
+          <div class="point animate-reveal" data-delay="0">
+            <div class="point__icon" aria-hidden="true">→</div>
+            <div>
+              <h4>On pense business avant tout</h4>
+              <p>Chaque décision design ou tech est prise en fonction de vos objectifs métier, pas de nos préférences esthétiques.</p>
+            </div>
+          </div>
+          <div class="point animate-reveal" data-delay="1">
+            <div class="point__icon" aria-hidden="true">→</div>
+            <div>
+              <h4>Une équipe, pas une agence anonyme</h4>
+              <p>Vous parlez directement aux personnes qui conçoivent et développent. Pas de chef de projet inutile entre vous et la production.</p>
+            </div>
+          </div>
+          <div class="point animate-reveal" data-delay="2">
+            <div class="point__icon" aria-hidden="true">→</div>
+            <div>
+              <h4>On livre — vraiment</h4>
+              <p>Délais tenus. Code propre. Documentation incluse. On vous laisse un actif, pas une dépendance.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================
+         [06] RÉALISATIONS — SÉLECTION
+    =============================== -->
+    <section class="work section" id="realisations">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label animate-reveal">Portfolio</span>
+          <h2 class="section-title animate-reveal" data-delay="1">Projets récents</h2>
+        </div>
+
+        <div class="work__list">
+
+          <article class="work-item animate-reveal" data-delay="0">
+            <div class="work-item__media">
+              <div class="work-item__placeholder">AR Protect</div>
+            </div>
+            <div class="work-item__info">
+              <div>
+                <div class="work-item__tags">
+                  <span>Site Web</span>
+                  <span>Détailling Automobile</span>
+                </div>
+                <h3 class="work-item__title">AR Protect</h3>
+              </div>
+              <p class="work-item__year">2026</p>
+            </div>
+          </article>
+
+          <article class="work-item animate-reveal" data-delay="1">
+            <div class="work-item__media">
+              <div class="work-item__placeholder">Pep's Print</div>
+            </div>
+            <div class="work-item__info">
+              <div>
+                <div class="work-item__tags">
+                  <span>CRM</span>
+                  <span>Outils interne de création de devis</span>
+                </div>
+                <h3 class="work-item__title">Pep's Print</h3>
+              </div>
+              <p class="work-item__year">2025</p>
+            </div>
+          </article>
+
+          <article class="work-item animate-reveal" data-delay="2">
+            <div class="work-item__media">
+              <div class="work-item__placeholder">EventOrga</div>
+            </div>
+            <div class="work-item__info">
+              <div>
+                <div class="work-item__tags">
+                  <span>Site Web</span>
+                  <span>Dashboard suivis client</span>
+                </div>
+                <h3 class="work-item__title">EventOrga</h3>
+              </div>
+              <p class="work-item__year">2026</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         [07] PROCESSUS DE TRAVAIL
+    =============================== -->
+    <section class="process section" style="background: var(--color-bg-secondary);">
+      <div class="container">
+        <span class="section-label animate-reveal">Comment on travaille</span>
+        <h2 class="section-title animate-reveal" data-delay="1">4 étapes, 0 surprise</h2>
+
+        <ol class="process__steps">
+          <li class="process-step animate-reveal" data-delay="0">
+            <div class="process-step__num">01</div>
+            <div class="process-step__content">
+              <h3>Brief &amp; Discovery</h3>
+              <p>On comprend votre business, vos objectifs, vos contraintes. Un atelier de 1h qui pose les bases solides du projet.</p>
+            </div>
+          </li>
+          <li class="process-step animate-reveal" data-delay="1">
+            <div class="process-step__num">02</div>
+            <div class="process-step__content">
+              <h3>Design &amp; Prototypage</h3>
+              <p>Maquettes Figma, wireframes interactifs. Vous validez chaque étape avant qu'une ligne de code ne soit écrite.</p>
+            </div>
+          </li>
+          <li class="process-step animate-reveal" data-delay="2">
+            <div class="process-step__num">03</div>
+            <div class="process-step__content">
+              <h3>Développement</h3>
+              <p>Code propre, documenté et scalable. Sprints de 2 semaines avec accès à un board de suivi en temps réel.</p>
+            </div>
+          </li>
+          <li class="process-step animate-reveal" data-delay="3">
+            <div class="process-step__num">04</div>
+            <div class="process-step__content">
+              <h3>Livraison &amp; Suivi</h3>
+              <p>Mise en production, formation si besoin, support post-lancement. On ne disparaît pas après livraison.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==============================
+         [08] TÉMOIGNAGES
+    =============================== -->
+    <section class="testimonials section">
+      <div class="container">
+        <span class="section-label animate-reveal">Ce qu'ils disent</span>
+        <h2 class="section-title animate-reveal" data-delay="1">
+          Nos clients parlent<br>mieux que nous
+        </h2>
+
+        <div class="testimonials__grid">
+
+          <blockquote class="testimonial animate-reveal" data-delay="0">
+            <p class="testimonial__quote">
+              "Kliv a transformé notre CRM interne en 6 semaines. Ce que nos équipes IT estimaient à 6 mois de travail, livré proprement et dans les délais."
+            </p>
+            <footer class="testimonial__author">
+              <div class="testimonial__avatar" aria-hidden="true">ML</div>
+              <div>
+                <cite class="testimonial__name">Marc Lefèvre</cite>
+                <span class="testimonial__role">COO — Nexlink</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial animate-reveal" data-delay="1">
+            <p class="testimonial__quote">
+              "Le site web qu'on avait avant était correct. Celui de Kliv convertit 3x plus. L'attention au détail UX est vraiment remarquable."
+            </p>
+            <footer class="testimonial__author">
+              <div class="testimonial__avatar" aria-hidden="true">SD</div>
+              <div>
+                <cite class="testimonial__name">Sophie Durand</cite>
+                <span class="testimonial__role">Fondatrice — Studio Aurore</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial animate-reveal" data-delay="2">
+            <p class="testimonial__quote">
+              "Réactivité, expertise, résultat. On a enfin un outil interne qui correspond vraiment à nos workflows. L'équipe Kliv a parfaitement compris nos besoins."
+            </p>
+            <footer class="testimonial__author">
+              <div class="testimonial__avatar" aria-hidden="true">AB</div>
+              <div>
+                <cite class="testimonial__name">Antoine Blanc</cite>
+                <span class="testimonial__role">CEO — Forma Pro</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial animate-reveal" data-delay="3">
+            <p class="testimonial__quote">
+              "Notre e-commerce a été repensé de A à Z. Le chiffre d'affaires en ligne a doublé en 3 mois. ROI immédiat, je recommande sans hésiter."
+            </p>
+            <footer class="testimonial__author">
+              <div class="testimonial__avatar" aria-hidden="true">CM</div>
+              <div>
+                <cite class="testimonial__name">Claire Martin</cite>
+                <span class="testimonial__role">Directrice — Belvida</span>
+              </div>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         [09] CTA FINAL
+    =============================== -->
+    <section class="cta-final section" aria-label="Prendre contact">
+      <div class="cta-final__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-final__inner">
+          <span class="section-label section-label--light animate-reveal">Prêt à démarrer ?</span>
+          <h2 class="cta-final__title animate-reveal" data-delay="1">
+            Parlons de votre<br>prochain projet.
+          </h2>
+          <p class="cta-final__sub animate-reveal" data-delay="2">
+            Un brief, un appel de 30 min, et on vous dit ce qu'on peut faire — sans engagement.
+          </p>
+          <a href="/pages/contact.html" class="btn btn--inverse btn--lg animate-reveal" data-delay="3">
+            Prendre contact
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================
+       [10] FOOTER
+  =============================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">Kliv<span>.</span></a>
+        <p>Agence Web &amp; Digitale.<br>Bordeaux — Paris — Remote</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navigation secondaire">
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services.html#web">Sites Web</a></li>
+            <li><a href="/services.html#tools">Outils Internes</a></li>
+            <li><a href="/services.html#automation">Automatisations</a></li>
+            <li><a href="/services.html#branding">Branding</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Agence</h4>
+          <ul>
+            <li><a href="/agence.html">À propos</a></li>
+            <li><a href="/realisations.html">Réalisations</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@kliv.agency">hello@kliv.agency</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2025 Kliv Agency. Tous droits réservés.</p>
+      <a href="/mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/hero-rotator.js"></script>
+</body>
+</html>

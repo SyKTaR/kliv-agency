@@ -1,0 +1,24 @@
+/* Design System */
+@import './base/variables.css';
+@import './base/reset.css';
+@import './base/layout.css';
+@import './base/typography.css';
+
+/* Animations */
+@import './sections/animations.css';
+@import './sections/cursor.css';
+
+/* Components */
+@import './components/buttons.css';
+@import './components/navbar.css';
+@import './components/hero.css';
+@import './components/marquee.css';
+@import './components/services.css';
+@import './components/work.css';
+@import './components/testimonials.css';
+@import './components/footer.css';
+
+/* Sections */
+@import './sections/why-kliv.css';
+@import './sections/process.css';
+@import './sections/cta-final.css';

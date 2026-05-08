@@ -1,0 +1,92 @@
+.why-kliv {
+  background: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+}
+.why-kliv__header {
+  margin-bottom: var(--space-12);
+}
+.why-kliv__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-inverse);
+  margin-bottom: 0;
+}
+.why-kliv__title em {
+  font-style: italic;
+  color: rgba(255,255,255,0.45);
+}
+.why-kliv__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  padding: var(--space-12) 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: var(--space-16);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+.stat__value {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-bottom: var(--space-2);
+}
+.stat__number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1;
+  color: #fff;
+}
+.stat__unit {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+}
+.stat__label {
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: var(--leading-normal);
+  max-width: 180px;
+}
+.why-kliv__points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+.point {
+  display: flex;
+  gap: var(--space-4);
+}
+.point__icon {
+  font-size: var(--text-lg);
+  color: rgba(255,255,255,0.25);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.point h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: var(--space-2);
+}
+.point p {
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: var(--leading-normal);
+}
+
+@media (max-width: 768px) {
+  .why-kliv__stats { grid-template-columns: 1fr; gap: var(--space-6); }
+  .why-kliv__points { grid-template-columns: 1fr; }
+}

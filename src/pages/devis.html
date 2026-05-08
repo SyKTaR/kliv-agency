@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estimez le coût de votre projet web ou digital avec le calculateur de devis Kliv Agency.">
+  <meta name="theme-color" content="#0E0E0D">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Calculateur de devis — Kliv Agency</title>
+  <style>
+    /* ── Layout ─────────────────────────────────────────── */
+    .devis-hero {
+      padding-top: calc(var(--space-32) + 2rem);
+      padding-bottom: var(--space-16);
+    }
+    .devis-hero__sub {
+      font-size: var(--text-lg);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      max-width: 540px;
+      line-height: var(--leading-normal);
+      margin-top: var(--space-6);
+    }
+    .devis-bg {
+      background: var(--color-bg-secondary);
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-16) 0 var(--space-24);
+    }
+    .devis-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    .devis-form { display: flex; flex-direction: column; gap: var(--space-10); }
+
+    /* ── Block headings ──────────────────────────────────── */
+    .devis-block__num {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+    }
+    .devis-block__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      line-height: var(--leading-snug);
+      margin-bottom: var(--space-1);
+    }
+    .devis-block__sub {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+    }
+
+    /* ── Project type cards ─────────────────────────────── */
+    .devis-project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: var(--space-3);
+    }
+    .devis-project-card { position: relative; cursor: pointer; }
+    .devis-project-card input[type="checkbox"] {
+      position: absolute; opacity: 0; width: 0; height: 0;
+    }
+    .devis-project-card__inner {
+      padding: var(--space-5) var(--space-5) var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-bg-primary);
+      transition: all var(--duration-base) var(--ease-out);
+      cursor: pointer;
+      height: 100%;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .devis-project-card__inner:hover {
+      border-color: var(--color-border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .devis-project-card input:checked + .devis-project-card__inner {
+      border-color: var(--color-text-primary);
+      background: var(--color-bg-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .devis-project-card__icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-bottom: var(--space-3);
+    }
+    .devis-project-card__name {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 400;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-1);
+      transition: color var(--duration-base);
+    }
+    .devis-project-card__desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-3);
+      transition: color var(--duration-base);
+    }
+    .devis-project-card__price {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 2px 8px;
+      transition: all var(--duration-base);
+      white-space: nowrap;
+    }
+    .devis-project-card input:checked + .devis-project-card__inner .devis-project-card__name { color: #fff; }
+    .devis-project-card input:checked + .devis-project-card__inner .devis-project-card__desc { color: rgba(245,245,243,0.55); }
+    .devis-project-card input:checked + .devis-project-card__inner .devis-project-card__price {
+      color: rgba(245,245,243,0.55);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    /* ── Option pills ────────────────────────────────────── */
+    .devis-options-grid { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+    .devis-option-pill { position: relative; cursor: pointer; }
+    .devis-option-pill input[type="checkbox"] {
+      position: absolute; opacity: 0; width: 0; height: 0;
+    }
+    .devis-option-pill__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 10px var(--space-5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      background: var(--color-bg-primary);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-out);
+      white-space: nowrap;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .devis-option-pill__inner:hover {
+      border-color: var(--color-border-strong);
+      color: var(--color-text-primary);
+    }
+    .devis-option-pill input:checked + .devis-option-pill__inner {
+      border-color: var(--color-text-primary);
+      background: var(--color-bg-dark);
+      color: #fff;
+    }
+    .devis-option-pill__price {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      transition: color var(--duration-base);
+    }
+    .devis-option-pill input:checked + .devis-option-pill__inner .devis-option-pill__price {
+      color: rgba(245,245,243,0.5);
+    }
+
+    /* ── Timeline cards ──────────────────────────────────── */
+    .devis-timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+    }
+    .devis-timeline-card { position: relative; cursor: pointer; }
+    .devis-timeline-card input[type="radio"] {
+      position: absolute; opacity: 0; width: 0; height: 0;
+    }
+    .devis-timeline-card__inner {
+      padding: var(--space-5) var(--space-5) var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-bg-primary);
+      transition: all var(--duration-base) var(--ease-out);
+      cursor: pointer;
+      text-align: center;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .devis-timeline-card__inner:hover {
+      border-color: var(--color-border-strong);
+      transform: translateY(-1px);
+    }
+    .devis-timeline-card input:checked + .devis-timeline-card__inner {
+      border-color: var(--color-text-primary);
+      background: var(--color-bg-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .devis-timeline-card__label {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 400;
+      color: var(--color-text-primary);
+      margin-bottom: 2px;
+      transition: color var(--duration-base);
+    }
+    .devis-timeline-card__sub {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+      transition: color var(--duration-base);
+    }
+    .devis-timeline-card__badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid;
+      transition: all var(--duration-base);
+    }
+    .devis-timeline-card input:checked + .devis-timeline-card__inner .devis-timeline-card__label { color: #fff; }
+    .devis-timeline-card input:checked + .devis-timeline-card__inner .devis-timeline-card__sub { color: rgba(245,245,243,0.5); }
+    .devis-timeline-card input:checked + .devis-timeline-card__inner .devis-timeline-card__badge {
+      border-color: rgba(255,255,255,0.2);
+      color: rgba(245,245,243,0.6);
+    }
+    .badge--urgent  { border-color: #e4b574; color: #b97a1e; }
+    .badge--normal  { border-color: #85b898; color: #3d8a5a; }
+    .badge--flex    { border-color: #7eb5d4; color: #2e7ea3; }
+
+    /* ── Estimate panel ──────────────────────────────────── */
+    .devis-estimate {
+      position: sticky;
+      top: calc(72px + var(--space-6));
+    }
+    .devis-estimate__card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background: var(--color-bg-primary);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .devis-estimate__header {
+      padding: var(--space-6);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .devis-estimate__eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+    }
+    .devis-estimate__range {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text-primary);
+      line-height: var(--leading-tight);
+      transition: all var(--duration-base);
+    }
+    .devis-estimate__range.is-placeholder {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      font-style: italic;
+      font-family: var(--font-display);
+    }
+    .devis-estimate__ht {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+    .devis-estimate__body { padding: var(--space-5) var(--space-6); }
+    .devis-estimate__items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-height: 48px;
+      margin-bottom: var(--space-5);
+    }
+    .devis-estimate__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .devis-estimate__item:last-child { border-bottom: none; }
+    .devis-estimate__item-price {
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .devis-estimate__empty {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      font-style: italic;
+      padding: var(--space-3) 0;
+    }
+    .devis-estimate__disclaimer {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-bg-secondary);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-5);
+    }
+    .devis-estimate__cta { display: flex; flex-direction: column; gap: var(--space-3); }
+    .devis-estimate__cta .btn { width: 100%; justify-content: center; }
+
+    /* ── Mobile bottom bar ──────────────────────────────── */
+    .devis-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--color-bg-dark);
+      padding: var(--space-4) var(--space-6);
+      z-index: 90;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .devis-bar__price {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .devis-bar__label {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 2px;
+    }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .devis-layout { grid-template-columns: 1fr; }
+      .devis-estimate { display: none; }
+      .devis-bar { display: flex; }
+      .devis-form { padding-bottom: 88px; }
+    }
+    @media (max-width: 600px) {
+      .devis-project-grid { grid-template-columns: 1fr 1fr; }
+      .devis-timeline-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 380px) {
+      .devis-project-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header role="banner">
+    <nav class="navbar" id="navbar" aria-label="Navigation principale">
+      <div class="navbar__inner container">
+        <a href="/pages/index.html" class="navbar__logo" aria-label="Kliv Agency — Accueil">
+          <img src="/assets/logo.png" alt="Kliv Agency" class="logo-img">
+        </a>
+        <ul class="navbar__links" role="list">
+          <li><a href="/pages/index.html#services">Services</a></li>
+          <li><a href="/pages/index.html#approche">Agence</a></li>
+          <li><a href="/pages/realisations.html">Réalisations</a></li>
+          <li><a href="/pages/devis.html" aria-current="page">Devis</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <a href="/pages/contact.html" class="btn btn--primary btn--sm">Démarrer un projet</a>
+        </div>
+        <button class="navbar__toggle" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-menu" role="dialog" aria-label="Menu de navigation">
+      <a href="/pages/index.html#services">Services</a>
+      <a href="/pages/realisations.html">Réalisations</a>
+      <a href="/pages/index.html#approche">Agence</a>
+      <a href="/pages/devis.html">Devis</a>
+      <div class="mobile-menu__cta">
+        <a href="/pages/contact.html" class="btn btn--inverse btn--lg">Démarrer un projet</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="devis-hero">
+      <div class="container">
+        <span class="section-label animate-reveal">Calculateur</span>
+        <h1 class="section-title animate-reveal" data-delay="1">
+          Estimez votre<br><em>projet en 2 min.</em>
+        </h1>
+        <p class="devis-hero__sub animate-reveal" data-delay="2">
+          Sélectionnez les options qui correspondent à votre besoin pour obtenir une fourchette indicative. Sans engagement.
+        </p>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <div class="devis-bg">
+      <div class="container">
+        <div class="devis-layout">
+
+          <!-- ── FORM ── -->
+          <div class="devis-form">
+
+            <!-- 01 — Type de projet -->
+            <div class="devis-block">
+              <p class="devis-block__num">01</p>
+              <h2 class="devis-block__title">Type de projet</h2>
+              <p class="devis-block__sub">Sélectionnez un ou plusieurs types selon votre besoin</p>
+              <div class="devis-project-grid" id="project-grid">
+
+                <label class="devis-project-card">
+                  <input type="checkbox" name="project" value="vitrine" data-min="1200" data-max="2500">
+                  <div class="devis-project-card__inner">
+                    <div class="devis-project-card__icon">🖥</div>
+                    <div class="devis-project-card__name">Site Vitrine</div>
+                    <div class="devis-project-card__desc">Présence en ligne, portfolio, landing page</div>
+                    <span class="devis-project-card__price">1 200 — 2 500€</span>
+                  </div>
+                </label>
+
+                <label class="devis-project-card">
+                  <input type="checkbox" name="project" value="ecommerce" data-min="2000" data-max="4500">
+                  <div class="devis-project-card__inner">
+                    <div class="devis-project-card__icon">🛒</div>
+                    <div class="devis-project-card__name">E-commerce</div>
+                    <div class="devis-project-card__desc">Boutique en ligne, catalogue produits</div>
+                    <span class="devis-project-card__price">2 000 — 4 500€</span>
+                  </div>
+                </label>
+
+                <label class="devis-project-card">
+                  <input type="checkbox" name="project" value="outil" data-min="3000" data-max="8000">
+                  <div class="devis-project-card__inner">
+                    <div class="devis-project-card__icon">⚙️</div>
+                    <div class="devis-project-card__name">Outil Interne</div>
+                    <div class="devis-project-card__desc">CRM, ERP, dashboard sur-mesure</div>
+                    <span class="devis-project-card__price">3 000 — 8 000€</span>
+                  </div>
+                </label>
+
+                <label class="devis-project-card">
+                  <input type="checkbox" name="project" value="automation" data-min="800" data-max="2000">
+                  <div class="devis-project-card__inner">
+                    <div class="devis-project-card__icon">⚡</div>
+                    <div class="devis-project-card__name">Automatisation</div>
+                    <div class="devis-project-card__desc">Workflows, intégrations, scripts</div>
+                    <span class="devis-project-card__price">800 — 2 000€</span>
+                  </div>
+                </label>
+
+                <label class="devis-project-card">
+                  <input type="checkbox" name="project" value="branding" data-min="800" data-max="1800">
+                  <div class="devis-project-card__inner">
+                    <div class="devis-project-card__icon">✦</div>
+                    <div class="devis-project-card__name">Branding</div>
+                    <div class="devis-project-card__desc">Logo, identité visuelle, charte</div>
+                    <span class="devis-project-card__price">800 — 1 800€</span>
+                  </div>
+                </label>
+
+              </div>
+            </div>
+
+            <!-- 02 — Options -->
+            <div class="devis-block">
+              <p class="devis-block__num">02</p>
+              <h2 class="devis-block__title">Options</h2>
+              <p class="devis-block__sub">Fonctionnalités additionnelles à intégrer</p>
+              <div class="devis-options-grid">
+
+                <label class="devis-option-pill">
+                  <input type="checkbox" name="option" value="seo" data-min="400" data-max="800">
+                  <div class="devis-option-pill__inner">
+                    SEO avancé
+                    <span class="devis-option-pill__price">+400 — 800€</span>
+                  </div>
+                </label>
+
+                <label class="devis-option-pill">
+                  <input type="checkbox" name="option" value="cms" data-min="500" data-max="1000">
+                  <div class="devis-option-pill__inner">
+                    Blog / CMS
+                    <span class="devis-option-pill__price">+500 — 1 000€</span>
+                  </div>
+                </label>
+
+                <label class="devis-option-pill">
+                  <input type="checkbox" name="option" value="payment" data-min="400" data-max="700">
+                  <div class="devis-option-pill__inner">
+                    Paiement en ligne
+                    <span class="devis-option-pill__price">+400 — 700€</span>
+                  </div>
+                </label>
+
+                <label class="devis-option-pill">
+                  <input type="checkbox" name="option" value="multilang" data-min="500" data-max="900">
+                  <div class="devis-option-pill__inner">
+                    Multilingue
+                    <span class="devis-option-pill__price">+500 — 900€</span>
+                  </div>
+                </label>
+
+                <label class="devis-option-pill">
+                  <input type="checkbox" name="option" value="formation" data-min="300" data-max="500">
+                  <div class="devis-option-pill__inner">
+                    Formation équipe
+                    <span class="devis-option-pill__price">+300 — 500€</span>
+                  </div>
+                </label>
+
+                <label class="devis-option-pill">
+                  <input type="checkbox" name="option" value="maintenance" data-min="150" data-max="300" data-recurring="/mois">
+                  <div class="devis-option-pill__inner">
+                    Maintenance
+                    <span class="devis-option-pill__price">+150 — 300€/mois</span>
+                  </div>
+                </label>
+
+              </div>
+            </div>
+
+            <!-- 03 — Délai -->
+            <div class="devis-block">
+              <p class="devis-block__num">03</p>
+              <h2 class="devis-block__title">Délai souhaité</h2>
+              <p class="devis-block__sub">Votre calendrier influence le coût du projet</p>
+              <div class="devis-timeline-grid">
+
+                <label class="devis-timeline-card">
+                  <input type="radio" name="timeline" value="urgent" data-multiplier="1.3">
+                  <div class="devis-timeline-card__inner">
+                    <div class="devis-timeline-card__label">Urgent</div>
+                    <div class="devis-timeline-card__sub">Moins de 3 semaines</div>
+                    <span class="devis-timeline-card__badge badge--urgent">+30%</span>
+                  </div>
+                </label>
+
+                <label class="devis-timeline-card">
+                  <input type="radio" name="timeline" value="standard" data-multiplier="1.0" checked>
+                  <div class="devis-timeline-card__inner">
+                    <div class="devis-timeline-card__label">Standard</div>
+                    <div class="devis-timeline-card__sub">1 à 2 mois</div>
+                    <span class="devis-timeline-card__badge badge--normal">Standard</span>
+                  </div>
+                </label>
+
+                <label class="devis-timeline-card">
+                  <input type="radio" name="timeline" value="flexible" data-multiplier="0.9">
+                  <div class="devis-timeline-card__inner">
+                    <div class="devis-timeline-card__label">Flexible</div>
+                    <div class="devis-timeline-card__sub">2 à 4 mois</div>
+                    <span class="devis-timeline-card__badge badge--flex">−10%</span>
+                  </div>
+                </label>
+
+              </div>
+            </div>
+
+          </div>
+          <!-- /FORM -->
+
+          <!-- ── STICKY ESTIMATE PANEL ── -->
+          <aside class="devis-estimate" aria-label="Estimation indicative">
+            <div class="devis-estimate__card">
+              <div class="devis-estimate__header">
+                <p class="devis-estimate__eyebrow">Estimation indicative</p>
+                <div id="estimate-range" class="devis-estimate__range is-placeholder">
+                  Sélectionnez votre projet
+                </div>
+                <p id="estimate-ht" class="devis-estimate__ht" style="display:none;">HT · Prix indicatifs</p>
+              </div>
+              <div class="devis-estimate__body">
+                <div class="devis-estimate__items" id="estimate-items">
+                  <p class="devis-estimate__empty">Aucune sélection</p>
+                </div>
+                <p class="devis-estimate__disclaimer">
+                  Estimation non contractuelle. Le devis définitif dépend de la complexité réelle du projet.
+                </p>
+                <div class="devis-estimate__cta">
+                  <a href="/pages/contact.html" class="btn btn--primary btn--lg" data-contact-btn>
+                    Prendre contact
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                  <a href="/pages/devis.html" class="btn btn--ghost"
+                     onclick="document.getElementById('project-grid').scrollIntoView({behavior:'smooth'}); return false;">
+                    Modifier la sélection
+                  </a>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+    <!-- /Calculator -->
+
+  </main>
+
+  <!-- Mobile bottom bar -->
+  <div class="devis-bar" id="devis-bar" aria-live="polite">
+    <div>
+      <p class="devis-bar__label">Estimation</p>
+      <p class="devis-bar__price" id="bar-price">Sélectionnez votre projet</p>
+    </div>
+    <a href="/pages/contact.html" class="btn btn--inverse btn--sm" data-contact-btn>Prendre contact →</a>
+  </div>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/pages/index.html" class="footer__logo">Kliv<span>.</span></a>
+        <p>Agence Web &amp; Digitale.<br>Bordeaux — Paris — Remote</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation secondaire">
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/pages/index.html#services">Sites Web</a></li>
+            <li><a href="/pages/index.html#services">Outils Internes</a></li>
+            <li><a href="/pages/index.html#services">Automatisations</a></li>
+            <li><a href="/pages/index.html#services">Branding</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Agence</h4>
+          <ul>
+            <li><a href="/pages/agence.html">À propos</a></li>
+            <li><a href="/pages/realisations.html">Réalisations</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@kliv.agency">hello@kliv.agency</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2025 Kliv Agency. Tous droits réservés.</p>
+      <a href="/pages/mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/main.js"></script>
+  <script>
+    const PROJECT_TO_CONTACT_TYPE = {
+      vitrine:    'Site Vitrine',
+      ecommerce:  'E-commerce',
+      outil:      'Outil Interne / Dashboard',
+      automation: 'Automatisation',
+      branding:   'Branding / Identité',
+    }
+    const TIMELINE_LABELS = { urgent: 'Urgent', standard: 'Standard', flexible: 'Flexible' }
+
+    function buildDevisPayload() {
+      const projects = []
+      document.querySelectorAll('[name="project"]:checked').forEach(el => {
+        projects.push({ value: el.value, label: LABELS[el.value], min: +el.dataset.min, max: +el.dataset.max })
+      })
+      const options = []
+      document.querySelectorAll('[name="option"]:checked').forEach(el => {
+        options.push({ value: el.value, label: LABELS[el.value], min: +el.dataset.min, max: +el.dataset.max, recurring: el.dataset.recurring || null })
+      })
+      const timelineEl = document.querySelector('[name="timeline"]:checked')
+      const timeline = timelineEl
+        ? { value: timelineEl.value, label: TIMELINE_LABELS[timelineEl.value], multiplier: +timelineEl.dataset.multiplier }
+        : null
+
+      let baseMin = 0, baseMax = 0
+      projects.forEach(p => { baseMin += p.min; baseMax += p.max })
+      options.filter(o => !o.recurring).forEach(o => { baseMin += o.min; baseMax += o.max })
+      const mult = timeline ? timeline.multiplier : 1
+      const finalMin = Math.round(baseMin * mult / 100) * 100
+      const finalMax = Math.round(baseMax * mult / 100) * 100
+
+      const rangeEl = document.getElementById('estimate-range')
+      const estimateText = rangeEl.classList.contains('is-placeholder') ? '' : rangeEl.textContent.trim()
+
+      return {
+        projects,
+        options,
+        timeline,
+        finalMin,
+        finalMax,
+        estimateText,
+        projectType: projects.length > 0 ? (PROJECT_TO_CONTACT_TYPE[projects[0].value] || 'Autre') : '',
+      }
+    }
+
+    document.querySelectorAll('[data-contact-btn]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const payload = buildDevisPayload()
+        if (payload.projects.length > 0 || payload.options.length > 0) {
+          e.preventDefault()
+          sessionStorage.setItem('kliv_devis', JSON.stringify(payload))
+          window.location.href = btn.href
+        }
+      })
+    })
+  </script>
+  <script>
+    const LABELS = {
+      vitrine:     'Site Vitrine',
+      ecommerce:   'E-commerce',
+      outil:       'Outil Interne',
+      automation:  'Automatisation',
+      branding:    'Branding',
+      seo:         'SEO avancé',
+      cms:         'Blog / CMS',
+      payment:     'Paiement en ligne',
+      multilang:   'Multilingue',
+      formation:   'Formation équipe',
+      maintenance: 'Maintenance',
+    }
+
+    function fmt(n) {
+      return n.toLocaleString('fr-FR')
+    }
+
+    function recalculate() {
+      let baseMin = 0, baseMax = 0
+      const lineItems = []
+      const recurringItems = []
+
+      document.querySelectorAll('[name="project"]:checked').forEach(el => {
+        const min = +el.dataset.min, max = +el.dataset.max
+        baseMin += min; baseMax += max
+        lineItems.push({ label: LABELS[el.value], min, max })
+      })
+
+      document.querySelectorAll('[name="option"]:checked').forEach(el => {
+        const min = +el.dataset.min, max = +el.dataset.max
+        if (el.dataset.recurring) {
+          recurringItems.push({ label: LABELS[el.value], min, max, unit: el.dataset.recurring })
+        } else {
+          baseMin += min; baseMax += max
+          lineItems.push({ label: LABELS[el.value], min, max })
+        }
+      })
+
+      const timelineEl = document.querySelector('[name="timeline"]:checked')
+      const mult = timelineEl ? +timelineEl.dataset.multiplier : 1
+
+      const finalMin = Math.round(baseMin * mult / 100) * 100
+      const finalMax = Math.round(baseMax * mult / 100) * 100
+
+      render(finalMin, finalMax, lineItems, recurringItems, mult, baseMin + baseMax)
+    }
+
+    function render(min, max, items, recurring, mult, rawTotal) {
+      const rangeEl   = document.getElementById('estimate-range')
+      const htEl      = document.getElementById('estimate-ht')
+      const itemsEl   = document.getElementById('estimate-items')
+      const barPrice  = document.getElementById('bar-price')
+
+      if (rawTotal === 0) {
+        rangeEl.className = 'devis-estimate__range is-placeholder'
+        rangeEl.textContent = 'Sélectionnez votre projet'
+        htEl.style.display = 'none'
+        itemsEl.innerHTML = '<p class="devis-estimate__empty">Aucune sélection</p>'
+        barPrice.textContent = 'Sélectionnez votre projet'
+        return
+      }
+
+      rangeEl.className = 'devis-estimate__range'
+      rangeEl.textContent = `${fmt(min)} — ${fmt(max)}€`
+      htEl.style.display = 'block'
+      barPrice.textContent = `${fmt(min)} — ${fmt(max)}€`
+
+      let html = ''
+      items.forEach(it => {
+        html += `<div class="devis-estimate__item">
+          <span>${it.label}</span>
+          <span class="devis-estimate__item-price">${fmt(it.min)} — ${fmt(it.max)}€</span>
+        </div>`
+      })
+      if (mult !== 1) {
+        const pct = mult > 1
+          ? `Délai urgent (+${Math.round((mult - 1) * 100)}%)`
+          : `Délai flexible (${Math.round((mult - 1) * 100)}%)`
+        html += `<div class="devis-estimate__item">
+          <span>${pct}</span>
+          <span class="devis-estimate__item-price">×${mult}</span>
+        </div>`
+      }
+      recurring.forEach(it => {
+        html += `<div class="devis-estimate__item">
+          <span>${it.label}</span>
+          <span class="devis-estimate__item-price">+${it.min} — ${it.max}€${it.unit}</span>
+        </div>`
+      })
+      itemsEl.innerHTML = html
+    }
+
+    document.querySelectorAll('[name="project"],[name="option"],[name="timeline"]')
+      .forEach(el => el.addEventListener('change', recalculate))
+
+    recalculate()
+  </script>
+
+</body>
+</html>

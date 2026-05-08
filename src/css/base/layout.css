@@ -1,0 +1,25 @@
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.section {
+  padding: var(--section-pad-y) 0;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  background: var(--color-bg-dark);
+  color: #fff;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  z-index: 200;
+  transition: top var(--duration-fast);
+}
+.skip-link:focus { top: var(--space-4); }

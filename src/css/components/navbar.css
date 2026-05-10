@@ -68,6 +68,7 @@
   height: 36px;
   width: auto;
   display: block;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .logo-text {
   font-family: var(--font-display);
@@ -75,6 +76,12 @@
   font-weight: 400;
   color: var(--color-text-primary);
   letter-spacing: -0.02em;
+  transition: font-size 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 769px) {
+  .navbar.scrolled .logo-img { height: 26px; }
+  .navbar.scrolled .logo-text { font-size: 1.1rem; }
 }
 .logo-dot { color: var(--color-text-muted); }
 

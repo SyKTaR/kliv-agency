@@ -125,8 +125,7 @@
         </a>
         <ul class="navbar__links" role="list">
           <li><a href="/pages/index.html#services">Services</a></li>
-          <li><a href="/pages/index.html#approche">Agence</a></li>
-          <li><a href="/pages/realisations.html">Réalisations</a></li>
+          <li><a href="/pages/index.html#approche">Notre Approche</a></li>
           <li><a href="/pages/devis.html">Devis</a></li>
         </ul>
         <div class="navbar__actions">
@@ -139,8 +138,7 @@
     </nav>
     <div class="mobile-menu" role="dialog" aria-label="Menu de navigation">
       <a href="/pages/index.html#services">Services</a>
-      <a href="/pages/index.html#approche">Agence</a>
-      <a href="/pages/realisations.html">Réalisations</a>
+      <a href="/pages/index.html#approche">Notre Approche</a>
       <a href="/pages/devis.html">Devis</a>
       <div class="mobile-menu__cta">
         <a href="/pages/contact.html" class="btn btn--inverse btn--lg">Démarrer un projet</a>
@@ -263,26 +261,16 @@
       </div>
       <nav class="footer__nav" aria-label="Navigation secondaire">
         <div class="footer__col">
-          <h4>Services</h4>
+          <h4>Navigation</h4>
           <ul>
-            <li><a href="/pages/services.html#web">Sites Web</a></li>
-            <li><a href="/pages/services.html#tools">Outils Internes</a></li>
-            <li><a href="/pages/services.html#automation">Automatisations</a></li>
-            <li><a href="/pages/services.html#branding">Branding</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Agence</h4>
-          <ul>
-            <li><a href="/pages/agence.html">À propos</a></li>
-            <li><a href="/pages/realisations.html">Réalisations</a></li>
-            <li><a href="/pages/contact.html">Contact</a></li>
+            <li><a href="/pages/index.html#services">Services</a></li>
+            <li><a href="/pages/index.html#approche">Notre Approche</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4>Contact</h4>
           <ul>
-            <li><a href="mailto:hello@kliv.agency">hello@kliv.agency</a></li>
+            <li><a href="mailto:hello@kliv.agency">lucas.dsnts77@gmail.com</a></li>
             <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
@@ -290,7 +278,6 @@
     </div>
     <div class="footer__bottom container">
       <p>© 2025 Kliv Agency. Tous droits réservés.</p>
-      <a href="/pages/mentions-legales.html">Mentions légales</a>
     </div>
   </footer>
 
@@ -351,7 +338,7 @@
     // ─── Airtable / Webhook integration ───────────────────────────────────────
     // Coller ici l'URL du webhook Make/Zapier ou d'une Airtable Automation
     // pour recevoir les soumissions directement dans votre base Airtable.
-    const WEBHOOK_URL = ''
+    const WEBHOOK_URL = '/api/contact'
 
     const form = document.getElementById('contact-form')
     const submitBtn = document.getElementById('submit-btn')

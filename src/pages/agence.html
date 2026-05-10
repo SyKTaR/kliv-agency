@@ -3,110 +3,377 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="À propos de Kliv Agency — Notre équipe, notre philosophie, notre manière de travailler.">
+  <meta name="description" content="À propos de Kliv Agency — Notre philosophie, notre approche et notre engagement envers chaque projet.">
   <meta name="theme-color" content="#0E0E0D">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../css/main.css">
   <title>Agence — Kliv Agency</title>
+  <style>
+    /* ─── Hero ───────────────────────────────────────────────────── */
+    .agence-hero {
+      padding-top: calc(var(--space-32) + 2rem);
+      padding-bottom: var(--space-24);
+    }
+    .agence-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-8);
+    }
+    .agence-hero__title em {
+      font-style: italic;
+      color: var(--color-text-muted);
+    }
+    .agence-hero__desc {
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      max-width: 640px;
+      line-height: var(--leading-normal);
+    }
+
+    /* ─── Light stats ────────────────────────────────────────────── */
+    .stats-light {
+      background: var(--color-bg-secondary);
+    }
+    .stats-light__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-12) 0;
+    }
+    .stats-light__value {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      margin-bottom: var(--space-2);
+    }
+    .stats-light__num {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--color-text-primary);
+    }
+    .stats-light__unit {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text-muted);
+    }
+    .stats-light__label {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+      max-width: 200px;
+    }
+
+    /* ─── Engagement cards ───────────────────────────────────────── */
+    .engage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+    .engage-card {
+      padding: var(--space-8);
+      background: var(--color-bg-secondary);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      transition: border-color var(--duration-base) var(--ease-out),
+                  box-shadow var(--duration-base) var(--ease-out);
+    }
+    .engage-card:hover {
+      border-color: var(--color-border-strong);
+      box-shadow: var(--shadow-sm);
+    }
+    .engage-card__num {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .engage-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+      line-height: var(--leading-snug);
+    }
+    .engage-card__desc {
+      font-size: var(--text-base);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      line-height: var(--leading-normal);
+    }
+
+    /* ─── Process variant ────────────────────────────────────────── */
+    .process--light { background: var(--color-bg-secondary); }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .stats-light__grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .engage-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
   <header role="banner">
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation principale">
       <div class="navbar__inner container">
-        <a href="/pages/index.html" class="navbar__logo" aria-label="Kliv Agency — Accueil"><img src="/assets/logo.png" alt="Kliv Agency" class="logo-img"></a>
+        <a href="/pages/index.html" class="navbar__logo" aria-label="Kliv Agency — Accueil">
+          <img src="/assets/logo.png" alt="Kliv Agency" class="logo-img">
+        </a>
         <ul class="navbar__links" role="list">
-          <li><a href="/pages/index.html#services">Services</a></li>
-          <li><a href="/pages/index.html#approche">Agence</a></li>
+          <li><a href="/pages/services.html">Services</a></li>
+          <li><a href="/pages/agence.html" aria-current="page">Agence</a></li>
           <li><a href="/pages/realisations.html">Réalisations</a></li>
           <li><a href="/pages/devis.html">Devis</a></li>
         </ul>
         <div class="navbar__actions">
           <a href="/pages/contact.html" class="btn btn--primary btn--sm">Démarrer un projet</a>
         </div>
-        <button class="navbar__toggle" aria-label="Ouvrir le menu" aria-expanded="false" type="button"><span></span><span></span><span></span></button>
+        <button class="navbar__toggle" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
     <div class="mobile-menu" role="dialog" aria-label="Menu de navigation">
-      <a href="/pages/index.html#services">Services</a>
-      <a href="/pages/index.html#approche">Agence</a>
+      <a href="/pages/services.html">Services</a>
+      <a href="/pages/agence.html">Agence</a>
       <a href="/pages/realisations.html">Réalisations</a>
       <a href="/pages/devis.html">Devis</a>
-      <div class="mobile-menu__cta"><a href="/pages/contact.html" class="btn btn--inverse btn--lg">Démarrer un projet</a></div>
+      <div class="mobile-menu__cta">
+        <a href="/pages/contact.html" class="btn btn--inverse btn--lg">Démarrer un projet</a>
+      </div>
     </div>
   </header>
+
   <main id="main-content">
+
     <!-- Hero -->
-    <section class="section" style="padding-top: calc(var(--space-32) + 2rem); padding-bottom: var(--space-24);">
-      <div class="container" style="max-width: 860px;">
-        <span class="section-label animate-reveal">À propos</span>
-        <h1 class="animate-reveal" data-delay="1"
-          style="font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); color: var(--color-text-primary); margin-bottom: var(--space-8);">
-          On construit des choses<br><em style="font-style: italic; color: var(--color-text-muted);">qui durent.</em>
+    <section class="section agence-hero">
+      <div class="container">
+        <span class="section-label animate-reveal">L'agence</span>
+        <h1 class="agence-hero__title animate-reveal" data-delay="1">
+          On construit des choses<br><em>qui durent.</em>
         </h1>
-        <p class="animate-reveal" data-delay="2"
-          style="font-size: var(--text-xl); font-weight: 300; color: var(--color-text-secondary); line-height: var(--leading-normal); max-width: 640px;">
-          Kliv Agency est une équipe resserrée de designers et développeurs qui refusent de livrer du travail ordinaire. On prend moins de projets pour en faire de meilleurs.
+        <p class="agence-hero__desc animate-reveal" data-delay="2">
+          Kliv Agency est une équipe resserrée de designers et développeurs qui refusent de livrer du travail ordinaire. On prend délibérément moins de projets pour s'investir pleinement sur chacun — et ça se voit dans chaque livrable.
         </p>
       </div>
     </section>
 
-    <!-- Valeurs -->
+    <!-- Manifesto — dark section -->
     <section class="why-kliv section">
       <div class="container">
         <div class="why-kliv__header">
-          <span class="section-label section-label--light animate-reveal">Ce en quoi on croit</span>
+          <span class="section-label section-label--light animate-reveal">Ce qu'on croit</span>
           <h2 class="why-kliv__title animate-reveal" data-delay="1">
-            Notre philosophie,<br><em>sans jargon.</em>
+            Le web mérite mieux<br><em>que des templates.</em>
           </h2>
         </div>
         <div class="why-kliv__points">
           <div class="point animate-reveal" data-delay="0">
-            <div class="point__icon">01</div>
+            <div class="point__icon" aria-hidden="true">01</div>
             <div>
               <h4>La performance n'est pas optionnelle</h4>
-              <p>Un site lent perd des clients. On optimise chaque milliseconde parce que vos visiteurs ne patienteront pas.</p>
+              <p>Un site lent perd des clients. On optimise chaque milliseconde parce que vos visiteurs n'attendront pas — et Google non plus.</p>
             </div>
           </div>
           <div class="point animate-reveal" data-delay="1">
-            <div class="point__icon">02</div>
+            <div class="point__icon" aria-hidden="true">02</div>
             <div>
-              <h4>Le design sert le business</h4>
-              <p>Beau et fonctionnel ne sont pas opposés. On refuse le design décoratif qui ne convertit pas.</p>
+              <h4>Le design doit convertir</h4>
+              <p>Beau et fonctionnel ne sont pas opposés. On refuse le design décoratif qui ne sert pas votre business. Chaque choix a une raison.</p>
             </div>
           </div>
           <div class="point animate-reveal" data-delay="2">
-            <div class="point__icon">03</div>
+            <div class="point__icon" aria-hidden="true">03</div>
             <div>
-              <h4>Transparence totale</h4>
-              <p>Pas de surprise en fin de projet. Prix clairs, délais tenus, communication directe à chaque étape.</p>
+              <h4>Transparence totale, toujours</h4>
+              <p>Pas de surprise en fin de projet. Prix clairs, délais tenus, communication directe à chaque étape. Vous savez exactement où en est votre projet.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-final section">
-      <div class="cta-final__bg" aria-hidden="true"></div>
+    <!-- Stats — light section -->
+    <section class="section stats-light">
       <div class="container">
-        <div class="cta-final__inner">
-          <span class="section-label section-label--light animate-reveal">On recrute aussi</span>
-          <h2 class="cta-final__title animate-reveal" data-delay="1">
-            Vous pensez comme nous ?<br>Parlons-nous.
-          </h2>
-          <a href="/pages/contact.html" class="btn btn--inverse btn--lg animate-reveal" data-delay="2">Prendre contact →</a>
+        <div class="stats-light__grid">
+          <div class="animate-reveal" data-delay="0">
+            <div class="stats-light__value">
+              <span class="stats-light__num stat__number" data-count="48">0</span>
+              <span class="stats-light__unit">h</span>
+            </div>
+            <p class="stats-light__label">Délai moyen de réponse à votre brief</p>
+          </div>
+          <div class="animate-reveal" data-delay="1">
+            <div class="stats-light__value">
+              <span class="stats-light__num stat__number" data-count="20">0</span>
+              <span class="stats-light__unit">+</span>
+            </div>
+            <p class="stats-light__label">Projets livrés en 2025–2026</p>
+          </div>
+          <div class="animate-reveal" data-delay="2">
+            <div class="stats-light__value">
+              <span class="stats-light__num stat__number" data-count="100">0</span>
+              <span class="stats-light__unit">%</span>
+            </div>
+            <p class="stats-light__label">Sur-mesure — jamais de templates</p>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- Engagement cards -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label animate-reveal">Notre engagement</span>
+          <h2 class="section-title animate-reveal" data-delay="1">
+            Comment on<br><em>travaille avec vous</em>
+          </h2>
+        </div>
+        <div class="engage-grid">
+          <div class="engage-card animate-reveal" data-delay="0">
+            <div class="engage-card__num">01</div>
+            <h3 class="engage-card__title">Moins de clients, plus d'engagement</h3>
+            <p class="engage-card__desc">On prend volontairement moins de projets pour s'investir pleinement sur chacun. Votre projet n'est pas un ticket parmi d'autres — c'est notre priorité le temps de sa réalisation.</p>
+          </div>
+          <div class="engage-card animate-reveal" data-delay="1">
+            <div class="engage-card__num">02</div>
+            <h3 class="engage-card__title">Vous parlez aux personnes qui font</h3>
+            <p class="engage-card__desc">Pas de chef de projet intermédiaire. Vous échangez directement avec les designers et développeurs qui travaillent sur votre projet. Communication directe, décisions rapides.</p>
+          </div>
+          <div class="engage-card animate-reveal" data-delay="2">
+            <div class="engage-card__num">03</div>
+            <h3 class="engage-card__title">On livre — et on reste</h3>
+            <p class="engage-card__desc">Délais tenus. Code propre. Documentation incluse. 30 jours de support post-lancement sur chaque projet. On vous laisse un actif, pas une dépendance.</p>
+          </div>
+          <div class="engage-card animate-reveal" data-delay="3">
+            <div class="engage-card__num">04</div>
+            <h3 class="engage-card__title">Business d'abord, esthétique ensuite</h3>
+            <p class="engage-card__desc">Chaque décision design ou technique est prise en fonction de vos objectifs métier, pas de nos préférences esthétiques. Le beau doit servir l'utile — toujours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process teaser -->
+    <section class="process section process--light">
+      <div class="container">
+        <span class="section-label animate-reveal">Notre méthode</span>
+        <h2 class="section-title animate-reveal" data-delay="1">4 étapes, 0 surprise</h2>
+        <ol class="process__steps">
+          <li class="process-step animate-reveal" data-delay="0">
+            <div class="process-step__num">01</div>
+            <div class="process-step__content">
+              <h3>Brief &amp; Discovery</h3>
+              <p>On comprend votre business, vos objectifs, vos contraintes. Un atelier de 1h qui pose les bases solides du projet — avant tout engagement financier.</p>
+            </div>
+          </li>
+          <li class="process-step animate-reveal" data-delay="1">
+            <div class="process-step__num">02</div>
+            <div class="process-step__content">
+              <h3>Design &amp; Prototypage</h3>
+              <p>Maquettes Figma, wireframes interactifs. Vous validez chaque étape avant qu'une ligne de code ne soit écrite. Pas de surprise à la livraison.</p>
+            </div>
+          </li>
+          <li class="process-step animate-reveal" data-delay="2">
+            <div class="process-step__num">03</div>
+            <div class="process-step__content">
+              <h3>Développement</h3>
+              <p>Code propre, documenté et scalable. Sprints de 2 semaines avec accès à un board de suivi en temps réel. Vous voyez l'avancement à chaque étape.</p>
+            </div>
+          </li>
+          <li class="process-step animate-reveal" data-delay="3">
+            <div class="process-step__num">04</div>
+            <div class="process-step__content">
+              <h3>Livraison &amp; Suivi</h3>
+              <p>Mise en production, formation si besoin, 30 jours de support post-lancement inclus. On ne disparaît pas après la mise en ligne.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-final section" aria-label="Prendre contact">
+      <div class="cta-final__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-final__inner">
+          <span class="section-label section-label--light animate-reveal">Vous pensez comme nous ?</span>
+          <h2 class="cta-final__title animate-reveal" data-delay="1">
+            Parlons de votre<br>prochain projet.
+          </h2>
+          <p class="cta-final__sub animate-reveal" data-delay="2">
+            Un brief, un appel de 30 min — et on vous dit honnêtement si on est le bon partenaire pour votre projet.
+          </p>
+          <a href="/pages/contact.html" class="btn btn--inverse btn--lg animate-reveal" data-delay="3">
+            Prendre contact
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
   <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/pages/index.html" class="footer__logo">Kliv<span>.</span></a>
+        <p>Agence Web &amp; Digitale.<br>Seine et Marne</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation secondaire">
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/pages/services.html#web">Sites Web</a></li>
+            <li><a href="/pages/services.html#tools">Outils Internes</a></li>
+            <li><a href="/pages/services.html#automation">Automatisations</a></li>
+            <li><a href="/pages/services.html#branding">Branding</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Agence</h4>
+          <ul>
+            <li><a href="/pages/agence.html">À propos</a></li>
+            <li><a href="/pages/realisations.html">Réalisations</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@kliv.agency">hello@kliv.agency</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
     <div class="footer__bottom container">
-      <p>© 2025 Kliv Agency.</p>
+      <p>© 2025 Kliv Agency. Tous droits réservés.</p>
       <a href="/pages/mentions-legales.html">Mentions légales</a>
     </div>
   </footer>
+
   <script type="module" src="../js/main.js"></script>
 </body>
 </html>

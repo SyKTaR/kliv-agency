@@ -3,157 +3,364 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio Kliv Agency — Nos réalisations récentes en sites web, outils internes et automatisations.">
+  <meta name="description" content="Portfolio Kliv Agency — Nos réalisations récentes en sites web, outils internes, automatisations et branding.">
   <meta name="theme-color" content="#0E0E0D">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../css/main.css">
   <title>Réalisations — Kliv Agency</title>
+  <style>
+    /* ─── Hero ───────────────────────────────────────────────────── */
+    .real-hero {
+      padding-top: calc(var(--space-32) + 2rem);
+      padding-bottom: var(--space-16);
+    }
+    .real-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-6);
+    }
+    .real-hero__title em { font-style: italic; color: var(--color-text-muted); }
+    .real-hero__desc {
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      max-width: 560px;
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-10);
+    }
+    .real-hero__meta {
+      display: flex;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--color-border);
+    }
+    .real-hero__stat-num {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      line-height: 1;
+      margin-bottom: var(--space-1);
+    }
+    .real-hero__stat-label {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── Work grid ──────────────────────────────────────────────── */
+    .real-grid { padding-top: var(--space-4); padding-bottom: var(--space-20); }
+
+    /* ─── Work item desc ─────────────────────────────────────────── */
+    .work-item__desc {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+      margin-top: var(--space-2);
+      max-width: 480px;
+    }
+
+    /* ─── Testimonial band ───────────────────────────────────────── */
+    .real-quote {
+      background: var(--color-bg-secondary);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .real-quote__inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      padding: var(--space-16) 0;
+    }
+    .real-quote__text {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text-primary);
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-6);
+    }
+    .real-quote__author {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+    }
+    .real-quote__author strong {
+      font-weight: 500;
+      color: var(--color-text-secondary);
+    }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
   <header role="banner">
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation principale">
       <div class="navbar__inner container">
-        <a href="/pages/index.html" class="navbar__logo" aria-label="Kliv Agency — Accueil"><img src="/assets/logo.png" alt="Kliv Agency" class="logo-img"></a>
+        <a href="/pages/index.html" class="navbar__logo" aria-label="Kliv Agency — Accueil">
+          <img src="/assets/logo.png" alt="Kliv Agency" class="logo-img">
+        </a>
         <ul class="navbar__links" role="list">
-          <li><a href="/pages/index.html#services">Services</a></li>
-          <li><a href="/pages/index.html#approche">Agence</a></li>
-          <li><a href="/pages/realisations.html">Réalisations</a></li>
+          <li><a href="/pages/services.html">Services</a></li>
+          <li><a href="/pages/agence.html">Agence</a></li>
+          <li><a href="/pages/realisations.html" aria-current="page">Réalisations</a></li>
           <li><a href="/pages/devis.html">Devis</a></li>
         </ul>
         <div class="navbar__actions">
           <a href="/pages/contact.html" class="btn btn--primary btn--sm">Démarrer un projet</a>
         </div>
-        <button class="navbar__toggle" aria-label="Ouvrir le menu" aria-expanded="false" type="button"><span></span><span></span><span></span></button>
+        <button class="navbar__toggle" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
     <div class="mobile-menu" role="dialog" aria-label="Menu de navigation">
-      <a href="/pages/index.html#services">Services</a>
-      <a href="/pages/index.html#approche">Agence</a>
+      <a href="/pages/services.html">Services</a>
+      <a href="/pages/agence.html">Agence</a>
       <a href="/pages/realisations.html">Réalisations</a>
       <a href="/pages/devis.html">Devis</a>
-      <div class="mobile-menu__cta"><a href="/pages/contact.html" class="btn btn--inverse btn--lg">Démarrer un projet</a></div>
+      <div class="mobile-menu__cta">
+        <a href="/pages/contact.html" class="btn btn--inverse btn--lg">Démarrer un projet</a>
+      </div>
     </div>
   </header>
+
   <main id="main-content">
-    <section class="section" style="padding-top: calc(var(--space-32) + 2rem);">
+
+    <!-- Hero -->
+    <section class="section real-hero">
       <div class="container">
         <span class="section-label animate-reveal">Portfolio</span>
-        <h1 class="section-title animate-reveal" data-delay="1">
-          Nos réalisations<br><em>parlent d'elles-mêmes</em>
+        <h1 class="real-hero__title animate-reveal" data-delay="1">
+          Nos réalisations<br><em>parlent d'elles-mêmes.</em>
         </h1>
-        <div class="work__list">
-          <article class="work-item animate-reveal" data-delay="0" id="arprotect">
-            <a href="#arprotect" class="work-item__link">
-              <div class="work-item__media">
-                <div class="work-item__placeholder">AR Protect</div>
-                <div class="work-item__overlay"><span>Voir le projet →</span></div>
-              </div>
-              <div class="work-item__info">
-                <div>
-                  <div class="work-item__tags"><span>Site Web</span><span>SaaS</span></div>
-                  <h2 class="work-item__title">AR Protect</h2>
-                </div>
-                <p class="work-item__year">2025</p>
-              </div>
-            </a>
-          </article>
-          <article class="work-item animate-reveal" data-delay="1" id="studio-aurore">
-            <a href="#studio-aurore" class="work-item__link">
-              <div class="work-item__media">
-                <div class="work-item__placeholder">Studio Aurore</div>
-                <div class="work-item__overlay"><span>Voir le projet →</span></div>
-              </div>
-              <div class="work-item__info">
-                <div>
-                  <div class="work-item__tags"><span>Branding</span><span>Site Web</span></div>
-                  <h2 class="work-item__title">Studio Aurore</h2>
-                </div>
-                <p class="work-item__year">2025</p>
-              </div>
-            </a>
-          </article>
-          <article class="work-item animate-reveal" data-delay="2" id="forma-pro">
-            <a href="#forma-pro" class="work-item__link">
-              <div class="work-item__media">
-                <div class="work-item__placeholder">Forma Pro</div>
-                <div class="work-item__overlay"><span>Voir le projet →</span></div>
-              </div>
-              <div class="work-item__info">
-                <div>
-                  <div class="work-item__tags"><span>Outil Interne</span><span>Dashboard</span></div>
-                  <h2 class="work-item__title">Forma Pro</h2>
-                </div>
-                <p class="work-item__year">2024</p>
-              </div>
-            </a>
-          </article>
-          <article class="work-item animate-reveal" data-delay="3" id="axiom-labs">
-            <a href="#axiom-labs" class="work-item__link">
-              <div class="work-item__media">
-                <div class="work-item__placeholder">Axiom Labs</div>
-                <div class="work-item__overlay"><span>Voir le projet →</span></div>
-              </div>
-              <div class="work-item__info">
-                <div>
-                  <div class="work-item__tags"><span>Automatisation</span><span>E-commerce</span></div>
-                  <h2 class="work-item__title">Axiom Labs</h2>
-                </div>
-                <p class="work-item__year">2024</p>
-              </div>
-            </a>
-          </article>
-          <article class="work-item animate-reveal" data-delay="4" id="belvida">
-            <a href="#belvida" class="work-item__link">
-              <div class="work-item__media">
-                <div class="work-item__placeholder">Belvida</div>
-                <div class="work-item__overlay"><span>Voir le projet →</span></div>
-              </div>
-              <div class="work-item__info">
-                <div>
-                  <div class="work-item__tags"><span>E-commerce</span><span>Branding</span></div>
-                  <h2 class="work-item__title">Belvida</h2>
-                </div>
-                <p class="work-item__year">2024</p>
-              </div>
-            </a>
-          </article>
-          <article class="work-item animate-reveal" data-delay="5" id="renov-co">
-            <a href="#renov-co" class="work-item__link">
-              <div class="work-item__media">
-                <div class="work-item__placeholder">Renov & Co</div>
-                <div class="work-item__overlay"><span>Voir le projet →</span></div>
-              </div>
-              <div class="work-item__info">
-                <div>
-                  <div class="work-item__tags"><span>Site Web</span><span>SEO</span></div>
-                  <h2 class="work-item__title">Renov &amp; Co</h2>
-                </div>
-                <p class="work-item__year">2024</p>
-              </div>
-            </a>
-          </article>
+        <p class="real-hero__desc animate-reveal" data-delay="2">
+          Sites web, outils internes, automatisations, branding. Chaque projet est livré avec le même niveau d'exigence — qu'il coûte 1 000€ ou 50 000€.
+        </p>
+        <div class="real-hero__meta animate-reveal" data-delay="3">
+          <div>
+            <div class="real-hero__stat-num">20+</div>
+            <div class="real-hero__stat-label">Projets livrés</div>
+          </div>
+          <div>
+            <div class="real-hero__stat-num">4</div>
+            <div class="real-hero__stat-label">Expertises</div>
+          </div>
+          <div>
+            <div class="real-hero__stat-num">8+</div>
+            <div class="real-hero__stat-label">Clients actifs</div>
+          </div>
+          <div>
+            <div class="real-hero__stat-num">100%</div>
+            <div class="real-hero__stat-label">Sur-mesure</div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="cta-final section">
+
+    <!-- Work grid -->
+    <section class="section real-grid">
+      <div class="container">
+        <div class="work__list">
+
+          <article class="work-item animate-reveal" data-delay="0" id="arprotect">
+            <div class="work-item__media">
+              <div class="work-item__placeholder">AR Protect</div>
+              <div class="work-item__overlay"><span>Voir le projet →</span></div>
+            </div>
+            <div class="work-item__info">
+              <div>
+                <div class="work-item__tags">
+                  <span>Site Web</span>
+                  <span>Détailing Automobile</span>
+                </div>
+                <h2 class="work-item__title">AR Protect</h2>
+                <p class="work-item__desc">Refonte complète du site vitrine. +60% de demandes de devis en 3 mois.</p>
+              </div>
+              <p class="work-item__year">2026</p>
+            </div>
+          </article>
+
+          <article class="work-item animate-reveal" data-delay="1" id="peps-print">
+            <div class="work-item__media">
+              <div class="work-item__placeholder">Pep's Print</div>
+              <div class="work-item__overlay"><span>Voir le projet →</span></div>
+            </div>
+            <div class="work-item__info">
+              <div>
+                <div class="work-item__tags">
+                  <span>CRM</span>
+                  <span>Outil Interne</span>
+                </div>
+                <h2 class="work-item__title">Pep's Print</h2>
+                <p class="work-item__desc">Outil de création de devis sur-mesure. Remplacement d'un processus Excel chronophage.</p>
+              </div>
+              <p class="work-item__year">2025</p>
+            </div>
+          </article>
+
+          <article class="work-item animate-reveal" data-delay="2" id="event-orga">
+            <div class="work-item__media">
+              <div class="work-item__placeholder">EventOrga</div>
+              <div class="work-item__overlay"><span>Voir le projet →</span></div>
+            </div>
+            <div class="work-item__info">
+              <div>
+                <div class="work-item__tags">
+                  <span>Site Web</span>
+                  <span>Dashboard client</span>
+                </div>
+                <h2 class="work-item__title">EventOrga</h2>
+                <p class="work-item__desc">Portail client avec suivi de prestation en temps réel intégré au site vitrine.</p>
+              </div>
+              <p class="work-item__year">2026</p>
+            </div>
+          </article>
+
+          <article class="work-item animate-reveal" data-delay="3" id="studio-aurore">
+            <div class="work-item__media">
+              <div class="work-item__placeholder">Studio Aurore</div>
+              <div class="work-item__overlay"><span>Voir le projet →</span></div>
+            </div>
+            <div class="work-item__info">
+              <div>
+                <div class="work-item__tags">
+                  <span>Branding</span>
+                  <span>Site Web</span>
+                </div>
+                <h2 class="work-item__title">Studio Aurore</h2>
+                <p class="work-item__desc">Identité visuelle complète et site portfolio pour un studio de design d'intérieur.</p>
+              </div>
+              <p class="work-item__year">2025</p>
+            </div>
+          </article>
+
+          <article class="work-item animate-reveal" data-delay="4" id="belvida">
+            <div class="work-item__media">
+              <div class="work-item__placeholder">Belvida</div>
+              <div class="work-item__overlay"><span>Voir le projet →</span></div>
+            </div>
+            <div class="work-item__info">
+              <div>
+                <div class="work-item__tags">
+                  <span>E-commerce</span>
+                  <span>Branding</span>
+                </div>
+                <h2 class="work-item__title">Belvida</h2>
+                <p class="work-item__desc">Refonte e-commerce complète avec nouveau branding. CA en ligne doublé en 3 mois.</p>
+              </div>
+              <p class="work-item__year">2025</p>
+            </div>
+          </article>
+
+          <article class="work-item animate-reveal" data-delay="5" id="opensecret">
+            <div class="work-item__media">
+              <div class="work-item__placeholder">Opensecret</div>
+              <div class="work-item__overlay"><span>Voir le projet →</span></div>
+            </div>
+            <div class="work-item__info">
+              <div>
+                <div class="work-item__tags">
+                  <span>Automatisation</span>
+                  <span>Intégrations API</span>
+                </div>
+                <h2 class="work-item__title">Opensecret</h2>
+                <p class="work-item__desc">Automatisation du pipeline de vente — notifications, CRM, facturation. 8h/semaine récupérées.</p>
+              </div>
+              <p class="work-item__year">2025</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Client quote -->
+    <section class="real-quote">
+      <div class="container">
+        <div class="real-quote__inner animate-reveal">
+          <p class="real-quote__text">
+            "Kliv a transformé notre CRM interne en 6 semaines. Ce que nos équipes IT estimaient à 6 mois de travail, livré proprement et dans les délais."
+          </p>
+          <p class="real-quote__author">
+            <strong>Marc Lefèvre</strong> — COO, Nexlink
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-final section" aria-label="Prendre contact">
       <div class="cta-final__bg" aria-hidden="true"></div>
       <div class="container">
         <div class="cta-final__inner">
           <span class="section-label section-label--light animate-reveal">Votre projet est le prochain ?</span>
-          <h2 class="cta-final__title animate-reveal" data-delay="1">Construisons<br>quelque chose ensemble.</h2>
-          <a href="/pages/contact.html" class="btn btn--inverse btn--lg animate-reveal" data-delay="2">Démarrer un projet →</a>
+          <h2 class="cta-final__title animate-reveal" data-delay="1">
+            Construisons<br>quelque chose ensemble.
+          </h2>
+          <p class="cta-final__sub animate-reveal" data-delay="2">
+            Un brief, un appel de 30 min — on vous dit honnêtement ce qu'on peut faire pour vous.
+          </p>
+          <a href="/pages/contact.html" class="btn btn--inverse btn--lg animate-reveal" data-delay="3">
+            Démarrer un projet
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
+
   </main>
+
   <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/pages/index.html" class="footer__logo">Kliv<span>.</span></a>
+        <p>Agence Web &amp; Digitale.<br>Seine et Marne</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation secondaire">
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/pages/services.html#web">Sites Web</a></li>
+            <li><a href="/pages/services.html#tools">Outils Internes</a></li>
+            <li><a href="/pages/services.html#automation">Automatisations</a></li>
+            <li><a href="/pages/services.html#branding">Branding</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Agence</h4>
+          <ul>
+            <li><a href="/pages/agence.html">À propos</a></li>
+            <li><a href="/pages/realisations.html">Réalisations</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@kliv.agency">hello@kliv.agency</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
     <div class="footer__bottom container">
-      <p>© 2025 Kliv Agency.</p>
+      <p>© 2025 Kliv Agency. Tous droits réservés.</p>
       <a href="/pages/mentions-legales.html">Mentions légales</a>
     </div>
   </footer>
+
   <script type="module" src="../js/main.js"></script>
 </body>
 </html>

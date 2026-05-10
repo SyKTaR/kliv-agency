@@ -38,8 +38,7 @@
 
         <ul class="navbar__links" role="list">
           <li><a href="#services">Services</a></li>
-          <li><a href="#approche">Agence</a></li>
-          <li><a href="#realisations">Réalisations</a></li>
+          <li><a href="#approche">Notre Approche</a></li>
           <li><a href="/pages/devis.html">Devis</a></li>
         </ul>
 
@@ -57,8 +56,7 @@
     <!-- Menu mobile plein écran -->
     <div class="mobile-menu" role="dialog" aria-label="Menu de navigation">
       <a href="#services">Services</a>
-      <a href="#approche">Agence</a>
-      <a href="#realisations">Réalisations</a>
+      <a href="#approche">Notre Approche</a>
       <a href="/pages/devis.html">Devis</a>
       <div class="mobile-menu__cta">
         <a href="/pages/contact.html" class="btn btn--inverse btn--lg">Démarrer un projet</a>
@@ -98,7 +96,6 @@
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a href="#realisations" class="btn btn--ghost btn--lg">Voir nos réalisations</a>
         </div>
       </div>
 
@@ -289,9 +286,9 @@
     </section>
 
     <!-- ==============================
-         [06] RÉALISATIONS — SÉLECTION
+         [06] RÉALISATIONS — SÉLECTION (masqué temporairement)
     =============================== -->
-    <section class="work section" id="realisations">
+    <section class="work section" id="realisations" hidden>
       <div class="container">
         <div class="section-header">
           <span class="section-label animate-reveal">Portfolio</span>
@@ -302,7 +299,7 @@
 
           <article class="work-item animate-reveal" data-delay="0">
             <div class="work-item__media">
-              <div class="work-item__placeholder">AR Protect</div>
+              <img src="/assets/images/arprotect-preview.png" alt="AR Protect — site web détailing automobile" loading="lazy">
             </div>
             <div class="work-item__info">
               <div>
@@ -318,7 +315,7 @@
 
           <article class="work-item animate-reveal" data-delay="1">
             <div class="work-item__media">
-              <div class="work-item__placeholder">Pep's Print</div>
+              <img src="/assets/images/pepsprin-preview.png" alt="Pep's Print — outil de devis sur-mesure" loading="lazy">
             </div>
             <div class="work-item__info">
               <div>
@@ -334,7 +331,7 @@
 
           <article class="work-item animate-reveal" data-delay="2">
             <div class="work-item__media">
-              <div class="work-item__placeholder">EventOrga</div>
+              <img src="/assets/images/eventorga-preview.png" alt="EventOrga — marketplace événementiel" loading="lazy">
             </div>
             <div class="work-item__info">
               <div>
@@ -411,8 +408,8 @@
             <footer class="testimonial__author">
               <div class="testimonial__avatar" aria-hidden="true">ML</div>
               <div>
-                <cite class="testimonial__name">Marc Lefèvre</cite>
-                <span class="testimonial__role">COO — Nexlink</span>
+                <cite class="testimonial__name">Thomas Fournier</cite>
+                <span class="testimonial__role">CEO - AR Protect</span>
               </div>
             </footer>
           </blockquote>
@@ -461,7 +458,138 @@
     </section>
 
     <!-- ==============================
-         [09] CTA FINAL
+         [09] FAQ
+    =============================== -->
+    <section class="faq section" id="faq">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label animate-reveal">On répond</span>
+          <h2 class="section-title animate-reveal" data-delay="1">
+            Vos questions,<br><em>nos réponses.</em>
+          </h2>
+        </div>
+
+        <div class="faq__list">
+
+          <div class="faq-item animate-reveal" data-delay="0">
+            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-1">
+              <span class="faq-item__question">Combien de temps prend la création d'un site ?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body" id="faq-1">
+              <p class="faq-item__answer">En moyenne, 2 à 4 semaines pour un site vitrine. Un projet plus complexe (e-commerce, outil métier) demande 4 à 10 semaines selon le périmètre défini ensemble.</p>
+            </div>
+          </div>
+
+          <div class="faq-item animate-reveal" data-delay="1">
+            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-2">
+              <span class="faq-item__question">Est-ce que vous créez aussi l'identité visuelle ?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body" id="faq-2">
+              <p class="faq-item__answer">Oui. Logo, charte graphique, typographie, palette de couleurs — on peut tout concevoir de A à Z, ou simplement travailler avec votre identité existante.</p>
+            </div>
+          </div>
+
+          <div class="faq-item animate-reveal" data-delay="2">
+            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-3">
+              <span class="faq-item__question">Pouvez-vous créer un CRM sur mesure ?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body" id="faq-3">
+              <p class="faq-item__answer">Absolument. C'est l'un de nos cœurs de métier. On conçoit des outils adaptés à vos processus : CRM, ERP, dashboards, gestion de devis... Si vous avez un process, on peut l'outiller.</p>
+            </div>
+          </div>
+
+          <div class="faq-item animate-reveal" data-delay="3">
+            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-4">
+              <span class="faq-item__question">Travaillez-vous avec des outils no-code ou du code ?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body" id="faq-4">
+              <p class="faq-item__answer">Les deux, selon les besoins. No-code (Webflow, Make, Notion) pour aller vite sur des projets ciblés. Code sur mesure quand la complexité, la scalabilité ou l'intégration l'exige.</p>
+            </div>
+          </div>
+
+          <div class="faq-item animate-reveal" data-delay="4">
+            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-5">
+              <span class="faq-item__question">Est-ce que je peux modifier mon site après livraison ?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body" id="faq-5">
+              <p class="faq-item__answer">Toujours. On livre avec une documentation claire et, si besoin, un CMS intégré pour que vous puissiez gérer votre contenu en toute autonomie, sans passer par nous.</p>
+            </div>
+          </div>
+
+          <div class="faq-item animate-reveal" data-delay="5">
+            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-6">
+              <span class="faq-item__question">Proposez-vous un accompagnement après la mise en ligne ?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body" id="faq-6">
+              <p class="faq-item__answer">Oui. On propose des formules de maintenance et de suivi mensuel. Vous n'êtes pas seul une fois le projet livré — on reste disponibles pour faire évoluer ce qu'on a construit ensemble.</p>
+            </div>
+          </div>
+
+          <div class="faq-item animate-reveal" data-delay="6">
+            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-7">
+              <span class="faq-item__question">Est-ce que vous pouvez automatiser mes tâches internes ?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body" id="faq-7">
+              <p class="faq-item__answer">Oui. Envois d'emails, synchronisation d'outils, génération de rapports, alertes automatiques — on mappe vos processus et on automatise ce qui peut l'être, de A à Z.</p>
+            </div>
+          </div>
+
+          <div class="faq-item animate-reveal" data-delay="7">
+            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-8">
+              <span class="faq-item__question">Comment démarre un projet avec Kliv ?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body" id="faq-8">
+              <p class="faq-item__answer">Tout commence par un appel de 30 min. On écoute, on pose les bonnes questions, et on vous envoie une proposition claire sous 48h — sans engagement.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         [10] CTA FINAL
     =============================== -->
     <section class="cta-final section" aria-label="Prendre contact">
       <div class="cta-final__bg" aria-hidden="true"></div>
@@ -502,8 +630,7 @@
           <h4>Navigation</h4>
           <ul>
             <li><a href="#services">Services</a></li>
-            <li><a href="#approche">Notre approche</a></li>
-            <li><a href="#realisations">Réalisations</a></li>
+            <li><a href="#approche">Notre Approche</a></li>
           </ul>
         </div>
         <div class="footer__col">

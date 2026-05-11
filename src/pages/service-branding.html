@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Branding sur-mesure par Kliv Agency — Identité visuelle, logo, charte graphique, design system. Coordonné avec une graphiste indépendante spécialisée.">
+  <meta name="theme-color" content="#0E0E0D">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Branding — Kliv Agency</title>
+  <style>
+    /* ─── Hero ───────────────────────────────────────────────────── */
+    .sp-hero {
+      padding-top: calc(var(--space-32) + 2rem);
+      padding-bottom: var(--space-16);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sp-hero__num {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+    .sp-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-6);
+    }
+    .sp-hero__title em { font-style: italic; color: var(--color-text-muted); }
+    .sp-hero__desc {
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      max-width: 620px;
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-10);
+    }
+    .sp-hero__tags {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .sp-tag {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 5px 12px;
+    }
+
+    /* ─── Problem ────────────────────────────────────────────────── */
+    .sp-problem {
+      padding: var(--space-20) 0;
+      background: var(--color-bg-secondary);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sp-problem__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+    .sp-problem__text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 300;
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-text-primary);
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-6);
+    }
+    .sp-problem__text h2 em { font-style: italic; }
+    .sp-problem__text p {
+      font-size: var(--text-lg);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      line-height: var(--leading-normal);
+    }
+    .sp-symptoms {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-top: var(--space-6);
+    }
+    .sp-symptom {
+      display: flex;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-bg-primary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      line-height: var(--leading-snug);
+    }
+    .sp-symptom::before {
+      content: '→';
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+    }
+
+    /* ─── Notre approche ─────────────────────────────────────────── */
+    .sp-approach {
+      padding: var(--space-20) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sp-approach__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+      margin-top: var(--space-12);
+    }
+    .sp-collab-card {
+      padding: var(--space-8);
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+    }
+    .sp-collab-card__eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .sp-collab-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-4);
+      line-height: var(--leading-snug);
+    }
+    .sp-collab-card p {
+      font-size: var(--text-base);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      line-height: var(--leading-normal);
+    }
+    .sp-collab-divider {
+      height: 1px;
+      background: var(--color-border);
+      margin: var(--space-6) 0;
+    }
+    .sp-collab-roles {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .sp-collab-role {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+    }
+    .sp-collab-role__badge {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 2px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .sp-collab-role p {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      line-height: var(--leading-normal);
+    }
+    .sp-approach__text h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-5);
+      line-height: var(--leading-snug);
+    }
+    .sp-approach__text p {
+      font-size: var(--text-base);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-6);
+    }
+
+    /* ─── Ce qu'on crée ──────────────────────────────────────────── */
+    .sp-creates { padding: var(--space-20) 0; border-bottom: 1px solid var(--color-border); }
+    .sp-creates__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-12);
+    }
+    .sp-create-card {
+      padding: var(--space-8);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-bg-card);
+      transition: border-color var(--duration-base), box-shadow var(--duration-base);
+    }
+    .sp-create-card:hover {
+      border-color: var(--color-border-strong);
+      box-shadow: var(--shadow-sm);
+    }
+    .sp-create-card__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--color-bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+      font-size: 1.1rem;
+    }
+    .sp-create-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .sp-create-card__desc {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+    }
+
+    /* ─── Process ────────────────────────────────────────────────── */
+    .sp-process {
+      padding: var(--space-20) 0;
+      background: var(--color-bg-secondary);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sp-process__steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-1);
+      margin-top: var(--space-12);
+    }
+    .sp-step {
+      padding: var(--space-8);
+      background: var(--color-bg-primary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+    .sp-step__num {
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .sp-step__title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .sp-step__desc {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+    }
+    .sp-step__duration {
+      display: inline-block;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 3px 10px;
+      margin-top: var(--space-4);
+    }
+
+    /* ─── Deliverables ───────────────────────────────────────────── */
+    .sp-deliver { padding: var(--space-20) 0; border-bottom: 1px solid var(--color-border); }
+    .sp-deliver__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+      margin-top: var(--space-12);
+    }
+    .sp-deliver__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .sp-deliver__list li {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+    .sp-deliver__list li .check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 0.6rem;
+      color: var(--color-text-muted);
+    }
+    .sp-deliver__list li .text strong {
+      display: block;
+      font-size: var(--text-base);
+      font-weight: 400;
+      color: var(--color-text-primary);
+      margin-bottom: 2px;
+    }
+    .sp-deliver__list li .text span {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+    }
+    .sp-deliver__sub {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-6);
+    }
+    .sp-formats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+    .sp-format {
+      padding: var(--space-4) var(--space-5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg-card);
+    }
+    .sp-format strong {
+      display: block;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 2px;
+    }
+    .sp-format span {
+      font-size: var(--text-xs);
+      font-weight: 300;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── FAQ ────────────────────────────────────────────────────── */
+    .sp-faq {
+      padding: var(--space-20) 0;
+      background: var(--color-bg-secondary);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sp-faq__list { max-width: 720px; margin-top: var(--space-12); }
+    .sp-faq__item { border-top: 1px solid var(--color-border); }
+    .sp-faq__item:last-child { border-bottom: 1px solid var(--color-border); }
+    .sp-faq__q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-6) 0;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      transition: color var(--duration-fast);
+    }
+    .sp-faq__q:hover { color: var(--color-text-secondary); }
+    .sp-faq__q::after {
+      content: '+';
+      font-family: var(--font-body);
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+    details[open] .sp-faq__q::after { transform: rotate(45deg); }
+    .sp-faq__a {
+      padding: 0 0 var(--space-6);
+      font-size: var(--text-base);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      line-height: var(--leading-normal);
+      max-width: 600px;
+    }
+
+    /* ─── CTA row ────────────────────────────────────────────────── */
+    .sp-cta-row {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .sp-problem__grid,
+      .sp-approach__grid,
+      .sp-deliver__grid { grid-template-columns: 1fr; }
+      .sp-creates__grid { grid-template-columns: 1fr 1fr; }
+      .sp-process__steps { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .sp-creates__grid { grid-template-columns: 1fr; }
+      .sp-process__steps { grid-template-columns: 1fr; }
+      .sp-formats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <!--#include navbar-->
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="sp-hero section">
+      <div class="container">
+        <div class="sp-hero__num animate-reveal" data-delay="1">04 · BRANDING</div>
+        <h1 class="sp-hero__title animate-reveal" data-delay="2">
+          Une identité qui marque<br><em>au premier regard.</em>
+        </h1>
+        <p class="sp-hero__desc animate-reveal" data-delay="3">
+          Une marque forte, c'est un système cohérent — pas un joli logo. On travaille votre positionnement, votre identité visuelle et on vous livre une charte utilisable par n'importe quel prestataire, sans trahir votre image.
+        </p>
+        <div class="sp-hero__tags animate-reveal" data-delay="4">
+          <span class="sp-tag">Stratégie de marque</span>
+          <span class="sp-tag">Logo & déclinaisons</span>
+          <span class="sp-tag">Charte graphique</span>
+          <span class="sp-tag">Design system Figma</span>
+          <span class="sp-tag">Templates</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Le problème -->
+    <section class="sp-problem">
+      <div class="container">
+        <div class="sp-problem__grid">
+          <div class="sp-problem__text animate-reveal">
+            <span class="section-label">Le constat</span>
+            <h2 data-delay="1">Une marque sans cohérence,<br><em>c'est une opportunité gâchée.</em></h2>
+            <p>
+              Un logo fait sur Canva, des couleurs qui changent selon le support, une typo aléatoire sur votre carte de visite — vos prospects le ressentent, même inconsciemment. Ça crée un manque de confiance avant même que vous ayez ouvert la bouche.
+            </p>
+            <p style="margin-top: var(--space-4);">
+              Une identité visuelle professionnelle ne fait pas qu'embellir — elle construit la crédibilité, améliore la mémorisation et facilite toute communication future.
+            </p>
+          </div>
+          <div class="animate-reveal" data-delay="2">
+            <p style="font-family: var(--font-display); font-size: var(--text-lg); font-weight: 300; color: var(--color-text-secondary); margin-bottom: var(--space-5); font-style: italic;">
+              « Si vous n'avez pas de stratégie de marque, vos clients en inventeront une pour vous. »
+            </p>
+            <div class="sp-symptoms">
+              <div class="sp-symptom">Votre logo ne passe pas bien en noir et blanc ou sur fond sombre</div>
+              <div class="sp-symptom">Vos couleurs changent selon les supports — site, réseaux, impressions</div>
+              <div class="sp-symptom">Vous ne savez pas quelles polices utiliser ni dans quelles tailles</div>
+              <div class="sp-symptom">Chaque nouveau prestataire repart de zéro sur votre identité</div>
+              <div class="sp-symptom">Votre image ne reflète plus l'évolution de votre offre ou de votre cible</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notre approche / collaboration -->
+    <section class="sp-approach">
+      <div class="container">
+        <span class="section-label animate-reveal">Notre approche</span>
+        <h2 class="section-title animate-reveal" data-delay="1">
+          Coordonné par Kliv,<br><em>créé avec talent.</em>
+        </h2>
+        <div class="sp-approach__grid">
+          <div class="animate-reveal" data-delay="2">
+            <div class="sp-collab-card">
+              <div class="sp-collab-card__eyebrow">Notre modèle de collaboration</div>
+              <div class="sp-collab-card__title">Une graphiste indépendante spécialisée au cœur du projet</div>
+              <p>
+                Pour le branding, on collabore avec une graphiste indépendante soigneusement sélectionnée pour son regard créatif et sa rigueur dans la construction d'identités visuelles durables.
+              </p>
+              <p style="margin-top: var(--space-3);">
+                Kliv coordonne le projet de bout en bout — brief stratégique, suivi, allers-retours client, intégration dans vos supports digitaux — pendant que la graphiste se concentre sur ce qu'elle fait de mieux : créer une identité qui vous ressemble.
+              </p>
+              <div class="sp-collab-divider"></div>
+              <div class="sp-collab-roles">
+                <div class="sp-collab-role">
+                  <span class="sp-collab-role__badge">Kliv</span>
+                  <p>Brief stratégique, coordination, suivi client, intégration digitale (site, assets web)</p>
+                </div>
+                <div class="sp-collab-role">
+                  <span class="sp-collab-role__badge">Graphiste</span>
+                  <p>Exploration créative, conception du logo, charte graphique, design system Figma</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sp-approach__text animate-reveal" data-delay="3">
+            <h3>Pourquoi ce modèle ?</h3>
+            <p>
+              Déléguer le branding à une spécialiste du domaine, plutôt que de diluer l'expertise entre des généralistes, vous garantit un résultat créatif de meilleure qualité — tout en bénéficiant d'un interlocuteur unique chez Kliv pour piloter l'ensemble.
+            </p>
+            <p>
+              Vous n'avez pas à gérer deux prestataires ni deux briefs. On s'occupe de la coordination, de la communication et de la cohérence entre l'identité créée et son déploiement digital.
+            </p>
+            <h3 style="margin-top: var(--space-8);">Un résultat utilisable partout</h3>
+            <p>
+              On ne livre pas un logo — on livre un système. Logo en toutes variantes, charte exhaustive, design system Figma prêt à l'emploi. N'importe quel prestataire futur peut utiliser vos assets sans jamais trahir votre image.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ce qu'on crée -->
+    <section class="sp-creates" style="background: var(--color-bg-secondary);">
+      <div class="container">
+        <span class="section-label animate-reveal">Ce qu'on crée</span>
+        <h2 class="section-title animate-reveal" data-delay="1">
+          Un système de marque<br><em>complet et cohérent.</em>
+        </h2>
+        <div class="sp-creates__grid">
+          <div class="sp-create-card animate-reveal" data-delay="0">
+            <div class="sp-create-card__icon" aria-hidden="true">✦</div>
+            <div class="sp-create-card__title">Logo & variantes</div>
+            <div class="sp-create-card__desc">Logo principal, version secondaire, noir/blanc, favicon. Toutes les déclinaisons pour tous les usages, sur tous les fonds.</div>
+          </div>
+          <div class="sp-create-card animate-reveal" data-delay="1">
+            <div class="sp-create-card__icon" aria-hidden="true">🎨</div>
+            <div class="sp-create-card__title">Palette de couleurs</div>
+            <div class="sp-create-card__desc">Couleurs primaires, secondaires et neutres. Codes HEX, RGB, CMJN et Pantone — pour le digital et l'impression.</div>
+          </div>
+          <div class="sp-create-card animate-reveal" data-delay="2">
+            <div class="sp-create-card__icon" aria-hidden="true">Aa</div>
+            <div class="sp-create-card__title">Système typographique</div>
+            <div class="sp-create-card__desc">Polices soigneusement sélectionnées, hiérarchie éditoriale, tailles et usages définis pour titres, corps et légendes.</div>
+          </div>
+          <div class="sp-create-card animate-reveal" data-delay="3">
+            <div class="sp-create-card__icon" aria-hidden="true">📄</div>
+            <div class="sp-create-card__title">Charte graphique</div>
+            <div class="sp-create-card__desc">Document PDF de 30+ pages couvrant tous les usages. La référence que vous remettez à chaque nouveau prestataire.</div>
+          </div>
+          <div class="sp-create-card animate-reveal" data-delay="4">
+            <div class="sp-create-card__icon" aria-hidden="true">⬡</div>
+            <div class="sp-create-card__title">Design system Figma</div>
+            <div class="sp-create-card__desc">Components, tokens de couleurs et typographies organisés en Figma. Prêt pour un intégrateur ou un nouveau projet web.</div>
+          </div>
+          <div class="sp-create-card animate-reveal" data-delay="5">
+            <div class="sp-create-card__icon" aria-hidden="true">📑</div>
+            <div class="sp-create-card__title">Templates supports</div>
+            <div class="sp-create-card__desc">Présentations, email de marque, en-tête de document, signatures email — vos supports prioritaires livrés prêts à l'emploi.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Processus -->
+    <section class="sp-process">
+      <div class="container">
+        <span class="section-label animate-reveal">Comment on travaille</span>
+        <h2 class="section-title animate-reveal" data-delay="1">
+          Du brief stratégique<br><em>aux assets finaux.</em>
+        </h2>
+        <div class="sp-process__steps">
+          <div class="sp-step animate-reveal" data-delay="0">
+            <div class="sp-step__num">01</div>
+            <div class="sp-step__title">Brief de marque</div>
+            <div class="sp-step__desc">Ateliers de positionnement — votre cible, vos valeurs, votre territoire créatif, vos concurrents et ce qui vous différencie vraiment.</div>
+            <span class="sp-step__duration">2–3 jours</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="1">
+            <div class="sp-step__num">02</div>
+            <div class="sp-step__title">Exploration créative</div>
+            <div class="sp-step__desc">La graphiste développe 2–3 directions créatives distinctes — moodboards, premières explorations visuelles et concepts logo.</div>
+            <span class="sp-step__duration">7–10 jours</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="2">
+            <div class="sp-step__num">03</div>
+            <div class="sp-step__title">Présentation & choix</div>
+            <div class="sp-step__desc">Présentation argumentée des directions. Vous choisissez celle qui vous correspond — on explique chaque choix créatif.</div>
+            <span class="sp-step__duration">1 jour</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="3">
+            <div class="sp-step__num">04</div>
+            <div class="sp-step__title">Affinage & validation</div>
+            <div class="sp-step__desc">Itérations sur la direction retenue — 2 rounds de révisions inclus. Finalisation du logo, des couleurs et des typographies.</div>
+            <span class="sp-step__duration">7–10 jours</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="4">
+            <div class="sp-step__num">05</div>
+            <div class="sp-step__title">Charte & design system</div>
+            <div class="sp-step__desc">Rédaction de la charte graphique complète et construction du design system Figma avec tous les composants et tokens.</div>
+            <span class="sp-step__duration">5–8 jours</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="5">
+            <div class="sp-step__num">06</div>
+            <div class="sp-step__title">Livraison & déploiement</div>
+            <div class="sp-step__desc">Export de tous les formats, livraison des fichiers sources, intégration sur votre site web existant si besoin.</div>
+            <span class="sp-step__duration">2–3 jours</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Livrables -->
+    <section class="sp-deliver">
+      <div class="container">
+        <span class="section-label animate-reveal">Ce qu'on vous remet</span>
+        <h2 class="section-title animate-reveal" data-delay="1">
+          Tous vos assets,<br><em>prêts à l'emploi.</em>
+        </h2>
+        <div class="sp-deliver__grid">
+          <div class="animate-reveal" data-delay="2">
+            <p class="sp-deliver__sub">Livrables inclus</p>
+            <ul class="sp-deliver__list">
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>Logo en toutes variantes</strong>
+                  <span>Couleur, noir, blanc, fond transparent — en SVG, PNG haute résolution, PDF et EPS.</span>
+                </span>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>Charte graphique PDF (30+ pages)</strong>
+                  <span>Usages corrects et incorrects, règles typographiques, exemples d'application sur supports réels.</span>
+                </span>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>Fichiers sources Figma</strong>
+                  <span>Design system organisé, components documentés, accès partagé à votre fichier Figma.</span>
+                </span>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>Templates prioritaires</strong>
+                  <span>Présentation PowerPoint/Keynote, signature email, en-tête de devis/facture.</span>
+                </span>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>Assets digitaux exportés</strong>
+                  <span>Favicon, OG image, icônes réseaux sociaux — tout ce qu'il faut pour votre présence en ligne.</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="animate-reveal" data-delay="3">
+            <p class="sp-deliver__sub">Formats de livraison</p>
+            <div class="sp-formats-grid">
+              <div class="sp-format">
+                <strong>SVG</strong>
+                <span>Vectoriel, web & print</span>
+              </div>
+              <div class="sp-format">
+                <strong>PNG</strong>
+                <span>Haute résolution, fond transparent</span>
+              </div>
+              <div class="sp-format">
+                <strong>PDF</strong>
+                <span>Impression vectorielle</span>
+              </div>
+              <div class="sp-format">
+                <strong>EPS</strong>
+                <span>Pour imprimeurs & agences</span>
+              </div>
+              <div class="sp-format">
+                <strong>Figma</strong>
+                <span>Fichier source éditable</span>
+              </div>
+              <div class="sp-format">
+                <strong>PPTX / KEY</strong>
+                <span>Templates présentations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sp-faq">
+      <div class="container">
+        <span class="section-label animate-reveal">Questions fréquentes</span>
+        <h2 class="section-title animate-reveal" data-delay="1">Tout ce que vous<br><em>voulez savoir.</em></h2>
+        <div class="sp-faq__list animate-reveal" data-delay="2">
+          <details class="sp-faq__item">
+            <summary class="sp-faq__q">Qui est la graphiste avec qui vous collaborez ?</summary>
+            <p class="sp-faq__a">On travaille avec une auto-entrepreneuse spécialisée dans la création d'identités visuelles pour des marques ambitieuses. Son portfolio et ses coordonnées vous sont partagés au moment du brief, pour que vous validiez que son univers créatif correspond à votre projet. Kliv reste votre interlocuteur unique pour la coordination et le suivi.</p>
+          </details>
+          <details class="sp-faq__item">
+            <summary class="sp-faq__q">Quel budget prévoir pour un branding complet ?</summary>
+            <p class="sp-faq__a">Un branding complet (logo, charte, design system, templates) démarre autour de 2 500 € et peut aller jusqu'à 6 000 € selon la complexité du projet, le nombre de supports à couvrir et le niveau de stratégie impliqué. On établit un devis détaillé après le brief initial.</p>
+          </details>
+          <details class="sp-faq__item">
+            <summary class="sp-faq__q">Combien de temps pour un projet de branding ?</summary>
+            <p class="sp-faq__a">En général 4 à 7 semaines du brief à la livraison. L'exploration créative (10 jours) et les allers-retours de validation sont les phases les plus longues — et les plus importantes. On ne livre pas vite un logo médiocre : on prend le temps qu'il faut pour livrer quelque chose qui durera.</p>
+          </details>
+          <details class="sp-faq__item">
+            <summary class="sp-faq__q">Est-ce que vous pouvez refondre une identité existante ?</summary>
+            <p class="sp-faq__a">Oui, c'est même un cas fréquent. On commence par un audit de votre identité actuelle — ce qui fonctionne et mérite d'être conservé, ce qui freine et doit évoluer. La refonte peut être partielle (moderniser le logo sans tout changer) ou complète (repositionnement et nouvelle identité from scratch).</p>
+          </details>
+          <details class="sp-faq__item">
+            <summary class="sp-faq__q">Peut-on intégrer la nouvelle identité sur notre site web directement ?</summary>
+            <p class="sp-faq__a">Oui, c'est une option fréquemment choisie. Après la livraison du branding, on peut intégrer votre nouvelle identité sur votre site existant — qu'on l'ait développé ou non — dans le cadre d'un second devis. L'avantage de passer par Kliv pour les deux : la cohérence entre la charte et son déploiement digital est garantie.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-final section" aria-label="Prendre contact">
+      <div class="cta-final__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-final__inner">
+          <span class="section-label section-label--light animate-reveal">Prêt à démarrer ?</span>
+          <h2 class="cta-final__title animate-reveal" data-delay="1">
+            Une marque qui vous<br>ressemble, enfin.
+          </h2>
+          <p class="cta-final__sub animate-reveal" data-delay="2">
+            Partagez-nous votre univers, votre cible et où vous en êtes. On revient vers vous avec une proposition et un rétroplanning en 48h.
+          </p>
+          <div class="sp-cta-row animate-reveal" data-delay="3">
+            <a href="/pages/contact.html" class="btn btn--inverse btn--lg">
+              Démarrer ce projet
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="/pages/devis.html" class="btn btn--ghost btn--lg">Estimer mon budget</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/pages/index.html" class="footer__logo">Kliv<span>.</span></a>
+        <p>Agence Web &amp; Digitale.<br>Seine et Marne</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation secondaire">
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/pages/service-web.html">Sites Web</a></li>
+            <li><a href="/pages/service-outils.html">Outils Internes</a></li>
+            <li><a href="/pages/service-automatisations.html">Automatisations</a></li>
+            <li><a href="/pages/service-branding.html">Branding</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Agence</h4>
+          <ul>
+            <li><a href="/pages/index.html#approche">Notre Approche</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@kliv.agency">hello@kliv.agency</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2025 Kliv Agency. Tous droits réservés.</p>
+      <a href="/pages/mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>

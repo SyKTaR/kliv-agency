@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Outils internes sur-mesure par Kliv Agency — CRM, dashboards, portails clients. Remplacez vos Excel par des applications pensées pour vos équipes.">
+  <meta name="theme-color" content="#0E0E0D">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Outils Internes — Kliv Agency</title>
+  <style>
+    /* ─── Hero ───────────────────────────────────────────────────── */
+    .sp-hero {
+      padding-top: calc(var(--space-32) + 2rem);
+      padding-bottom: var(--space-16);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sp-hero__num {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+    .sp-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-6);
+    }
+    .sp-hero__title em { font-style: italic; color: var(--color-text-muted); }
+    .sp-hero__desc {
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      max-width: 620px;
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-10);
+    }
+    .sp-hero__tags {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .sp-tag {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 5px 12px;
+    }
+
+    /* ─── Problem ────────────────────────────────────────────────── */
+    .sp-problem {
+      padding: var(--space-20) 0;
+      background: var(--color-bg-secondary);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sp-problem__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+    .sp-problem__text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 300;
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-text-primary);
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-6);
+    }
+    .sp-problem__text h2 em { font-style: italic; }
+    .sp-problem__text p {
+      font-size: var(--text-lg);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      line-height: var(--leading-normal);
+    }
+    .sp-pains {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .sp-pain {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-5);
+      background: var(--color-bg-primary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+    .sp-pain__icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .sp-pain__text strong {
+      display: block;
+      font-size: var(--text-base);
+      font-weight: 400;
+      color: var(--color-text-primary);
+      margin-bottom: 2px;
+    }
+    .sp-pain__text span {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+    }
+
+    /* ─── Types d'outils ─────────────────────────────────────────── */
+    .sp-types { padding: var(--space-20) 0; border-bottom: 1px solid var(--color-border); }
+    .sp-types__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-12);
+    }
+    .sp-type-card {
+      padding: var(--space-8);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-bg-card);
+      transition: border-color var(--duration-base), box-shadow var(--duration-base);
+    }
+    .sp-type-card:hover {
+      border-color: var(--color-border-strong);
+      box-shadow: var(--shadow-sm);
+    }
+    .sp-type-card__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--color-bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+      font-size: 1.1rem;
+    }
+    .sp-type-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .sp-type-card__desc {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+    }
+
+    /* ─── Process ────────────────────────────────────────────────── */
+    .sp-process {
+      padding: var(--space-20) 0;
+      background: var(--color-bg-secondary);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sp-process__steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-1);
+      margin-top: var(--space-12);
+    }
+    .sp-step {
+      padding: var(--space-8);
+      background: var(--color-bg-primary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+    .sp-step__num {
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      font-weight: 300;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .sp-step__title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .sp-step__desc {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+    }
+    .sp-step__duration {
+      display: inline-block;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 3px 10px;
+      margin-top: var(--space-4);
+    }
+
+    /* ─── Deliverables ───────────────────────────────────────────── */
+    .sp-deliver { padding: var(--space-20) 0; border-bottom: 1px solid var(--color-border); }
+    .sp-deliver__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+      margin-top: var(--space-12);
+    }
+    .sp-deliver__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .sp-deliver__list li {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+    .sp-deliver__list li .check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 0.6rem;
+      color: var(--color-text-muted);
+    }
+    .sp-deliver__list li .text strong {
+      display: block;
+      font-size: var(--text-base);
+      font-weight: 400;
+      color: var(--color-text-primary);
+      margin-bottom: 2px;
+    }
+    .sp-deliver__list li .text span {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      line-height: var(--leading-normal);
+    }
+    .sp-stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+    .sp-stack-pill {
+      padding: var(--space-3) var(--space-5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      background: var(--color-bg-card);
+    }
+    .sp-deliver__sub {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-6);
+    }
+
+    /* ─── FAQ ────────────────────────────────────────────────────── */
+    .sp-faq {
+      padding: var(--space-20) 0;
+      background: var(--color-bg-secondary);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .sp-faq__list {
+      max-width: 720px;
+      margin-top: var(--space-12);
+    }
+    .sp-faq__item { border-top: 1px solid var(--color-border); }
+    .sp-faq__item:last-child { border-bottom: 1px solid var(--color-border); }
+    .sp-faq__q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-6) 0;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 300;
+      color: var(--color-text-primary);
+      transition: color var(--duration-fast);
+    }
+    .sp-faq__q:hover { color: var(--color-text-secondary); }
+    .sp-faq__q::after {
+      content: '+';
+      font-family: var(--font-body);
+      font-size: var(--text-xl);
+      font-weight: 300;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+    details[open] .sp-faq__q::after { transform: rotate(45deg); }
+    .sp-faq__a {
+      padding: 0 0 var(--space-6);
+      font-size: var(--text-base);
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      line-height: var(--leading-normal);
+      max-width: 600px;
+    }
+
+    /* ─── CTA row ────────────────────────────────────────────────── */
+    .sp-cta-row {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .sp-problem__grid { grid-template-columns: 1fr; }
+      .sp-types__grid { grid-template-columns: 1fr 1fr; }
+      .sp-process__steps { grid-template-columns: 1fr 1fr; }
+      .sp-deliver__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .sp-types__grid { grid-template-columns: 1fr; }
+      .sp-process__steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <!--#include navbar-->
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="sp-hero section">
+      <div class="container">
+        <div class="sp-hero__num animate-reveal" data-delay="1">02 · OUTILS INTERNES</div>
+        <h1 class="sp-hero__title animate-reveal" data-delay="2">
+          Vos équipes méritent<br><em>mieux qu'Excel.</em>
+        </h1>
+        <p class="sp-hero__desc animate-reveal" data-delay="3">
+          On conçoit des applications métier sur-mesure qui s'adaptent à vos processus — pas l'inverse. CRM, dashboards, portails clients, outils de gestion : des solutions qui font gagner du temps dès le premier jour.
+        </p>
+        <div class="sp-hero__tags animate-reveal" data-delay="4">
+          <span class="sp-tag">React / Next.js</span>
+          <span class="sp-tag">Node.js</span>
+          <span class="sp-tag">PostgreSQL</span>
+          <span class="sp-tag">Supabase</span>
+          <span class="sp-tag">API REST</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Le problème -->
+    <section class="sp-problem">
+      <div class="container">
+        <div class="sp-problem__grid">
+          <div class="sp-problem__text animate-reveal">
+            <span class="section-label">Le constat</span>
+            <h2 data-delay="1">Les outils génériques<br><em>créent de la friction.</em></h2>
+            <p>
+              Excel, Notion, Airtable bricolés avec des formules — ces outils ne sont pas faits pour votre métier. Ils créent des erreurs, des copier-coller manuels, et de la friction invisible qui coûte des heures à vos équipes chaque semaine.
+            </p>
+            <br>
+            <p>
+              Un outil pensé pour votre façon de travailler n'est pas un luxe — c'est un investissement qui se rembourse rapidement. On audit vos processus, on comprend vos contraintes, et on livre quelque chose que vos équipes voudront vraiment utiliser.
+            </p>
+          </div>
+          <div class="sp-pains animate-reveal" data-delay="2">
+            <div class="sp-pain">
+              <span class="sp-pain__icon">📊</span>
+              <div class="sp-pain__text">
+                <strong>Données éparpillées</strong>
+                <span>Les infos critiques sont dans 4 outils différents. Personne n'a la vision globale en temps réel.</span>
+              </div>
+            </div>
+            <div class="sp-pain">
+              <span class="sp-pain__icon">🔄</span>
+              <div class="sp-pain__text">
+                <strong>Copier-coller permanent</strong>
+                <span>Exporter d'un outil, importer dans un autre, re-formater — ce travail invisible prend des heures.</span>
+              </div>
+            </div>
+            <div class="sp-pain">
+              <span class="sp-pain__icon">⚠️</span>
+              <div class="sp-pain__text">
+                <strong>Erreurs humaines coûteuses</strong>
+                <span>Une cellule mal saisie, un fichier écrasé — les conséquences sont imprévisibles sur Excel.</span>
+              </div>
+            </div>
+            <div class="sp-pain">
+              <span class="sp-pain__icon">🔒</span>
+              <div class="sp-pain__text">
+                <strong>Zéro gestion des accès</strong>
+                <span>Tout le monde voit tout, ou personne ne voit rien. Pas de granularité, pas de traçabilité.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Types d'outils -->
+    <section class="sp-types section">
+      <div class="container">
+        <span class="section-label animate-reveal">Ce qu'on construit</span>
+        <h2 class="section-title animate-reveal" data-delay="1">
+          Des outils pour chaque<br><em>cas d'usage métier.</em>
+        </h2>
+        <div class="sp-types__grid">
+          <div class="sp-type-card animate-reveal" data-delay="0">
+            <div class="sp-type-card__icon" aria-hidden="true">👥</div>
+            <div class="sp-type-card__title">CRM sur-mesure</div>
+            <div class="sp-type-card__desc">Suivi client, pipeline commercial, historique des interactions — adapté à votre cycle de vente et votre sectoriel.</div>
+          </div>
+          <div class="sp-type-card animate-reveal" data-delay="1">
+            <div class="sp-type-card__icon" aria-hidden="true">📈</div>
+            <div class="sp-type-card__title">Dashboards opérationnels</div>
+            <div class="sp-type-card__desc">Vue en temps réel de vos KPIs. Piloter votre activité depuis un seul écran, avec les données qui comptent vraiment.</div>
+          </div>
+          <div class="sp-type-card animate-reveal" data-delay="2">
+            <div class="sp-type-card__icon" aria-hidden="true">🌐</div>
+            <div class="sp-type-card__title">Portails clients / partenaires</div>
+            <div class="sp-type-card__desc">Espace sécurisé où vos clients suivent leurs commandes, accèdent à leurs documents et communiquent avec vous.</div>
+          </div>
+          <div class="sp-type-card animate-reveal" data-delay="3">
+            <div class="sp-type-card__icon" aria-hidden="true">📦</div>
+            <div class="sp-type-card__title">Gestion de stock & planning</div>
+            <div class="sp-type-card__desc">Inventaire en temps réel, alertes de seuil, planification des ressources — adapté à votre logique métier.</div>
+          </div>
+          <div class="sp-type-card animate-reveal" data-delay="4">
+            <div class="sp-type-card__icon" aria-hidden="true">📋</div>
+            <div class="sp-type-card__title">ERP légers</div>
+            <div class="sp-type-card__desc">Consolidez devis, facturation, RH et production dans un seul système pensé pour votre taille et votre secteur.</div>
+          </div>
+          <div class="sp-type-card animate-reveal" data-delay="5">
+            <div class="sp-type-card__icon" aria-hidden="true">🔗</div>
+            <div class="sp-type-card__title">Hubs d'intégration</div>
+            <div class="sp-type-card__desc">Connectez tous vos outils existants (Slack, Stripe, Airtable, Notion...) dans une interface unifiée et cohérente.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Processus -->
+    <section class="sp-process">
+      <div class="container">
+        <span class="section-label animate-reveal">Comment on travaille</span>
+        <h2 class="section-title animate-reveal" data-delay="1">
+          Un processus centré sur<br><em>vos vrais besoins.</em>
+        </h2>
+        <div class="sp-process__steps">
+          <div class="sp-step animate-reveal" data-delay="0">
+            <div class="sp-step__num">01</div>
+            <div class="sp-step__title">Audit des workflows</div>
+            <div class="sp-step__desc">On passe du temps avec vos équipes pour comprendre comment vous travaillez vraiment — pas comment vous pensez que vous travaillez.</div>
+            <span class="sp-step__duration">3–5 jours</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="1">
+            <div class="sp-step__num">02</div>
+            <div class="sp-step__title">Architecture & maquettes</div>
+            <div class="sp-step__desc">On conçoit la base de données, les flux de données et les interfaces. Wireframes validés avant tout développement.</div>
+            <span class="sp-step__duration">7–10 jours</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="2">
+            <div class="sp-step__num">03</div>
+            <div class="sp-step__title">Développement itératif</div>
+            <div class="sp-step__desc">Livraisons régulières en environnement de test. Vos équipes valident chaque sprint — on pivote vite si besoin.</div>
+            <span class="sp-step__duration">3–8 semaines</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="3">
+            <div class="sp-step__num">04</div>
+            <div class="sp-step__title">Intégrations API</div>
+            <div class="sp-step__desc">Connexion avec vos outils existants (Slack, Stripe, Airtable, CRM tiers...). On gère les authentifications et la synchronisation des données.</div>
+            <span class="sp-step__duration">2–5 jours</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="4">
+            <div class="sp-step__num">05</div>
+            <div class="sp-step__title">Tests & déploiement</div>
+            <div class="sp-step__desc">Tests utilisateurs avec vos équipes, correction des bugs, déploiement en production et configuration des accès.</div>
+            <span class="sp-step__duration">3–5 jours</span>
+          </div>
+          <div class="sp-step animate-reveal" data-delay="5">
+            <div class="sp-step__num">06</div>
+            <div class="sp-step__title">Formation & suivi</div>
+            <div class="sp-step__desc">Sessions de formation adaptées à chaque profil utilisateur. Documentation complète et support post-lancement inclus.</div>
+            <span class="sp-step__duration">1–2 jours</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Livrables + Stack -->
+    <section class="sp-deliver section">
+      <div class="container">
+        <span class="section-label animate-reveal">Ce qu'on vous remet</span>
+        <h2 class="section-title animate-reveal" data-delay="1">
+          Un outil qui vous appartient,<br><em>pas une dépendance.</em>
+        </h2>
+        <div class="sp-deliver__grid">
+          <div class="animate-reveal" data-delay="2">
+            <p class="sp-deliver__sub">Livrables inclus</p>
+            <ul class="sp-deliver__list">
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>Application déployée et documentée</strong>
+                  <span>En production sur votre infrastructure ou sur Vercel/Supabase selon votre préférence.</span>
+                </span>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>Code source complet</strong>
+                  <span>Frontend et backend. Vous pouvez reprendre le développement avec n'importe quel prestataire.</span>
+                </span>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>Documentation technique</strong>
+                  <span>Architecture, schéma de base de données, API docs, instructions de déploiement.</span>
+                </span>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>Formation des équipes</strong>
+                  <span>Sessions d'onboarding adaptées aux administrateurs et aux utilisateurs finaux.</span>
+                </span>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <span class="text">
+                  <strong>30 jours de support inclus</strong>
+                  <span>Corrections de bugs, ajustements mineurs et réponses aux questions post-lancement.</span>
+                </span>
+              </li>
+              <li>
+                <span class="check">→</span>
+                <span class="text">
+                  <strong>Contrat de maintenance disponible</strong>
+                  <span>Mises à jour, évolutions fonctionnelles, monitoring — en abonnement mensuel adapté à vos besoins.</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="animate-reveal" data-delay="3">
+            <p class="sp-deliver__sub">Stack technique</p>
+            <div class="sp-stack-grid">
+              <span class="sp-stack-pill">React</span>
+              <span class="sp-stack-pill">Next.js</span>
+              <span class="sp-stack-pill">TypeScript</span>
+              <span class="sp-stack-pill">Node.js</span>
+              <span class="sp-stack-pill">PostgreSQL</span>
+              <span class="sp-stack-pill">Supabase</span>
+              <span class="sp-stack-pill">Prisma ORM</span>
+              <span class="sp-stack-pill">REST API</span>
+              <span class="sp-stack-pill">Tailwind CSS</span>
+              <span class="sp-stack-pill">Vercel</span>
+              <span class="sp-stack-pill">Airtable API</span>
+              <span class="sp-stack-pill">Stripe</span>
+              <span class="sp-stack-pill">Slack API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sp-faq">
+      <div class="container">
+        <span class="section-label animate-reveal">Questions fréquentes</span>
+        <h2 class="section-title animate-reveal" data-delay="1">Tout ce que vous<br><em>voulez savoir.</em></h2>
+        <div class="sp-faq__list animate-reveal" data-delay="2">
+          <details class="sp-faq__item">
+            <summary class="sp-faq__q">En quoi c'est différent d'Airtable ou de Notion ?</summary>
+            <p class="sp-faq__a">Airtable et Notion sont des outils génériques que vous adaptez à votre besoin — avec les compromis que ça implique. On crée quelque chose conçu pour exactement votre façon de travailler : les bons champs, les bons workflows, les bonnes vues. Aucun bricolage, aucun compromis sur des fonctionnalités critiques.</p>
+          </details>
+          <details class="sp-faq__item">
+            <summary class="sp-faq__q">Quel budget prévoir pour un outil interne ?</summary>
+            <p class="sp-faq__a">Un CRM simple ou un dashboard démarre autour de 4 000 €. Un outil plus complet avec plusieurs rôles, intégrations et workflows complexes peut aller de 8 000 € à 25 000 €+. Le budget dépend du nombre de fonctionnalités, d'utilisateurs et d'intégrations. Notre calculateur vous donne une fourchette initiale.</p>
+          </details>
+          <details class="sp-faq__item">
+            <summary class="sp-faq__q">Combien de temps pour livrer un outil interne ?</summary>
+            <p class="sp-faq__a">Entre 6 et 12 semaines pour un outil de taille moyenne. La phase d'audit (3–5 jours) est clé — on y identifie 80% des besoins. On travaille en sprints courts de 2 semaines, avec des démos régulières. Vous voyez l'outil prendre forme avant même que tout soit terminé.</p>
+          </details>
+          <details class="sp-faq__item">
+            <summary class="sp-faq__q">Que se passe-t-il si on a besoin de faire évoluer l'outil après livraison ?</summary>
+            <p class="sp-faq__a">C'est prévu. On vous livre le code source et la doc technique pour que n'importe quel dev puisse reprendre le projet. On propose aussi des contrats de maintenance mensuels pour les évolutions fonctionnelles, les mises à jour de sécurité et le monitoring de l'infrastructure.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-final section" aria-label="Prendre contact">
+      <div class="cta-final__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-final__inner">
+          <span class="section-label section-label--light animate-reveal">Prêt à démarrer ?</span>
+          <h2 class="cta-final__title animate-reveal" data-delay="1">
+            Un outil pensé pour<br>votre façon de travailler.
+          </h2>
+          <p class="cta-final__sub animate-reveal" data-delay="2">
+            Décrivez-nous vos processus actuels. On vous dit en 48h si et comment on peut les améliorer.
+          </p>
+          <div class="sp-cta-row animate-reveal" data-delay="3">
+            <a href="/pages/contact.html" class="btn btn--inverse btn--lg">
+              Démarrer ce projet
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="/pages/devis.html" class="btn btn--ghost btn--lg">Estimer mon budget</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/pages/index.html" class="footer__logo">Kliv<span>.</span></a>
+        <p>Agence Web &amp; Digitale.<br>Seine et Marne</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation secondaire">
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/pages/service-web.html">Sites Web</a></li>
+            <li><a href="/pages/service-outils.html">Outils Internes</a></li>
+            <li><a href="/pages/service-automatisations.html">Automatisations</a></li>
+            <li><a href="/pages/service-branding.html">Branding</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Agence</h4>
+          <ul>
+            <li><a href="/pages/index.html#approche">Notre Approche</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@kliv.agency">hello@kliv.agency</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2025 Kliv Agency. Tous droits réservés.</p>
+      <a href="/pages/mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>

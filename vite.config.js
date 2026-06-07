@@ -5,10 +5,17 @@ import { readFileSync } from 'fs'
 const htmlPartialsPlugin = {
   name: 'html-partials',
   transformIndexHtml(html) {
-    return html.replace(/<!--#include\s+(\S+?)-->/g, (_, name) => {
+    let out = html.replace(/<!--#include\s+(\S+?)-->/g, (_, name) => {
       const path = resolve(__dirname, `src/partials/${name}.html`)
       return readFileSync(path, 'utf-8')
     })
+    if (!out.includes('html-to-design/capture.js')) {
+      out = out.replace(
+        '</head>',
+        '  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>\n</head>'
+      )
+    }
+    return out
   }
 }
 
@@ -24,13 +31,8 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       rollupOptions: {
         input: {
-          main:                    resolve(__dirname, 'src/pages/index.html'),
-          contact:                 resolve(__dirname, 'src/pages/contact.html'),
-          devis:                   resolve(__dirname, 'src/pages/devis.html'),
-          'service-web':           resolve(__dirname, 'src/pages/service-web.html'),
-          'service-outils':        resolve(__dirname, 'src/pages/service-outils.html'),
-          'service-automatisations': resolve(__dirname, 'src/pages/service-automatisations.html'),
-          'service-branding':      resolve(__dirname, 'src/pages/service-branding.html'),
+          main:  resolve(__dirname, 'src/pages/index.html'),
+          devis: resolve(__dirname, 'src/pages/devis.html'),
         }
       }
     },

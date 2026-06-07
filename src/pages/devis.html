@@ -335,12 +335,21 @@
       gap: var(--space-4);
       border-top: 1px solid rgba(255,255,255,0.08);
     }
+    .devis-bar__info { min-width: 0; flex: 1 1 auto; }
+    .devis-bar [data-contact-btn] { flex-shrink: 0; }
     .devis-bar__price {
       font-family: var(--font-display);
       font-size: var(--text-xl);
       font-weight: 300;
       color: #fff;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .devis-bar__price.is-placeholder {
+      font-size: var(--text-base);
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
     }
     .devis-bar__label {
       font-size: var(--text-xs);
@@ -804,9 +813,9 @@
 
   <!-- Mobile bottom bar -->
   <div class="devis-bar" id="devis-bar" aria-live="polite">
-    <div>
+    <div class="devis-bar__info">
       <p class="devis-bar__label">Estimation</p>
-      <p class="devis-bar__price" id="bar-price">Sélectionnez votre projet</p>
+      <p class="devis-bar__price is-placeholder" id="bar-price">Sélectionnez votre projet</p>
     </div>
     <a href="#lead-form" class="btn btn--inverse btn--sm" data-contact-btn>Prendre contact →</a>
   </div>
@@ -1046,6 +1055,7 @@
         rangeEl.textContent = 'Sélectionnez votre projet'
         htEl.style.display = 'none'
         itemsEl.innerHTML = '<p class="devis-estimate__empty">Aucune sélection</p>'
+        barPrice.className = 'devis-bar__price is-placeholder'
         barPrice.textContent = 'Sélectionnez votre projet'
         return
       }
@@ -1053,6 +1063,7 @@
       rangeEl.className = 'devis-estimate__range'
       rangeEl.textContent = `${fmt(min)} — ${fmt(max)}€`
       htEl.style.display = 'block'
+      barPrice.className = 'devis-bar__price'
       barPrice.textContent = `${fmt(min)} — ${fmt(max)}€`
 
       let html = ''

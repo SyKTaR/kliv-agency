@@ -65,6 +65,11 @@
   align-items: center;
 }
 .hero__line { display: block; }
+.hero__line:not(.hero__line--italic) {
+  font-family: var(--font-body);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
 .hero__line--italic {
   font-style: italic;
   color: var(--color-text-secondary);
@@ -128,8 +133,8 @@
 .hero__scroll-hint {
   position: absolute;
   bottom: var(--space-8);
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;

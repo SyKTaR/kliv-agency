@@ -1,3 +1,7 @@
+.process {
+  background: var(--color-bg-secondary);
+}
+
 .process__steps {
   list-style: none;
   padding: 0;

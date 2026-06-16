@@ -12,18 +12,22 @@
 }
 .footer__brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-4);
 }
 .footer__logo {
-  font-family: var(--font-body);
-  font-size: var(--text-2xl);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
   text-decoration: none;
+  transition: opacity var(--duration-fast);
 }
-.footer__logo span { color: var(--color-text-muted); }
+.footer__logo:hover { opacity: 0.75; }
+.footer__logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
 .footer__brand p {
   font-size: var(--text-sm);
   color: var(--color-text-muted);

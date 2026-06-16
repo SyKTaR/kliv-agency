@@ -99,6 +99,7 @@
   text-decoration: none;
   transition: color var(--duration-fast);
   position: relative;
+  white-space: nowrap;
 }
 .navbar__links a::after {
   content: '';

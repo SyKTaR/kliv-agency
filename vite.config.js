@@ -2,14 +2,14 @@ import { defineConfig, loadEnv } from 'vite'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
 
-const htmlPartialsPlugin = {
+const htmlPartialsPlugin = ({ enableFigmaCapture = false } = {}) => ({
   name: 'html-partials',
   transformIndexHtml(html) {
     let out = html.replace(/<!--#include\s+(\S+?)-->/g, (_, name) => {
       const path = resolve(__dirname, `src/partials/${name}.html`)
       return readFileSync(path, 'utf-8')
     })
-    if (!out.includes('html-to-design/capture.js')) {
+    if (enableFigmaCapture && !out.includes('html-to-design/capture.js')) {
       out = out.replace(
         '</head>',
         '  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>\n</head>'
@@ -17,7 +17,7 @@ const htmlPartialsPlugin = {
     }
     return out
   }
-}
+})
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -85,7 +85,10 @@ export default defineConfig(({ mode }) => {
   return {
     root: resolve(__dirname, 'src'),
     publicDir: resolve(__dirname, 'public'),
-    plugins: [htmlPartialsPlugin, devServerPlugin],
+    plugins: [
+      htmlPartialsPlugin({ enableFigmaCapture: env.ENABLE_FIGMA_CAPTURE === 'true' }),
+      devServerPlugin,
+    ],
     build: {
       outDir: resolve(__dirname, 'dist'),
       emptyOutDir: true,

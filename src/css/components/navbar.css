@@ -108,10 +108,10 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--color-text-primary);
+  background: var(--color-accent);
   transition: width var(--duration-base) var(--ease-out);
 }
-.navbar__links a:hover { color: var(--color-text-primary); }
+.navbar__links a:hover { color: var(--color-accent); }
 .navbar__links a:hover::after { width: 100%; }
 
 .navbar__actions { flex-shrink: 0; }
@@ -203,7 +203,7 @@
   color: #fff;
 }
 .mobile-menu a:not(.btn):hover::after {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-accent);
   transform: translate(3px, -3px);
 }
 

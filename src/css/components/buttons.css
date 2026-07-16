@@ -17,13 +17,13 @@
 .btn--lg  { padding: 16px 32px; font-size: var(--text-base); }
 
 .btn--primary {
-  background: var(--color-bg-dark);
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-white);
 }
 .btn--primary:hover {
   background: var(--color-accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(26, 86, 240, 0.25);
 }
 
 .btn--outline {
@@ -47,8 +47,8 @@
 }
 
 .btn--inverse {
-  background: #fff;
-  color: var(--color-bg-dark);
+  background: var(--color-white);
+  color: var(--color-anthracite);
 }
 .btn--inverse:hover {
   background: var(--color-bg-secondary);

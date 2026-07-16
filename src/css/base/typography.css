@@ -23,7 +23,7 @@
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 300;
-  color: var(--color-text-muted);
+  color: var(--color-accent);
 }
 .section-title--light { color: var(--color-text-inverse); }
 

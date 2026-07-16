@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kliv Agency — Agence web & digitale. Sites web sur-mesure, outils internes, automatisations et branding.">
-  <meta name="theme-color" content="#0E0E0D">
+  <meta name="description" content="Kliv Agency — Studio digital à taille humaine. Sites web, identités de marque, outils métier et accompagnement, pensés pour être compris.">
+  <meta name="theme-color" content="#26282C">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Kliv Agency — Agence Web & Digitale">
-  <meta property="og:description" content="Sites web, outils métier, automatisations, branding. Du design à la mise en production.">
+  <meta property="og:title" content="Kliv Agency — Le digital, rendu clair">
+  <meta property="og:description" content="Sites web, identités de marque, outils métier et accompagnement. Clarifier. Créer. Transmettre. Faire évoluer.">
   <meta property="og:image" content="/assets/og-image.jpg">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
@@ -40,24 +40,24 @@
 
       <div class="container hero__content">
         <div class="hero__label animate-reveal" data-delay="0">
-          <span>Studio web à taille humaine</span>
+          <span>Studio digital à taille humaine</span>
         </div>
 
         <h1 class="hero__title">
-          <span class="hero__line animate-reveal" data-delay="1">On conçoit</span>
+          <span class="hero__line animate-reveal" data-delay="1">Le digital est déjà</span>
           <span class="hero__rotating-wrapper animate-reveal" data-delay="2" aria-live="polite" aria-atomic="true">
-            <span class="hero__rotating-text hero__line--italic">des expériences qui convertissent.</span>
+            <span class="hero__rotating-text hero__line--italic">suffisamment complexe.</span>
           </span>
         </h1>
 
         <p class="hero__sub animate-reveal" data-delay="4">
-          Des solutions digitales simples, utiles et sur-mesure.<br>
-          On donne vie à vos idées.
+          Nous créons des sites, identités et outils clairs, utiles<br>
+          et pensés pour évoluer.
         </p>
 
         <div class="hero__actions animate-reveal" data-delay="5">
           <a href="/pages/devis.html" class="btn btn--primary btn--lg">
-            Démarrer un projet
+            Parler de votre projet
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -78,23 +78,27 @@
       <p class="marquee-section__label">Ils nous font confiance</p>
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          <span>ARProtect</span>
-          <span>Pep's Print</span>
-          <span>EventOrga</span>
-          <span>Opensecret</span>
-          <span>Alvea</span>
-          <span>Belvida</span>
-          <span>Orbis Tech</span>
-          <span>Lumia Studio</span>
-          <!-- Duplication pour boucle infinie -->
-          <span>ARProtect</span>
-          <span>Pep's Print</span>
-          <span>EventOrga</span>
-          <span>Opensecret</span>
-          <span>Alvea</span>
-          <span>Belvida</span>
-          <span>Orbis Tech</span>
-          <span>Lumia Studio</span>
+          <div class="marquee__group">
+            <span>ARProtect</span>
+            <span>Pep's Print</span>
+            <span>EventOrga</span>
+            <span>Opensecret</span>
+            <span>Alvea</span>
+            <span>Belvida</span>
+            <span>Orbis Tech</span>
+            <span>Washys</span>
+          </div>
+          <!-- Duplication pour boucle infinie (groupes additionnels ajoutés par marquee.js si besoin) -->
+          <div class="marquee__group">
+            <span>ARProtect</span>
+            <span>Pep's Print</span>
+            <span>EventOrga</span>
+            <span>Opensecret</span>
+            <span>Alvea</span>
+            <span>Belvida</span>
+            <span>Orbis Tech</span>
+            <span>Washys</span>
+          </div>
         </div>
       </div>
     </section>
@@ -108,102 +112,355 @@
         <div class="section-header">
           <span class="section-label animate-reveal">Ce que l'on fait</span>
           <h2 class="section-title animate-reveal" data-delay="1">
-            Des solutions pensées<br><em>pour votre croissance</em>
+            Cinq façons de rendre<br><em>votre digital plus clair</em>
           </h2>
         </div>
 
-        <div class="services__grid">
+        <div class="services__viewport">
 
-          <article class="service-card service-card--featured" data-num="01">
-            <div class="service-card__number">01</div>
-            <div class="service-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <rect x="2" y="5" width="24" height="18" rx="2" stroke="#888884" stroke-width="1.5"/>
-                <path d="M2 10h24" stroke="#888884" stroke-width="1.5"/>
-                <circle cx="6" cy="7.5" r="1" fill="#888884"/>
-                <circle cx="10" cy="7.5" r="1" fill="#888884"/>
-              </svg>
-            </div>
-            <h3 class="service-card__title">Sites Web</h3>
-            <p class="service-card__desc">
-              Vitrines, e-commerces, SaaS. Des interfaces performantes,
-              optimisées SEO et conçues pour convertir vos visiteurs.
-            </p>
-            <a href="/pages/devis.html" class="service-card__link">
-              Obtenir un devis
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
+          <div class="services__grid" id="servicesGrid">
 
-          <article class="service-card" data-num="02">
-            <div class="service-card__number">02</div>
-            <div class="service-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="9" r="5" stroke="#888884" stroke-width="1.5"/>
-                <path d="M5 23c0-4.4 4-8 9-8s9 3.6 9 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="service-card__title">Branding</h3>
-            <p class="service-card__desc">
-              Identité visuelle, logo, charte graphique. Une marque
-              cohérente qui inspire confiance dès le premier regard.
-            </p>
-            <a href="/pages/devis.html" class="service-card__link">
-              Obtenir un devis
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
+            <article class="service-card service-card--featured" data-service="01">
+              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
+                <div class="service-card__number">01</div>
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <rect x="2" y="5" width="24" height="18" rx="2" stroke="#888884" stroke-width="1.5"/>
+                    <path d="M2 10h24" stroke="#888884" stroke-width="1.5"/>
+                    <circle cx="6" cy="7.5" r="1" fill="#888884"/>
+                    <circle cx="10" cy="7.5" r="1" fill="#888884"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Site web</h3>
+                <p class="service-card__desc">
+                  Vitrine, refonte ou plateforme plus complexe : des sites
+                  clairs, rapides et pensés pour être compris, pas seulement admirés.
+                </p>
+                <span class="service-card__toggle-cta">
+                  Découvrir le service
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </article>
 
-          <article class="service-card" data-num="03">
-            <div class="service-card__number">03</div>
-            <div class="service-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path d="M6 14c0-4.4 3.6-8 8-8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M22 14c0 4.4-3.6 8-8 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="6" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
-                <circle cx="22" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
-                <path d="M10 6l4-4 4 4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M18 22l-4 4-4-4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3 class="service-card__title">Automatisations</h3>
-            <p class="service-card__desc">
-              Connectez vos outils, éliminez les tâches répétitives.
-              On automatise vos processus de A à Z.
-            </p>
-            <a href="/pages/devis.html" class="service-card__link">
-              Obtenir un devis
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
+            <article class="service-card" data-service="02">
+              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
+                <div class="service-card__number">02</div>
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <circle cx="14" cy="9" r="5" stroke="#888884" stroke-width="1.5"/>
+                    <path d="M5 23c0-4.4 4-8 9-8s9 3.6 9 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Identité de marque</h3>
+                <p class="service-card__desc">
+                  Logo, couleurs, typographie, direction artistique. Une
+                  identité cohérente qui raconte la même chose partout.
+                </p>
+                <span class="service-card__toggle-cta">
+                  Découvrir le service
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </article>
 
-          <article class="service-card service-card--wide" data-num="04">
-            <div class="service-card__number">04</div>
-            <div class="service-card__icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <rect x="3" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                <rect x="15" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                <rect x="3" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                <rect x="15" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-              </svg>
+            <article class="service-card" data-service="03">
+              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
+                <div class="service-card__number">03</div>
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <rect x="3" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                    <rect x="15" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                    <rect x="3" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                    <rect x="15" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Outil métier</h3>
+                <p class="service-card__desc">
+                  Espace client, outil de devis, suivi de production. Des
+                  outils sur-mesure que vos équipes utilisent vraiment.
+                </p>
+                <span class="service-card__toggle-cta">
+                  Découvrir le service
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </article>
+
+            <article class="service-card" data-service="04">
+              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
+                <div class="service-card__number">04</div>
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <path d="M6 14c0-4.4 3.6-8 8-8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M22 14c0 4.4-3.6 8-8 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="6" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
+                    <circle cx="22" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
+                    <path d="M10 6l4-4 4 4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 22l-4 4-4-4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">CRM &amp; Dashboard</h3>
+                <p class="service-card__desc">
+                  Centraliser vos données, prioriser ce qui compte, suivre
+                  votre activité en un coup d'œil. Pensé pour la décision.
+                </p>
+                <span class="service-card__toggle-cta">
+                  Découvrir le service
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </article>
+
+            <article class="service-card" data-service="05">
+              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
+                <div class="service-card__number">05</div>
+                <div class="service-card__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <circle cx="14" cy="14" r="10" stroke="#888884" stroke-width="1.5"/>
+                    <circle cx="14" cy="14" r="4" stroke="#888884" stroke-width="1.5"/>
+                    <circle cx="14" cy="14" r="1" fill="#888884"/>
+                  </svg>
+                </div>
+                <h3 class="service-card__title">Accompagnement</h3>
+                <p class="service-card__desc">
+                  Suivi mensuel, conseils, évolutions. L'autonomie ne
+                  remplace pas l'accompagnement — on reste disponibles.
+                </p>
+                <span class="service-card__toggle-cta">
+                  Découvrir le service
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="services__detail" id="servicesDetail" hidden>
+            <button class="services__detail-close" type="button" id="servicesDetailClose">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span>Retour aux services</span>
+            </button>
+
+            <div class="service-detail" data-service="01" hidden>
+              <div class="service-detail__icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+                  <rect x="2" y="5" width="24" height="18" rx="2" stroke="#888884" stroke-width="1.5"/>
+                  <path d="M2 10h24" stroke="#888884" stroke-width="1.5"/>
+                  <circle cx="6" cy="7.5" r="1" fill="#888884"/>
+                  <circle cx="10" cy="7.5" r="1" fill="#888884"/>
+                </svg>
+              </div>
+              <h3 class="service-detail__title">Site web</h3>
+              <p class="service-detail__intro">
+                Pour les entreprises qui veulent une présence digitale claire, moderne et
+                crédible, sans se retrouver avec un site figé ou incompréhensible.
+              </p>
+              <div class="service-detail__list">
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Ce que l'on crée</span>
+                  <p>Landing page, site vitrine, refonte, intégration CMS, responsive design.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Ce que le client gagne</span>
+                  <p>Une image plus professionnelle, un parcours plus clair, un outil utilisable.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Ce que KLIV explique</span>
+                  <p>Structure des pages, logique des CTA, modifications simples, bonnes pratiques.</p>
+                </div>
+              </div>
+              <a href="/pages/devis.html" class="service-detail__cta">
+                Obtenir un devis pour ce service
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
             </div>
-            <h3 class="service-card__title">Outils Internes</h3>
-            <p class="service-card__desc">
-              CRM, ERP, dashboards sur-mesure. On remplace vos Excel
-              par des outils pensés pour vos équipes et votre productivité.
-            </p>
-            <a href="/pages/devis.html" class="service-card__link">
-              Obtenir un devis
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
+
+            <div class="service-detail" data-service="02" hidden>
+              <div class="service-detail__icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+                  <circle cx="14" cy="9" r="5" stroke="#888884" stroke-width="1.5"/>
+                  <path d="M5 23c0-4.4 4-8 9-8s9 3.6 9 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="service-detail__title">Identité de marque</h3>
+              <p class="service-detail__intro">
+                Le branding KLIV n'est pas une décoration. Il doit rendre une entreprise
+                plus lisible, plus cohérente et plus facilement reconnaissable sur ses supports.
+              </p>
+              <div class="service-detail__list">
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Livrables possibles</span>
+                  <p>Logo, système couleur, typographies, direction artistique, guidelines.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Approche</span>
+                  <p>Partir du positionnement avant de produire les formes.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Résultat attendu</span>
+                  <p>Une marque plus claire, plus sérieuse et plus facile à décliner.</p>
+                </div>
+              </div>
+              <a href="/pages/devis.html" class="service-detail__cta">
+                Obtenir un devis pour ce service
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+
+            <div class="service-detail" data-service="03" hidden>
+              <div class="service-detail__icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+                  <rect x="3" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                  <rect x="15" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                  <rect x="3" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                  <rect x="15" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <h3 class="service-detail__title">Outil métier</h3>
+              <p class="service-detail__intro">
+                KLIV conçoit des interfaces internes, mini plateformes, espaces clients ou
+                outils métier. Le but n'est pas de créer un logiciel compliqué, mais de
+                retirer de la friction dans les tâches répétitives.
+              </p>
+              <div class="service-detail__list">
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Exemples</span>
+                  <p>Espace client, formulaire intelligent, mini CRM, suivi de projet, outil de scoring.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Priorité UX</span>
+                  <p>Créer une interface évidente, même pour une équipe non technique.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Transmission</span>
+                  <p>Documenter les usages et les scénarios pour que l'outil reste vivant.</p>
+                </div>
+              </div>
+              <a href="/pages/devis.html" class="service-detail__cta">
+                Obtenir un devis pour ce service
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+
+            <div class="service-detail" data-service="04" hidden>
+              <div class="service-detail__icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+                  <path d="M6 14c0-4.4 3.6-8 8-8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M22 14c0 4.4-3.6 8-8 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="6" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
+                  <circle cx="22" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
+                  <path d="M10 6l4-4 4 4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18 22l-4 4-4-4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="service-detail__title">CRM &amp; Dashboard</h3>
+              <p class="service-detail__intro">
+                Les données ne servent à rien si personne ne les comprend. KLIV structure
+                des tableaux de bord et systèmes de suivi qui permettent de prendre de
+                meilleures décisions sans complexifier le quotidien.
+              </p>
+              <div class="service-detail__list">
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Objectif</span>
+                  <p>Centraliser, visualiser, prioriser et suivre les informations clés.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Formats</span>
+                  <p>Dashboard, automatisation, suivi de leads, reporting, base client.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Bénéfice</span>
+                  <p>Moins de dispersion, plus de clarté, des décisions plus rapides.</p>
+                </div>
+              </div>
+              <a href="/pages/devis.html" class="service-detail__cta">
+                Obtenir un devis pour ce service
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+
+            <div class="service-detail" data-service="05" hidden>
+              <div class="service-detail__icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+                  <circle cx="14" cy="14" r="10" stroke="#888884" stroke-width="1.5"/>
+                  <circle cx="14" cy="14" r="4" stroke="#888884" stroke-width="1.5"/>
+                  <circle cx="14" cy="14" r="1" fill="#888884"/>
+                </svg>
+              </div>
+              <h3 class="service-detail__title">Accompagnement</h3>
+              <p class="service-detail__intro">
+                KLIV donne au client les moyens d'utiliser ses outils au quotidien. Cette
+                autonomie ouvre une relation plus saine : le client revient pour évoluer,
+                optimiser et aller plus loin, pas parce qu'il est bloqué.
+              </p>
+              <div class="service-detail__list">
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Suivi mensuel</span>
+                  <p>Corrections, priorisation, petites évolutions, conseils.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Évolution</span>
+                  <p>Nouvelles pages, contenus, fonctionnalités, automatisations.</p>
+                </div>
+                <div class="service-detail__item">
+                  <span class="service-detail__label">Conseil</span>
+                  <p>Aide à la décision, roadmap digitale, amélioration continue.</p>
+                </div>
+              </div>
+              <a href="/pages/devis.html" class="service-detail__cta">
+                Obtenir un devis pour ce service
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+
+          </div>
 
         </div>
       </div>
     </section>
 
     <!-- ==============================
-         [05] POURQUOI KLIV
+         [05] MÉTHODE
+    =============================== -->
+    <section class="method section" id="methode">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label animate-reveal">Notre méthode</span>
+          <h2 class="section-title animate-reveal" data-delay="1">
+            Clarifier. Créer. Transmettre.<br><em>Faire évoluer.</em>
+          </h2>
+        </div>
+
+        <div class="method__grid">
+          <div class="method-card animate-reveal" data-delay="0">
+            <div class="method-card__num">01</div>
+            <h3 class="method-card__title">Clarifier</h3>
+            <p class="method-card__desc">Comprendre le contexte, les objectifs, les blocages et les priorités avant de proposer quoi que ce soit.</p>
+          </div>
+          <div class="method-card animate-reveal" data-delay="1">
+            <div class="method-card__num">02</div>
+            <h3 class="method-card__title">Créer</h3>
+            <p class="method-card__desc">Concevoir une solution claire, esthétique, utile et alignée avec le besoin réel — pas avec une tendance.</p>
+          </div>
+          <div class="method-card animate-reveal" data-delay="2">
+            <div class="method-card__num">03</div>
+            <h3 class="method-card__title">Transmettre</h3>
+            <p class="method-card__desc">Livrer avec documentation, explications et prise en main. Un projet livré, c'est un outil que vous savez utiliser.</p>
+          </div>
+          <div class="method-card method-card--accent animate-reveal" data-delay="3">
+            <div class="method-card__num">04</div>
+            <h3 class="method-card__title">Faire évoluer</h3>
+            <p class="method-card__desc">Accompagner les ajustements, les nouvelles pages, les contenus et les optimisations dans le temps.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================
+         [06] POURQUOI KLIV
     =============================== -->
     <section class="why-kliv section" id="approche">
       <div class="container">
@@ -212,7 +469,7 @@
           <span class="section-label section-label--light animate-reveal">Notre approche</span>
           <h2 class="why-kliv__title animate-reveal" data-delay="1">
             Pas une agence de plus.<br>
-            <em>Votre partenaire technique.</em>
+            <em>Un partenaire qui explique.</em>
           </h2>
         </div>
 
@@ -244,8 +501,8 @@
           <div class="point animate-reveal" data-delay="0">
             <div class="point__icon" aria-hidden="true">→</div>
             <div>
-              <h4>On pense business avant tout</h4>
-              <p>Chaque décision design ou tech est prise en fonction de vos objectifs métier, pas de nos préférences esthétiques.</p>
+              <h4>On rend clair avant de rendre beau</h4>
+              <p>Chaque décision design ou technique sert votre besoin réel, pas une tendance ou nos préférences esthétiques.</p>
             </div>
           </div>
           <div class="point animate-reveal" data-delay="1">
@@ -258,8 +515,8 @@
           <div class="point animate-reveal" data-delay="2">
             <div class="point__icon" aria-hidden="true">→</div>
             <div>
-              <h4>On livre vraiment</h4>
-              <p>Délais tenus. Code propre. Documentation incluse. On vous laisse un actif, pas une dépendance.</p>
+              <h4>On livre la capacité de l'utiliser</h4>
+              <p>Délais tenus, documentation claire, prise en main incluse. On vous laisse un outil que vous savez utiliser, pas une dépendance.</p>
             </div>
           </div>
         </div>
@@ -340,7 +597,7 @@
         <div class="section-header">
           <span class="section-label animate-reveal">Comment on travaille</span>
           <h2 class="section-title animate-reveal" data-delay="1">
-            4 étapes,<br><em>zéro surprise.</em>
+            6 étapes,<br><em>zéro surprise.</em>
           </h2>
         </div>
 
@@ -348,29 +605,43 @@
           <li class="process-step animate-reveal" data-delay="0">
             <div class="process-step__num">01</div>
             <div class="process-step__content">
-              <h3>Brief &amp; Discovery</h3>
-              <p>On comprend votre business, vos objectifs, vos contraintes. Un atelier de 1h qui pose les bases solides du projet.</p>
+              <h3>Découverte</h3>
+              <p>Un échange de cadrage pour comprendre votre activité, vos objectifs et vos contraintes réelles.</p>
             </div>
           </li>
           <li class="process-step animate-reveal" data-delay="1">
             <div class="process-step__num">02</div>
             <div class="process-step__content">
-              <h3>Design &amp; Prototypage</h3>
-              <p>Maquettes Figma, wireframes interactifs. Vous validez chaque étape avant qu'une ligne de code ne soit écrite.</p>
+              <h3>Diagnostic</h3>
+              <p>On identifie les priorités et les enjeux. Ce qui compte vraiment, et ce qui peut attendre.</p>
             </div>
           </li>
           <li class="process-step animate-reveal" data-delay="2">
             <div class="process-step__num">03</div>
             <div class="process-step__content">
-              <h3>Développement</h3>
-              <p>Code propre, documenté et scalable. Sprints de 2 semaines avec accès à un board de suivi en temps réel.</p>
+              <h3>Direction</h3>
+              <p>Choix créatifs et techniques posés clairement. Vous validez une direction avant qu'on construise.</p>
             </div>
           </li>
           <li class="process-step animate-reveal" data-delay="3">
             <div class="process-step__num">04</div>
             <div class="process-step__content">
-              <h3>Livraison &amp; Suivi</h3>
-              <p>Mise en production, formation si besoin, support post-lancement. On ne disparaît pas après livraison.</p>
+              <h3>Production</h3>
+              <p>Design, développement, contenus. Le projet prend forme, avec des points d'étape réguliers.</p>
+            </div>
+          </li>
+          <li class="process-step animate-reveal" data-delay="4">
+            <div class="process-step__num">05</div>
+            <div class="process-step__content">
+              <h3>Transmission</h3>
+              <p>Documentation et formation adaptées à votre niveau. Vous savez utiliser ce qu'on a construit.</p>
+            </div>
+          </li>
+          <li class="process-step animate-reveal" data-delay="5">
+            <div class="process-step__num">06</div>
+            <div class="process-step__content">
+              <h3>Suivi</h3>
+              <p>Un point post-lancement pour corriger, améliorer et prioriser les évolutions à venir.</p>
             </div>
           </li>
         </ol>
@@ -380,7 +651,8 @@
     <!-- ==============================
          [08] TÉMOIGNAGES
     =============================== -->
-    <section class="testimonials section" id="temoignages">
+    <!-- Section temporairement suspendue : retirer l'attribut `hidden` pour la réactiver. -->
+    <section class="testimonials section" id="temoignages" hidden>
       <div class="container">
         <div class="section-header">
           <span class="section-label animate-reveal">Ce qu'ils disent</span>
@@ -414,36 +686,8 @@
               <footer class="testimonial__author">
                 <div class="testimonial__avatar" aria-hidden="true">SD</div>
                 <div>
-                  <cite class="testimonial__name">Sophie Durand</cite>
-                  <span class="testimonial__role">Fondatrice — Studio Aurore</span>
-                </div>
-              </footer>
-            </blockquote>
-
-            <blockquote class="testimonial" data-index="2">
-              <span class="testimonial__mark" aria-hidden="true">&ldquo;</span>
-              <p class="testimonial__quote">
-                Réactivité, expertise, résultat. On a enfin un outil interne qui correspond vraiment à nos workflows. L'équipe Kliv a parfaitement compris nos besoins.
-              </p>
-              <footer class="testimonial__author">
-                <div class="testimonial__avatar" aria-hidden="true">AB</div>
-                <div>
-                  <cite class="testimonial__name">Antoine Blanc</cite>
-                  <span class="testimonial__role">CEO — Forma Pro</span>
-                </div>
-              </footer>
-            </blockquote>
-
-            <blockquote class="testimonial" data-index="3">
-              <span class="testimonial__mark" aria-hidden="true">&ldquo;</span>
-              <p class="testimonial__quote">
-                Notre e-commerce a été repensé de A à Z. Le chiffre d'affaires en ligne a doublé en 3 mois. ROI immédiat, je recommande sans hésiter.
-              </p>
-              <footer class="testimonial__author">
-                <div class="testimonial__avatar" aria-hidden="true">CM</div>
-                <div>
-                  <cite class="testimonial__name">Claire Martin</cite>
-                  <span class="testimonial__role">Directrice — Belvida</span>
+                  <cite class="testimonial__name">Philippe Dos Santos</cite>
+                  <span class="testimonial__role">Pep's Print</span>
                 </div>
               </footer>
             </blockquote>
@@ -477,7 +721,7 @@
         <div class="section-header">
           <span class="section-label animate-reveal">On vous répond</span>
           <h2 class="section-title animate-reveal" data-delay="1">
-            Vos questions,<br><em>nos réponses les plus pertinentes.</em>
+            Vos questions,<br><em>avant qu'elles ne se posent.</em>
           </h2>
         </div>
 
@@ -485,7 +729,7 @@
 
           <div class="faq-item animate-reveal" data-delay="0">
             <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-1">
-              <span class="faq-item__question">Combien de temps prend la création d'un site ?</span>
+              <span class="faq-item__question">Combien coûte un projet avec Kliv ?</span>
               <span class="faq-item__icon" aria-hidden="true">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -493,13 +737,13 @@
               </span>
             </button>
             <div class="faq-item__body" id="faq-1">
-              <p class="faq-item__answer">En moyenne, 2 à 4 semaines pour un site vitrine. Un projet plus complexe (e-commerce, outil métier) demande 4 à 10 semaines selon le périmètre défini ensemble.</p>
+              <p class="faq-item__answer">Un devis clair vaut mieux qu'une promesse floue. Un site vitrine démarre autour de 600 — 1 500 €, un outil métier ou un CRM se situe plutôt entre 2 000 et 8 000 €. Le calculateur ci-contre vous donne une fourchette en 2 minutes, sans engagement.</p>
             </div>
           </div>
 
           <div class="faq-item animate-reveal" data-delay="1">
             <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-2">
-              <span class="faq-item__question">Est-ce que vous créez aussi l'identité visuelle ?</span>
+              <span class="faq-item__question">Combien de temps prend la création d'un site ?</span>
               <span class="faq-item__icon" aria-hidden="true">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -507,13 +751,13 @@
               </span>
             </button>
             <div class="faq-item__body" id="faq-2">
-              <p class="faq-item__answer">Oui. Logo, charte graphique, typographie, palette de couleurs — on peut tout concevoir de A à Z, ou simplement travailler avec votre identité existante.</p>
+              <p class="faq-item__answer">En moyenne, 2 à 4 semaines pour un site vitrine. Un projet plus complexe (e-commerce, outil métier) demande 4 à 10 semaines selon le périmètre défini ensemble dès la phase de découverte.</p>
             </div>
           </div>
 
           <div class="faq-item animate-reveal" data-delay="2">
             <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-3">
-              <span class="faq-item__question">Pouvez-vous créer un CRM sur mesure ?</span>
+              <span class="faq-item__question">Est-ce que vous créez aussi l'identité de marque ?</span>
               <span class="faq-item__icon" aria-hidden="true">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -521,11 +765,25 @@
               </span>
             </button>
             <div class="faq-item__body" id="faq-3">
-              <p class="faq-item__answer">Absolument. C'est l'un de nos cœurs de métier. On conçoit des outils adaptés à vos processus : CRM, ERP, dashboards, gestion de devis... Si vous avez un process, on peut l'outiller.</p>
+              <p class="faq-item__answer">Oui. Logo, charte graphique, typographie, palette de couleurs — on peut tout concevoir de A à Z, pour que votre site, vos contenus et votre identité racontent la même chose.</p>
             </div>
           </div>
 
           <div class="faq-item animate-reveal" data-delay="3">
+            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-3b">
+              <span class="faq-item__question">Pouvez-vous créer un outil métier ou un CRM sur mesure ?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body" id="faq-3b">
+              <p class="faq-item__answer">Absolument. C'est l'un de nos cœurs de métier. On conçoit des outils adaptés à vos processus : CRM, dashboard, gestion de devis... Si vous avez un process, on peut le rendre utile.</p>
+            </div>
+          </div>
+
+          <div class="faq-item animate-reveal" data-delay="4">
             <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-4">
               <span class="faq-item__question">Travaillez-vous avec des outils no-code ou du code ?</span>
               <span class="faq-item__icon" aria-hidden="true">
@@ -535,13 +793,13 @@
               </span>
             </button>
             <div class="faq-item__body" id="faq-4">
-              <p class="faq-item__answer">Les deux, selon les besoins. No-code (Webflow, Make, Notion) pour aller vite sur des projets ciblés. Code sur mesure quand la complexité, la scalabilité ou l'intégration l'exige.</p>
+              <p class="faq-item__answer">Les deux, selon les besoins. No-code pour aller vite sur des projets ciblés. Code sur mesure quand la complexité, la scalabilité ou l'intégration l'exige. On choisit l'outil pour vous, pas pour nous.</p>
             </div>
           </div>
 
-          <div class="faq-item animate-reveal" data-delay="4">
+          <div class="faq-item animate-reveal" data-delay="5">
             <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-5">
-              <span class="faq-item__question">Est-ce que je peux modifier mon site après livraison ?</span>
+              <span class="faq-item__question">Puis-je gérer mon site moi-même après livraison ?</span>
               <span class="faq-item__icon" aria-hidden="true">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -549,13 +807,13 @@
               </span>
             </button>
             <div class="faq-item__body" id="faq-5">
-              <p class="faq-item__answer">Toujours. On livre avec une documentation claire et, si besoin, un CMS intégré pour que vous puissiez gérer votre contenu en toute autonomie, sans passer par nous.</p>
+              <p class="faq-item__answer">Oui : transmission, documentation et prise en main incluses. L'autonomie ne remplace pas l'accompagnement, mais elle ne dépend pas de nous non plus.</p>
             </div>
           </div>
 
-          <div class="faq-item animate-reveal" data-delay="5">
+          <div class="faq-item animate-reveal" data-delay="6">
             <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-6">
-              <span class="faq-item__question">Proposez-vous un accompagnement après la mise en ligne ?</span>
+              <span class="faq-item__question">Que se passe-t-il après la mise en ligne ?</span>
               <span class="faq-item__icon" aria-hidden="true">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -563,13 +821,13 @@
               </span>
             </button>
             <div class="faq-item__body" id="faq-6">
-              <p class="faq-item__answer">Oui. On propose des formules de maintenance et de suivi mensuel. Vous n'êtes pas seul une fois le projet livré — on reste disponibles pour faire évoluer ce qu'on a construit ensemble.</p>
+              <p class="faq-item__answer">On ne disparaît pas après la livraison. Un point post-lancement est prévu, et un accompagnement mensuel reste disponible si vous voulez faire évoluer ce qu'on a construit ensemble.</p>
             </div>
           </div>
 
-          <div class="faq-item animate-reveal" data-delay="6">
+          <div class="faq-item animate-reveal" data-delay="7">
             <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-7">
-              <span class="faq-item__question">Est-ce que vous pouvez automatiser mes tâches internes ?</span>
+              <span class="faq-item__question">Je ne sais pas par où commencer, est-ce grave ?</span>
               <span class="faq-item__icon" aria-hidden="true">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -577,11 +835,11 @@
               </span>
             </button>
             <div class="faq-item__body" id="faq-7">
-              <p class="faq-item__answer">Oui. Envois d'emails, synchronisation d'outils, génération de rapports, alertes automatiques — on mappe vos processus et on automatise ce qui peut l'être, de A à Z.</p>
+              <p class="faq-item__answer">Non, c'est même le point de départ le plus courant. La phase de découverte sert exactement à ça : clarifier ce dont vous avez besoin, avant de parler solution.</p>
             </div>
           </div>
 
-          <div class="faq-item animate-reveal" data-delay="7">
+          <div class="faq-item animate-reveal" data-delay="8">
             <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-8">
               <span class="faq-item__question">Comment démarre un projet avec Kliv ?</span>
               <span class="faq-item__icon" aria-hidden="true">
@@ -611,16 +869,16 @@
             <div class="cta-final__copy">
               <span class="section-label section-label--light animate-reveal">Prêt à démarrer ?</span>
               <h2 class="cta-final__title animate-reveal" data-delay="1">
-                Parlons de votre<br><em>prochain projet.</em>
+                Parlons de<br><em>votre projet.</em>
               </h2>
             </div>
 
             <div class="cta-final__panel animate-reveal" data-delay="2">
               <p class="cta-final__panel-text">
-                Un brief, un appel de 30 min, et on vous dit ce qu'on peut faire, sans engagement, sans blabla.
+                Pas un formulaire administratif. Une invitation à échanger : un brief, un appel de 30 min, et on vous dit ce qu'on peut faire, sans engagement.
               </p>
               <a href="/pages/devis.html" class="btn btn--primary btn--lg cta-final__panel-btn">
-                Prendre contact
+                Parler de votre projet
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>

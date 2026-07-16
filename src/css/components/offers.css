@@ -23,7 +23,7 @@
 
 .offers__title em {
   font-style: italic;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--color-accent);
 }
 
 /* ── List ── */

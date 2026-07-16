@@ -1,14 +1,8 @@
 const PHRASES = [
-  'des expériences qui convertissent.',
-  'des sites qui transforment.',
-  'des interfaces qui vendent.',
-  'des parcours qui engagent.',
-  'des plateformes qui performent.',
-  'des outils qui simplifient.',
-  'des solutions qui accélèrent.',
-  'des expériences qui marquent.',
-  'des produits qui évoluent.',
-  'des systèmes qui changent tout.',
+  'suffisamment complexe.',
+  'trop souvent technique.',
+  'trop souvent flou.',
+  'trop souvent dispersé.',
 ]
 
 const INTERVAL   = 3400

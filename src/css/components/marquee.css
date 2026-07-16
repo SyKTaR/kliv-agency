@@ -17,9 +17,17 @@
 .marquee { overflow: hidden; }
 .marquee__track {
   display: flex;
-  gap: var(--space-16);
-  animation: marqueeScroll 22s linear infinite;
   width: max-content;
+  animation: marqueeScroll linear infinite;
+  animation-duration: var(--marquee-duration, 22s);
+  animation-play-state: paused;
+}
+.marquee__track.is-ready { animation-play-state: running; }
+.marquee__group {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-16);
+  padding-right: var(--space-16);
 }
 .marquee__track span {
   font-family: var(--font-display);
@@ -32,5 +40,5 @@
 .marquee__track span:hover { color: var(--color-text-primary); }
 @keyframes marqueeScroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(var(--marquee-distance, -50%)); }
 }

@@ -1,6 +1,8 @@
 import './navbar.js'
+import './marquee.js'
 import './reveal.js'
 import './counter.js'
 import './cursor.js'
 import './faq.js'
 import './testimonials.js'
+import './services.js'

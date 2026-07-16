@@ -1,0 +1,61 @@
+.method {
+  background: var(--color-bg-secondary);
+}
+
+.method__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.method-card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+}
+
+.method-card__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: var(--space-6);
+}
+
+.method-card__title {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.method-card__desc {
+  font-size: var(--text-sm);
+  font-weight: 300;
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+.method-card--accent {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.method-card--accent .method-card__num,
+.method-card--accent .method-card__title {
+  color: var(--color-text-inverse);
+}
+.method-card--accent .method-card__desc {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 900px) {
+  .method__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .method__grid { grid-template-columns: 1fr; }
+}

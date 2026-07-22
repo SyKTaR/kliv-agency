@@ -4,6 +4,11 @@
   "rewrites": [
     { "source": "/", "destination": "/pages/index.html" },
     { "source": "/contact", "destination": "/pages/devis.html" },
-    { "source": "/devis", "destination": "/pages/devis.html" }
+    { "source": "/devis", "destination": "/pages/devis.html" },
+    { "source": "/services/site-web", "destination": "/pages/services/site-web.html" },
+    { "source": "/services/identite-marque", "destination": "/pages/services/identite-marque.html" },
+    { "source": "/services/outil-metier", "destination": "/pages/services/outil-metier.html" },
+    { "source": "/services/crm-dashboard", "destination": "/pages/services/crm-dashboard.html" },
+    { "source": "/services/accompagnement", "destination": "/pages/services/accompagnement.html" }
   ]
 }

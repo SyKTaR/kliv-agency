@@ -94,8 +94,13 @@ export default defineConfig(({ mode }) => {
       emptyOutDir: true,
       rollupOptions: {
         input: {
-          main:  resolve(__dirname, 'src/pages/index.html'),
-          devis: resolve(__dirname, 'src/pages/devis.html'),
+          main:            resolve(__dirname, 'src/pages/index.html'),
+          devis:           resolve(__dirname, 'src/pages/devis.html'),
+          siteWeb:         resolve(__dirname, 'src/pages/services/site-web.html'),
+          identiteMarque:  resolve(__dirname, 'src/pages/services/identite-marque.html'),
+          outilMetier:     resolve(__dirname, 'src/pages/services/outil-metier.html'),
+          crmDashboard:    resolve(__dirname, 'src/pages/services/crm-dashboard.html'),
+          accompagnement:  resolve(__dirname, 'src/pages/services/accompagnement.html'),
         }
       }
     },

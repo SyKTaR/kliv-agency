@@ -1,4 +1,6 @@
 const revealElements = document.querySelectorAll('.animate-reveal')
+const heroRevealElements = document.querySelectorAll('.hero .animate-reveal')
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -15,4 +17,24 @@ const observer = new IntersectionObserver((entries) => {
   rootMargin: '0px 0px -60px 0px'
 })
 
-revealElements.forEach(el => observer.observe(el))
+revealElements.forEach((element) => {
+  if (!element.closest('.hero')) observer.observe(element)
+})
+
+const startHeroReveal = () => {
+  heroRevealElements.forEach((element) => {
+    if (reducedMotion) {
+      element.classList.add('is-visible')
+    } else {
+      observer.observe(element)
+    }
+  })
+}
+
+if (document.documentElement.classList.contains('is-intro-active')) {
+  window.addEventListener('kliv:intro-complete', startHeroReveal, { once: true })
+} else {
+  startHeroReveal()
+}
+
+document.documentElement.classList.remove('reveal-fallback')

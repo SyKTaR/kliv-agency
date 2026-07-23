@@ -1,3 +1,4 @@
+import './intro.js'
 import './navbar.js'
 import './marquee.js'
 import './reveal.js'

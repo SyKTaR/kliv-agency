@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="reveal-fallback">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,52 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <link rel="preload" href="/assets/logo-white.png" as="image" type="image/png">
+  <script>
+    (() => {
+      const root = document.documentElement
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+      root.classList.add('js')
+
+      const releaseHero = (reason) => {
+        if (window.__klivIntroHeroReleased) return
+        window.__klivIntroHeroReleased = true
+        window.dispatchEvent(new CustomEvent('kliv:intro-complete', {
+          detail: { reason, reducedMotion }
+        }))
+      }
+
+      const failOpen = (reason = 'safety-timeout') => {
+        if (window.__klivIntroCleanupDone) return
+        window.__klivIntroCleanupDone = true
+        window.clearTimeout(window.__klivIntroSafetyTimer)
+        root.classList.remove('is-intro-active')
+        root.removeAttribute('data-intro')
+        root.removeAttribute('data-intro-motion')
+        document.getElementById('kliv-intro')?.remove()
+        releaseHero(reason)
+      }
+
+      window.__klivIntroReleaseHero = releaseHero
+      window.__klivIntroFailOpen = failOpen
+
+      root.dataset.intro = 'play'
+      root.dataset.introMotion = reducedMotion ? 'reduced' : 'full'
+      root.classList.add('is-intro-active')
+
+      window.__klivIntroSafetyTimer = window.setTimeout(
+        () => failOpen('safety-timeout'),
+        reducedMotion ? 320 : 2050
+      )
+
+      window.addEventListener('pageshow', (event) => {
+        // Une restauration bfcache ne réexécute pas l'intro : un rechargement
+        // complet garantit le même comportement à chaque affichage de la page.
+        if (event.persisted) window.location.reload()
+      })
+    })()
+  </script>
   <link rel="stylesheet" href="../css/main.css">
   <title>Agence Web Seine-et-Marne — Sites &amp; Outils | Kliv Agency</title>
 
@@ -150,6 +196,25 @@
   </script>
 </head>
 <body>
+
+  <div class="intro" id="kliv-intro" aria-hidden="true">
+    <div class="intro__panel intro__panel--top"></div>
+    <div class="intro__panel intro__panel--bottom"></div>
+
+    <div class="intro__mark">
+      <img
+        class="intro__logo intro__logo--base"
+        src="/assets/logo-white.png"
+        width="246"
+        height="198"
+        alt=""
+      >
+      <span class="intro__logo intro__logo--pigment"></span>
+      <span class="intro__logo intro__logo--grain"></span>
+    </div>
+
+    <span class="intro__axis"></span>
+  </div>
 
   <!-- Skip link -->
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>

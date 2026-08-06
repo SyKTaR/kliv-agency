@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700;9..40,800&display=swap');
+/* Police chargée via <link> dans le <head> (voir src/pages/*.html) plutôt qu'en
+   @import CSS : un @import bloque la construction du CSSOM en cascade (le
+   navigateur doit finir de fetcher ce fichier avant même de découvrir l'appel
+   aux fonts), ce qui retarde le premier affichage, surtout sur mobile/4G. */
 
 :root {
   /* Marque — 3 couleurs officielles, nuances par opacité uniquement */

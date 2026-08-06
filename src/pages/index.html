@@ -21,6 +21,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700;9..40,800&display=swap">
 
   <link rel="preload" href="/assets/logo-white.png" as="image" type="image/png">
   <script>
@@ -52,24 +53,39 @@
       window.__klivIntroReleaseHero = releaseHero
       window.__klivIntroFailOpen = failOpen
 
-      root.dataset.intro = 'play'
-      root.dataset.introMotion = reducedMotion ? 'reduced' : 'full'
-      root.classList.add('is-intro-active')
+      // L'intro ne doit jouer qu'une fois par session (pas à chaque refresh),
+      // avec repli silencieux si sessionStorage est indisponible (navigation privée, etc.).
+      let alreadyPlayed = false
+      try {
+        alreadyPlayed = window.sessionStorage.getItem('kliv-intro-played') === '1'
+        if (!alreadyPlayed) window.sessionStorage.setItem('kliv-intro-played', '1')
+      } catch {
+        alreadyPlayed = false
+      }
 
-      window.__klivIntroSafetyTimer = window.setTimeout(
-        () => failOpen('safety-timeout'),
-        reducedMotion ? 320 : 2050
-      )
+      if (alreadyPlayed) {
+        document.getElementById('kliv-intro')?.remove()
+      } else {
+        root.dataset.intro = 'play'
+        root.dataset.introMotion = reducedMotion ? 'reduced' : 'full'
+        root.classList.add('is-intro-active')
 
+        window.__klivIntroSafetyTimer = window.setTimeout(
+          () => failOpen('safety-timeout'),
+          reducedMotion ? 320 : 2050
+        )
+      }
+
+      // Une restauration bfcache (retour d'app, changement d'onglet sur mobile) ne
+      // doit jamais recharger la page ni relancer l'intro : on libère juste le hero
+      // si ce n'était pas déjà fait, sans aucun reload.
       window.addEventListener('pageshow', (event) => {
-        // Une restauration bfcache ne réexécute pas l'intro : un rechargement
-        // complet garantit le même comportement à chaque affichage de la page.
-        if (event.persisted) window.location.reload()
+        if (event.persisted) failOpen('bfcache-restore')
       })
     })()
   </script>
   <link rel="stylesheet" href="../css/main.css">
-  <title>Agence Web Seine-et-Marne — Sites &amp; Outils | Kliv Agency</title>
+  <title>Kliv Agency</title>
 
   <script type="application/ld+json">
     {
@@ -262,38 +278,6 @@
       <div class="hero__scroll-hint animate-reveal" data-delay="6" aria-hidden="true">
         <span class="hero__scroll-line"></span>
         <span>Défiler</span>
-      </div>
-    </section>
-
-    <!-- ==============================
-         [03] MARQUEE CLIENTS
-    =============================== -->
-    <section class="marquee-section" aria-label="Ils nous font confiance">
-      <p class="marquee-section__label">Ils nous font confiance</p>
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__track">
-          <div class="marquee__group">
-            <span>ARProtect</span>
-            <span>Pep's Print</span>
-            <span>EventOrga</span>
-            <span>Opensecret</span>
-            <span>Alvea</span>
-            <span>LA Motors</span>
-            <span>Orbis Tech</span>
-            <span>Washys</span>
-          </div>
-          <!-- Duplication pour boucle infinie (groupes additionnels ajoutés par marquee.js si besoin) -->
-          <div class="marquee__group">
-            <span>ARProtect</span>
-            <span>Pep's Print</span>
-            <span>EventOrga</span>
-            <span>Opensecret</span>
-            <span>Alvea</span>
-            <span>LA Motors</span>
-            <span>Orbis Tech</span>
-            <span>Washys</span>
-          </div>
-        </div>
       </div>
     </section>
 

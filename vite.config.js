@@ -22,13 +22,29 @@ const htmlPartialsPlugin = ({ enableFigmaCapture = false } = {}) => ({
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
+  const cleanUrlRedirects = {
+    '/': '/pages/index.html',
+    '/index.html': '/pages/index.html',
+    '/devis': '/pages/devis.html',
+    '/contact': '/pages/devis.html',
+    '/a-propos': '/pages/a-propos.html',
+    '/mentions-legales': '/pages/mentions-legales.html',
+    '/services/site-web': '/pages/services/site-web.html',
+    '/services/identite-marque': '/pages/services/identite-marque.html',
+    '/services/outil-metier': '/pages/services/outil-metier.html',
+    '/services/crm-dashboard': '/pages/services/crm-dashboard.html',
+    '/services/accompagnement': '/pages/services/accompagnement.html',
+  }
+
   const devServerPlugin = {
     name: 'dev-server',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        if (req.url === '/' || req.url === '/index.html') {
+        const [pathname] = (req.url || '').split('?')
+        const destination = cleanUrlRedirects[pathname]
+        if (destination) {
           res.statusCode = 302
-          res.setHeader('Location', '/pages/index.html')
+          res.setHeader('Location', destination)
           res.end()
           return
         }
@@ -95,7 +111,10 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           main:            resolve(__dirname, 'src/pages/index.html'),
+          notFound:        resolve(__dirname, 'src/404.html'),
           devis:           resolve(__dirname, 'src/pages/devis.html'),
+          aPropos:         resolve(__dirname, 'src/pages/a-propos.html'),
+          mentionsLegales: resolve(__dirname, 'src/pages/mentions-legales.html'),
           siteWeb:         resolve(__dirname, 'src/pages/services/site-web.html'),
           identiteMarque:  resolve(__dirname, 'src/pages/services/identite-marque.html'),
           outilMetier:     resolve(__dirname, 'src/pages/services/outil-metier.html'),

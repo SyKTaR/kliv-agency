@@ -1,0 +1,16 @@
+# Kliv Agency
+
+> Agence web basée en Seine-et-Marne (France). Kliv crée des sites web, des identités de marque et des outils métier sur-mesure (CRM, dashboards) pour des entreprises et indépendants, avec transmission et accompagnement après livraison.
+
+- Zone d'intervention : Seine-et-Marne, France
+- Contact : https://www.kliv-agency.fr/devis
+
+## Pages
+
+- [Accueil](https://www.kliv-agency.fr/) : présentation de Kliv Agency, services, méthode, FAQ
+- [Devis](https://www.kliv-agency.fr/devis) : demande de devis et estimation de projet
+- [Site web](https://www.kliv-agency.fr/services/site-web) : création et refonte de sites vitrines et plateformes
+- [Identité de marque](https://www.kliv-agency.fr/services/identite-marque) : logo, charte graphique, direction artistique
+- [Outil métier](https://www.kliv-agency.fr/services/outil-metier) : espaces clients, outils internes sur-mesure
+- [CRM & Dashboard](https://www.kliv-agency.fr/services/crm-dashboard) : outils de suivi, centralisation et pilotage de l'activité
+- [Accompagnement](https://www.kliv-agency.fr/services/accompagnement) : suivi mensuel et évolutions après livraison

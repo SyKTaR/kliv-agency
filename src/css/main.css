@@ -15,6 +15,7 @@
 @import './components/hero.css';
 @import './components/marquee.css';
 @import './components/services.css';
+@import './components/editorial.css';
 @import './components/work.css';
 @import './components/testimonials.css';
 @import './components/faq.css';
@@ -25,3 +26,6 @@
 @import './sections/why-kliv.css';
 @import './sections/process.css';
 @import './sections/cta-final.css';
+
+/* Shared phase 1 system; legacy page content remains isolated. */
+@import './design-system.css';

@@ -1,0 +1,22 @@
+.kliv-contact-page .kliv-contact-hero { padding-bottom: 3rem; }
+.kliv-contact-page .kliv-contact-workspace { padding: 0 0 4rem; }
+.kliv-contact-page .kliv-contact-layout { display: grid; gap: 2.5rem; min-width: 0; }
+.kliv-contact-page .kliv-contact-primary { min-width: 0; max-width: 51.25rem; }
+.kliv-contact-page .kliv-tabs { margin-bottom: 1rem; }
+.kliv-contact-page .kliv-contact__card { padding: 1.25rem; }
+.kliv-contact-page .kliv-form { gap: 1.25rem; }
+.kliv-contact-page .kliv-feedback h2 { margin-bottom: 1rem; font-size: 1.5rem; font-weight: 700; }
+.kliv-contact-page .kliv-feedback .kliv-button { margin-top: 1.5rem; }
+.kliv-contact-page .kliv-contact-aside { align-self: start; padding: 2rem 0; border-top: 1px solid var(--kliv-line); }
+.kliv-contact-page .kliv-contact-aside__label { margin-bottom: 1.5rem; color: var(--kliv-blue-action); font-size: .8125rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.kliv-contact-page .kliv-contact-aside p + a { display: inline-flex; align-items: center; min-height: 44px; margin-top: .75rem; color: var(--kliv-ink); font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 700; text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.kliv-contact-page noscript .container { padding-top: 1rem; }
+@media (min-width: 768px) {
+  .kliv-contact-page .kliv-contact-hero { padding-bottom: 4rem; }
+  .kliv-contact-page .kliv-contact-layout { grid-template-columns: minmax(0, 1fr) minmax(14rem, 18rem); gap: 3rem; }
+  .kliv-contact-page .kliv-contact__card { padding: 2.25rem; }
+  .kliv-contact-page .kliv-contact-aside { padding: 1.5rem 0; }
+}
+@media (min-width: 1024px) {
+  .kliv-contact-page .kliv-contact-layout { gap: 5rem; }
+}

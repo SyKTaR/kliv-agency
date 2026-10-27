@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Parlez de votre projet à Kliv Agency, studio web à Roissy-en-Brie. Sites web, identités de marque et outils métier adaptés à vos besoins.">
+  <meta name="theme-color" content="#26282C">
+  <link rel="icon" type="image/png" sizes="246x246" href="/favicon.png">
+  <link rel="canonical" href="https://www.kliv-agency.fr/contact">
+  <meta property="og:title" content="Parler de votre projet | Kliv Agency">
+  <meta property="og:description" content="Présentez votre projet au studio Kliv Agency. Nous reviendrons vers vous pour en discuter.">
+  <meta property="og:image" content="https://www.kliv-agency.fr/assets/og-image.jpg">
+  <meta property="og:url" content="https://www.kliv-agency.fr/contact">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Parler de votre projet | Kliv Agency">
+  <meta name="twitter:description" content="Présentez votre projet au studio Kliv Agency. Nous reviendrons vers vous pour en discuter.">
+  <meta name="twitter:image" content="https://www.kliv-agency.fr/assets/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/pages/content.css">
+  <link rel="stylesheet" href="../css/components/forms.css">
+  <link rel="stylesheet" href="../css/pages/contact.css">
+  <title>Parler de votre projet | Kliv Agency</title>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yj8rdkb7ei");
+  </script>
+</head>
+<body class="kliv-content kliv-contact-page">
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <!--#include navbar-->
+  <main id="main-content">
+    <section class="hero kliv-contact-hero" aria-labelledby="contact-title">
+      <div class="container hero__content">
+        <span class="hero__label">Kliv Agency — Roissy-en-Brie</span>
+        <h1 class="hero__title" id="contact-title">Parlons de <em>votre projet.</em></h1>
+        <p class="hero__sub">Racontez-nous ce que vous cherchez à améliorer. Nous prendrons le temps de comprendre votre besoin et de vous répondre personnellement.</p>
+      </div>
+    </section>
+    <section class="kliv-contact-workspace" id="contact" aria-label="Nous contacter">
+      <div class="container kliv-contact-layout">
+        <div class="kliv-contact-primary">
+          <div class="kliv-tabs" role="tablist" aria-label="Comment souhaitez-vous nous contacter ?">
+            <button type="button" role="tab" id="message-tab" aria-controls="message-panel" aria-selected="true" tabindex="0">Écrire un message</button>
+            <button type="button" role="tab" id="calendar-tab" aria-controls="calendar-panel" aria-selected="false" tabindex="-1">Réserver un appel</button>
+          </div>
+          <div class="kliv-contact__card">
+            <div id="message-panel" role="tabpanel" aria-labelledby="message-tab">
+              <form id="contact-form" class="kliv-form" action="/api/contact" method="post">
+                <div class="kliv-form__row">
+                  <div class="kliv-field"><label for="nom">Nom complet *</label><input id="nom" name="nom" autocomplete="name" maxlength="120" required></div>
+                  <div class="kliv-field"><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+                </div>
+                <div class="kliv-form__row">
+                  <div class="kliv-field"><label for="societe">Société</label><input id="societe" name="societe" autocomplete="organization" maxlength="120"></div>
+                  <div class="kliv-field"><label for="telephone">Téléphone (facultatif)</label><input id="telephone" name="telephone" type="tel" autocomplete="tel" maxlength="50"></div>
+                </div>
+                <div class="kliv-field"><label for="type_projet">Nature du projet</label><select id="type_projet" name="type_projet"><option value="">Choisir si vous le souhaitez</option><option>Site web</option><option>Identité de marque</option><option>Outil métier</option><option>CRM et tableau de bord</option><option>Accompagnement</option><option>Autre</option></select></div>
+                <div class="kliv-field"><label for="message">Votre message *</label><textarea id="message" name="message" rows="6" maxlength="5000" required placeholder="Contexte, objectifs, question…"></textarea></div>
+                <div class="kliv-sr-only" aria-hidden="true"><label for="website">Site web</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+                <p id="contact-error" class="kliv-feedback kliv-feedback--error" role="alert" hidden>L’envoi a échoué. Réessayez ou écrivez-nous à <a href="mailto:lucas@kliv-agency.fr">lucas@kliv-agency.fr</a>.</p>
+                <button class="kliv-button kliv-button--blue kliv-form__submit" type="submit">Envoyer votre message</button>
+              </form>
+              <div id="contact-success" class="kliv-feedback" role="status" tabindex="-1" hidden>
+                <h2>Message envoyé</h2><p>Merci pour votre message. Nous reviendrons vers vous pour échanger sur votre projet.</p>
+                <a href="/" class="kliv-button kliv-button--outline">Retour à l’accueil</a>
+              </div>
+            </div>
+            <div id="calendar-panel" role="tabpanel" aria-labelledby="calendar-tab" hidden>
+              <div class="kliv-calendar"><iframe data-src="https://calendly.com/lucas-kliv-agency/30min?embed_type=Inline&amp;hide_gdpr_banner=1&amp;primary_color=017eff&amp;text_color=232323" title="Réserver un appel avec Kliv Agency" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+              <p class="kliv-calendar__fallback">L’agenda ne s’affiche pas ? <a href="https://calendly.com/lucas-kliv-agency/30min" target="_blank" rel="noopener noreferrer">Ouvrir Calendly</a></p>
+            </div>
+          </div>
+        </div>
+        <aside class="kliv-contact-aside" aria-label="Coordonnées">
+          <p class="kliv-contact-aside__label">Échange direct</p>
+          <p>Vous préférez écrire depuis votre messagerie ?</p>
+          <a href="mailto:lucas@kliv-agency.fr">lucas@kliv-agency.fr</a>
+        </aside>
+      </div>
+      <noscript><p class="container">Pour réserver un appel, <a href="https://calendly.com/lucas-kliv-agency/30min">ouvrez notre agenda</a>. Pour nous écrire, <a href="mailto:lucas@kliv-agency.fr">contactez-nous par email</a>.</p></noscript>
+    </section>
+  </main>
+  <!--#include footer-->
+  <script type="module" src="../js/home.js"></script>
+</body>
+</html>

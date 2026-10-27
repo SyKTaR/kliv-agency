@@ -1,0 +1,17 @@
+/* Native details/summary accordion. Functional without JavaScript. */
+.kliv-faq__list { display: flex; flex-direction: column; gap: .875rem; width: 100%; max-width: 40rem; text-align: left; }
+.kliv-faq__item { background: white; border-radius: 1.8rem; padding: 0 1.25rem 0 1.5rem; }
+.kliv-faq__item summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.5rem; padding-block: 1rem; list-style: none; cursor: pointer; font-size: 1rem; line-height: 1.4; font-weight: 700; }
+.kliv-faq__item summary::-webkit-details-marker { display: none; }
+.kliv-faq__icon { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 2rem; height: 2rem; border-radius: 50%; background: var(--kliv-surface); }
+.kliv-faq__icon::after { content: ''; border-right: 2px solid var(--kliv-ink); border-bottom: 2px solid var(--kliv-ink); width: .5rem; height: .5rem; transform: translateY(-2px) rotate(45deg); }
+.kliv-faq__item[open] .kliv-faq__icon::after { transform: translateY(2px) rotate(225deg); }
+.kliv-faq__answer { padding: 0 0 1.25rem; color: var(--kliv-muted); font-size: 1rem; line-height: 1.6; }
+
+@media (min-width: 768px) {
+  .kliv-faq__item summary { font-size: 1.0625rem; }
+}
+
+@media (min-width: 768px) {
+  .kliv-faq__answer { padding-right: 2.5rem; }
+}

@@ -1,0 +1,160 @@
+@import './base/variables.css';
+@import './base/reset.css';
+@import './base/layout.css';
+@import './design-system.css';
+@import './components/navbar.css';
+@import './components/footer.css';
+@import './components/forms.css';
+@import './components/accordion.css';
+
+/* Home does not import the legacy hero, intro, cursor, or section styles. */
+html { overflow-x: clip; }
+body.kliv-home { overflow-x: clip; background: white; color: var(--kliv-ink); font: 400 1rem/1.5 var(--kliv-font); }
+.kliv-home :where(section[id]) { scroll-margin-top: 6.5rem; }
+.kliv-home .kliv-heading { text-wrap: balance; }
+.kliv-home p { margin: 0; }
+.kliv-hero { padding: 8.5rem 1.25rem 5rem; }
+.kliv-hero__content { display: flex; flex-direction: column; align-items: center; gap: 2rem; max-width: 75rem; margin-inline: auto; }
+.kliv-hero__title { margin: 0; font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; letter-spacing: -.025em; text-align: center; }
+.kliv-hero__line { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .5rem .875rem; }
+.kliv-hero__line > span:first-child { text-wrap: balance; }
+.kliv-hero__line--serif { margin-top: .5rem; font-family: var(--kliv-serif); font-style: italic; line-height: 1.16; color: var(--kliv-blue); letter-spacing: -.035em; }
+.kliv-hero__competitor, .kliv-hero__logo { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 2.75rem; height: 2.75rem; border-radius: .625rem; }
+/* Les PNG sont des tuiles de 65 px au centre d'un canevas de 106 x 109 (ombre incluse) :
+   on les recale pour que la tuile occupe exactement le logement du titre. */
+.kliv-hero__competitor { position: relative; }
+.kliv-hero__competitor img { position: absolute; width: 163.08%; height: auto; max-width: none; left: -30.77%; top: -21.54%; pointer-events: none; }
+.kliv-hero__competitor img:not(:first-child) { opacity: 0; }
+.kliv-hero__logo { background: var(--kliv-blue); transform: rotate(17.62deg); }
+.kliv-hero__logo img { width: 78%; height: auto; }
+.kliv-hero__subtitle { max-width: 37.5rem; text-align: center; font-size: 1rem; line-height: 1.55; font-weight: 500; }
+.kliv-hero__buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; margin-top: -.25rem; }
+.kliv-tools { padding-bottom: 3.5rem; }
+.kliv-tools-marquee { overflow: hidden; mask-image: linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent); }
+.kliv-tools-track { display: flex; width: max-content; animation: kliv-marquee 35s linear infinite; }
+.kliv-tools:hover .kliv-tools-track, .kliv-tools:focus .kliv-tools-track { animation-play-state: paused; }
+.kliv-tools-list { display: flex; align-items: center; gap: 2.75rem; padding: 0 2.75rem 0 0; margin: 0; list-style: none; }
+.kliv-tools-list li { display: flex; align-items: center; gap: .75rem; color: #707070; font-size: 1.1875rem; line-height: 2rem; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
+.kliv-tools-list svg { width: 1.5rem; height: 1.5rem; fill: currentColor; flex: none; }
+.kliv-tools-list svg.kt-wordmark { width: 3rem; height: 1.1875rem; }
+@keyframes kliv-marquee { to { transform: translateX(-50%); } }
+.kliv-services { padding: 2rem 1.25rem 4rem; }
+.kliv-services__header { gap: 1.75rem; margin-bottom: 3rem; }
+.kliv-services__list { max-width: 83.25rem; margin-inline: auto; border-bottom: 1px solid var(--kliv-line); }
+.kliv-services__list > li { border-top: 1px solid var(--kliv-line); transition: border-color .3s ease; }
+.kliv-service { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr) 2.75rem; align-items: center; gap: 1rem; padding: 1.75rem 0; border-radius: 1.75rem; }
+.kliv-service__number { color: var(--kliv-muted); font-size: .875rem; }
+.kliv-service h3 { font-size: 1.5rem; line-height: 1.18; font-weight: 700; letter-spacing: -.02em; }
+.kliv-service p { grid-column: 2 / -1; grid-row: 2; color: var(--kliv-muted); font-size: 1rem; line-height: 1.5; font-weight: 500; }
+.kliv-service__arrow { display: flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--kliv-ink); color: white; }
+.kliv-service__arrow svg { display: block; width: 45%; height: 45%; }
+/* Survol : la ligne devient un bloc bleu arrondi, texte blanc, flèche blanche qui pointe à droite.
+   Les filets voisins s'effacent pour ne pas traverser le bloc. */
+.kliv-service, .kliv-service__number, .kliv-service h3, .kliv-service p, .kliv-service__arrow { transition: background-color .35s ease, color .35s ease, transform .35s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .kliv-service:hover, .kliv-service:focus-visible { background: var(--kliv-blue); }
+  .kliv-service:hover :is(.kliv-service__number, h3, p), .kliv-service:focus-visible :is(.kliv-service__number, h3, p) { color: white; }
+  .kliv-service:hover .kliv-service__arrow, .kliv-service:focus-visible .kliv-service__arrow { background: white; color: var(--kliv-blue); transform: rotate(45deg); }
+  .kliv-services__list > li:has(.kliv-service:hover), .kliv-services__list > li:has(.kliv-service:hover) + li,
+  .kliv-services__list > li:has(.kliv-service:focus-visible), .kliv-services__list > li:has(.kliv-service:focus-visible) + li { border-top-color: transparent; }
+  .kliv-services__list:has(> li:last-child .kliv-service:hover), .kliv-services__list:has(> li:last-child .kliv-service:focus-visible) { border-bottom-color: transparent; }
+}
+@media (prefers-reduced-motion: reduce) { .kliv-service, .kliv-service * { transition: none; } }
+.kliv-panel-section { padding: 1rem 1rem; }
+.kliv-blue-panel { background: var(--kliv-blue); border-radius: var(--kliv-radius-lg); padding: 3rem 1.25rem 4rem; display: flex; flex-direction: column; align-items: center; }
+.kliv-copy--on-blue { color: white; max-width: 35rem; font-size: 1.25rem; font-weight: 500; line-height: 1.4; }
+.kliv-approach { gap: 2.5rem; }
+.kliv-stats { background: white; border-radius: var(--kliv-radius-md); width: 100%; max-width: var(--kliv-content); padding: 1.5rem; display: grid; }
+.kliv-stats > div { display: flex; flex-direction: column-reverse; align-items: center; gap: .875rem; padding: 1.5rem 0; }
+.kliv-stats > div + div { border-top: 1px solid var(--kliv-line); }
+.kliv-stats dt { color: var(--kliv-muted); font-size: 1rem; text-align: center; font-weight: 500; }
+.kliv-stats dd { font: 400 5rem/1 var(--kliv-serif); letter-spacing: -.03em; margin: 0; }
+.kliv-stats dd em { color: var(--kliv-blue); font-size: 2.25rem; font-style: italic; font-weight: 700; letter-spacing: -.02em; }
+.kliv-pillars { display: grid; gap: 1.5rem; max-width: var(--kliv-content); width: 100%; }
+.kliv-pillar { display: flex; flex-direction: column; justify-content: space-between; gap: 3rem; background: var(--kliv-dark); border-radius: var(--kliv-radius-sm); padding: 1.75rem; min-height: 17rem; }
+.kliv-pillar__icon { display: flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; background: var(--kliv-blue); color: white; border-radius: 50%; font-size: 1.25rem; font-weight: 700; }
+.kliv-pillar h3 { color: var(--kliv-surface); font-size: 1.375rem; line-height: 1.28; font-weight: 700; letter-spacing: -.015em; margin-bottom: 1.125rem; }
+.kliv-pillar p { color: #aaa; font-size: .9375rem; line-height: 1.55; font-weight: 500; }
+.kliv-projects { padding: 3rem 1.25rem 4rem; }
+.kliv-projects__content { max-width: var(--kliv-content); margin-inline: auto; display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+.kliv-projects .kliv-copy { max-width: 30rem; }
+.kliv-projects__grid { width: 100%; display: grid; gap: 1.5rem; }
+.kliv-project { display: flex; flex-direction: column; gap: .875rem; padding: .875rem; border-radius: var(--kliv-radius-md); background: var(--kliv-dark); box-shadow: 0 12px 32px #0000001a; min-width: 0; }
+.kliv-project__visual { border-radius: var(--kliv-radius-sm); background: #1c1c1c; overflow: hidden; }
+.kliv-project__bar { display: flex; align-items: center; gap: .375rem; height: 1.875rem; padding-left: .875rem; }
+.kliv-project__bar i { width: .5rem; height: .5rem; border-radius: 50%; background: #ffffff38; }
+.kliv-project__shot { aspect-ratio: 1.92; background: #e8e8e8; }
+.kliv-project__shot img { display: block; object-fit: cover; object-position: top; width: 100%; height: 100%; }
+.kliv-project__info { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 .25rem .125rem .625rem; }
+.kliv-project__info h3 { color: var(--kliv-surface); font-size: 1.25rem; line-height: 1.3; font-weight: 700; }
+.kliv-project__info p { color: #aaa; font-size: .875rem; line-height: 1.45; font-weight: 500; }
+.kliv-project__link { min-height: 44px; padding-inline: 1.125rem; background: var(--project-accent, var(--kliv-blue-action)); }
+.kliv-projects__cta { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 1rem 1.25rem; text-align: center; }
+.kliv-projects__cta p { font-size: 1.0625rem; font-weight: 500; }
+.kliv-faq { gap: 3rem; text-align: center; }
+.kliv-contact { padding: 3rem 1.25rem 5rem; }
+.kliv-contact__content { max-width: 51.25rem; margin-inline: auto; display: flex; flex-direction: column; align-items: center; gap: 2.25rem; }
+.kliv-contact .kliv-copy { max-width: 30rem; }
+/* Motion (GSAP, voir js/home-motion.js). Le contenu est visible par défaut ; ces règles
+   ne s'appliquent que si le script d'amorçage a posé la classe (reduced-motion exclu). */
+.kliv-project__shot { overflow: hidden; }
+.kliv-motion-pending :is(.kliv-nav, .kliv-hero__title, .kliv-hero__subtitle, .kliv-hero__buttons, .kliv-tools, .kliv-services__header, .kliv-services__list) { visibility: hidden; animation: kliv-motion-failsafe 0s linear 1.4s forwards; }
+@keyframes kliv-motion-failsafe { to { visibility: visible; } }
+.kliv-faq__list[data-motion] .kliv-faq__item[open] .kliv-faq__icon::after { transform: translateY(-2px) rotate(45deg); } /* le chevron est tourné par GSAP (icône entière, +180°) */
+.kliv-tabs[data-motion] { position: relative; }
+.kliv-tabs[data-motion] button { position: relative; z-index: 1; transition: color 220ms 60ms; }
+.kliv-tabs[data-motion] button[aria-selected=true] { background: transparent; }
+.kliv-tabs__indicator { position: absolute; top: 0; left: 0; z-index: 0; border-radius: var(--kliv-pill); background: var(--kliv-ink); pointer-events: none; }
+@media (min-width: 768px) {
+  .kliv-hero { padding: 10rem 1rem 7rem; }
+  .kliv-hero__competitor, .kliv-hero__logo { width: 3.25rem; height: 3.25rem; }
+  .kliv-hero__subtitle { font-size: 1.125rem; line-height: 1.5556; }
+  .kliv-tools { padding-bottom: 5rem; }
+  .kliv-tools-list { gap: 4.5rem; padding-right: 4.5rem; }
+  .kliv-tools-list li { font-size: 1.5rem; }
+  .kliv-tools-list svg { width: 1.875rem; height: 1.875rem; }
+  .kliv-tools-list svg.kt-wordmark { width: 3.8125rem; height: 1.5rem; }
+  .kliv-services { padding: 3.125rem 2.5rem 5rem; }
+  .kliv-services__header { margin-bottom: 4.5rem; }
+  .kliv-service { grid-template-columns: 2.5rem minmax(0,1fr) minmax(0,1fr) 3.5rem; gap: 2rem; padding: 2.25rem 1rem; }
+  .kliv-service h3 { font-size: 1.75rem; }
+  .kliv-service p { grid-column: auto; grid-row: auto; }
+  .kliv-service__arrow { width: 3.5rem; height: 3.5rem; }
+  .kliv-service__number { font-size: 1rem; }
+  .kliv-blue-panel { padding: 3.125rem 1.5rem 5rem; }
+  .kliv-approach { gap: 4rem; }
+  .kliv-stats { grid-template-columns: repeat(3,minmax(0,1fr)); padding: 3rem 1.5rem; }
+  .kliv-stats > div { padding: 0 1rem; }
+  .kliv-stats > div + div { border-top: 0; border-left: 1px solid var(--kliv-line); }
+  .kliv-stats dd { font-size: 5.5rem; }
+  .kliv-stats dd em { font-size: 2.75rem; }
+  .kliv-pillars { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .kliv-pillar { padding: 1.5rem; min-height: 18.75rem; }
+  .kliv-pillar h3 { min-height: 3.5rem; display: flex; align-items: flex-end; }
+  .kliv-projects { padding: 3.125rem 1.5rem 5rem; }
+  .kliv-projects__content { gap: 3.5rem; }
+  .kliv-projects__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .kliv-contact { padding: 3.125rem 1.5rem 7rem; }
+}
+@media (min-width: 1024px) {
+  .kliv-hero { padding: 11.875rem 1rem 10rem; }
+  .kliv-hero__title { font-size: 4rem; line-height: 4.375rem; }
+  .kliv-hero__line--serif { line-height: 4.625rem; margin-top: 0; }
+  .kliv-hero__competitor, .kliv-hero__logo { width: 3.75rem; height: 3.75rem; }
+  .kliv-services { padding: 3.125rem 5.625rem 7.5rem; }
+  .kliv-service { grid-template-columns: 2.5rem minmax(17rem,23.75rem) minmax(15rem,23.75rem) 1fr; padding-inline: 2rem; }
+  .kliv-service h3 { font-size: 2.125rem; line-height: 2.5rem; }
+  .kliv-service__arrow { justify-self: end; }
+  .kliv-blue-panel { padding-bottom: 7.5rem; }
+  .kliv-stats { padding: 3rem; }
+  .kliv-stats dd { font-size: 6.5rem; }
+  .kliv-pillar { padding: 1.75rem; }
+  .kliv-projects { padding-bottom: 7.5rem; }
+  .kliv-contact { padding-bottom: 8.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kliv-tools-track { animation: none; width: auto; justify-content: center; }
+  .kliv-tools-list[aria-hidden] { display: none; }
+  .kliv-tools-list { flex-wrap: wrap; justify-content: center; row-gap: 1.25rem; padding: 0 1.25rem; }
+  .kliv-tools-marquee { mask-image: none; }
+}

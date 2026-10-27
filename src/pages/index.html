@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr" class="reveal-fallback">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Agence web en Seine-et-Marne, Kliv crée des sites, identités de marque et outils métier clairs, utiles et évolutifs. Parlons ensemble de votre projet.">
+  <meta name="description" content="Kliv Agency, studio web à Roissy-en-Brie (77) : sites, identités de marque, outils métier et CRM sur mesure pour TPE et PME. Parlons de votre projet.">
   <meta name="theme-color" content="#26282C">
   <link rel="icon" type="image/png" sizes="246x246" href="/favicon.png">
   <link rel="canonical" href="https://www.kliv-agency.fr/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Agence Web Seine-et-Marne — Sites &amp; Outils | Kliv Agency">
-  <meta property="og:description" content="Agence web en Seine-et-Marne, Kliv crée des sites, identités de marque et outils métier clairs, utiles et évolutifs. Parlons ensemble de votre projet.">
+  <meta property="og:description" content="Kliv Agency, studio web à Roissy-en-Brie (77) : sites, identités de marque, outils métier et CRM sur mesure pour TPE et PME. Parlons de votre projet.">
   <meta property="og:image" content="https://www.kliv-agency.fr/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,206 +19,278 @@
   <meta property="og:locale" content="fr_FR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Agence Web Seine-et-Marne — Sites &amp; Outils | Kliv Agency">
-  <meta name="twitter:description" content="Agence web en Seine-et-Marne, Kliv crée des sites, identités de marque et outils métier clairs, utiles et évolutifs. Parlons ensemble de votre projet.">
+  <meta name="twitter:description" content="Kliv Agency, studio web à Roissy-en-Brie (77) : sites, identités de marque, outils métier et CRM sur mesure pour TPE et PME. Parlons de votre projet.">
   <meta name="twitter:image" content="https://www.kliv-agency.fr/assets/og-image.jpg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700;9..40,800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400,0,1;1,9..144,700,0,1&amp;display=swap">
 
-  <link rel="preload" href="/assets/logo-white.png" as="image" type="image/png">
-  <script>
-    (() => {
-      const root = document.documentElement
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-      root.classList.add('js')
-
-      const releaseHero = (reason) => {
-        if (window.__klivIntroHeroReleased) return
-        window.__klivIntroHeroReleased = true
-        window.dispatchEvent(new CustomEvent('kliv:intro-complete', {
-          detail: { reason, reducedMotion }
-        }))
-      }
-
-      const failOpen = (reason = 'safety-timeout') => {
-        if (window.__klivIntroCleanupDone) return
-        window.__klivIntroCleanupDone = true
-        window.clearTimeout(window.__klivIntroSafetyTimer)
-        root.classList.remove('is-intro-active')
-        root.removeAttribute('data-intro')
-        root.removeAttribute('data-intro-motion')
-        document.getElementById('kliv-intro')?.remove()
-        releaseHero(reason)
-      }
-
-      window.__klivIntroReleaseHero = releaseHero
-      window.__klivIntroFailOpen = failOpen
-
-      // L'intro ne doit jouer qu'une fois par session (pas à chaque refresh),
-      // avec repli silencieux si sessionStorage est indisponible (navigation privée, etc.).
-      let alreadyPlayed = false
-      try {
-        alreadyPlayed = window.sessionStorage.getItem('kliv-intro-played') === '1'
-        if (!alreadyPlayed) window.sessionStorage.setItem('kliv-intro-played', '1')
-      } catch {
-        alreadyPlayed = false
-      }
-
-      if (alreadyPlayed) {
-        document.getElementById('kliv-intro')?.remove()
-      } else {
-        root.dataset.intro = 'play'
-        root.dataset.introMotion = reducedMotion ? 'reduced' : 'full'
-        root.classList.add('is-intro-active')
-
-        window.__klivIntroSafetyTimer = window.setTimeout(
-          () => failOpen('safety-timeout'),
-          reducedMotion ? 320 : 2050
-        )
-      }
-
-      // Une restauration bfcache (retour d'app, changement d'onglet sur mobile) ne
-      // doit jamais recharger la page ni relancer l'intro : on libère juste le hero
-      // si ce n'était pas déjà fait, sans aucun reload.
-      window.addEventListener('pageshow', (event) => {
-        if (event.persisted) failOpen('bfcache-restore')
-      })
-    })()
-  </script>
-  <link rel="stylesheet" href="../css/main.css">
+  <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('kliv-motion-pending')</script>
+  <link rel="preload" href="/assets/fonts/geist-variable.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="../css/home.css">
   <title>Agence Web Seine-et-Marne — Sites & Outils | Kliv Agency</title>
 
-  <script type="application/ld+json">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "WebSite",
+      "@id": "https://www.kliv-agency.fr/#website",
+      "url": "https://www.kliv-agency.fr/",
+      "name": "Kliv Agency",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.kliv-agency.fr/#organization"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.kliv-agency.fr/#organization",
+      "name": "Kliv Agency",
+      "url": "https://www.kliv-agency.fr/",
+      "description": "Kliv Agency est une agence web indépendante basée en Seine-et-Marne (France). Elle conçoit des sites web, des identités de marque et des outils métier sur mesure (CRM, dashboards) pour des TPE, PME et indépendants, avec transmission et accompagnement après livraison.",
+      "disambiguatingDescription": "Agence web indépendante de Seine-et-Marne (France), entreprise individuelle de Lucas Dos Santos.",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.kliv-agency.fr/#logo",
+        "url": "https://www.kliv-agency.fr/assets/logo-anthracite.png",
+        "width": 246,
+        "height": 198
+      },
+      "image": "https://www.kliv-agency.fr/assets/og-image.jpg",
+      "email": "lucas@kliv-agency.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Roissy-en-Brie",
+        "postalCode": "77680",
+        "addressRegion": "Seine-et-Marne",
+        "addressCountry": "FR"
+      },
+      "areaServed": [
         {
-          "@type": "Organization",
-          "@id": "https://www.kliv-agency.fr/#organization",
-          "name": "Kliv Agency",
-          "url": "https://www.kliv-agency.fr/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://www.kliv-agency.fr/assets/logo-anthracite.png",
-            "width": 246,
-            "height": 198
+          "@type": "AdministrativeArea",
+          "name": "Seine-et-Marne"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Île-de-France"
+        }
+      ],
+      "founder": {
+        "@id": "https://www.kliv-agency.fr/a-propos#lucas-dos-santos"
+      },
+      "knowsAbout": [
+        "Création de site web",
+        "Identité de marque",
+        "Outil métier sur mesure",
+        "CRM",
+        "Tableau de bord"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/136166063/",
+        "https://www.instagram.com/kliv_agency/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "lucas@kliv-agency.fr",
+        "availableLanguage": "French",
+        "url": "https://www.kliv-agency.fr/contact"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services Kliv Agency",
+        "itemListElement": [
+          {
+            "@id": "https://www.kliv-agency.fr/services/site-web#service"
           },
-          "sameAs": [
-            "https://www.linkedin.com/company/136166063/",
-            "https://www.instagram.com/kliv_agency/"
-          ],
-          "founder": {
-            "@type": "Person",
-            "name": "Lucas Dos Santos"
+          {
+            "@id": "https://www.kliv-agency.fr/services/refonte-site-web#service"
           },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "lucas@kliv-agency.fr",
-            "contactType": "customer service",
-            "availableLanguage": "French"
+          {
+            "@id": "https://www.kliv-agency.fr/services/identite-marque#service"
+          },
+          {
+            "@id": "https://www.kliv-agency.fr/services/outil-metier#service"
+          },
+          {
+            "@id": "https://www.kliv-agency.fr/services/crm-dashboard#service"
+          },
+          {
+            "@id": "https://www.kliv-agency.fr/services/accompagnement#service"
+          }
+        ]
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "SIRET",
+        "value": "10566969100013"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.kliv-agency.fr/a-propos#lucas-dos-santos",
+      "name": "Lucas Dos Santos",
+      "jobTitle": "Fondateur",
+      "url": "https://www.kliv-agency.fr/a-propos",
+      "worksFor": {
+        "@id": "https://www.kliv-agency.fr/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.kliv-agency.fr/#webpage",
+      "url": "https://www.kliv-agency.fr/",
+      "name": "Agence Web Seine-et-Marne — Sites & Outils | Kliv Agency",
+      "isPartOf": {
+        "@id": "https://www.kliv-agency.fr/#website"
+      },
+      "about": {
+        "@id": "https://www.kliv-agency.fr/#organization"
+      },
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi choisir Kliv Agency ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kliv Agency est un studio web basé à Roissy-en-Brie, en Seine-et-Marne. Nous concevons des sites web, des identités de marque et des outils métier sur mesure, puis nous vous accompagnons après la livraison. Vous avez un interlocuteur direct du premier échange au suivi."
           }
         },
         {
-          "@type": "ProfessionalService",
-          "@id": "https://www.kliv-agency.fr/#localbusiness",
-          "name": "Kliv Agency",
-          "parentOrganization": {
-            "@id": "https://www.kliv-agency.fr/#organization"
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Roissy-en-Brie",
-            "addressRegion": "Seine-et-Marne",
-            "addressCountry": "FR"
-          },
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Seine-et-Marne, France"
+          "@type": "Question",
+          "name": "Avec qui allons-nous travailler ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kliv Agency est dirigée par Lucas Dos Santos, entrepreneur individuel installé à Roissy-en-Brie. Vous échangez directement avec le studio, sans intermédiaire entre vous et la production."
           }
         },
         {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Combien coûte un projet avec Kliv ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Un devis clair vaut mieux qu'une promesse floue. Un site vitrine démarre autour de 600 — 1 500 €, un outil métier ou un CRM se situe plutôt entre 2 000 et 8 000 €. Notre page devis vous donne une fourchette en 2 minutes, sans engagement."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Combien de temps prend la création d'un site ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "En moyenne, 2 à 4 semaines pour un site vitrine. Un projet plus complexe (e-commerce, outil métier) demande 4 à 10 semaines selon le périmètre défini ensemble dès la phase de découverte."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Est-ce que vous créez aussi l'identité de marque ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Oui. Logo, charte graphique, typographie, palette de couleurs — on peut tout concevoir de A à Z, pour que votre site, vos contenus et votre identité racontent la même chose."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Pouvez-vous créer un outil métier ou un CRM sur mesure ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Absolument. C'est l'un de nos cœurs de métier. On conçoit des outils adaptés à vos processus : CRM, dashboard, gestion de devis... Si vous avez un process, on peut le rendre utile."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Travaillez-vous avec des outils no-code ou du code ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Les deux, selon les besoins. No-code pour aller vite sur des projets ciblés. Code sur mesure quand la complexité, la scalabilité ou l'intégration l'exige. On choisit l'outil pour vous, pas pour nous."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Puis-je gérer mon site moi-même après livraison ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Oui : transmission, documentation et prise en main incluses. L'autonomie ne remplace pas l'accompagnement, mais elle ne dépend pas de nous non plus."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Que se passe-t-il après la mise en ligne ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "On ne disparaît pas après la livraison. Un point post-lancement est prévu, et un accompagnement mensuel reste disponible si vous voulez faire évoluer ce qu'on a construit ensemble."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Je ne sais pas par où commencer, est-ce grave ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Non, c'est même le point de départ le plus courant. La phase de découverte sert exactement à ça : clarifier ce dont vous avez besoin, avant de parler solution."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Comment démarre un projet avec Kliv ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Tout commence par un appel de 30 min. On écoute, on pose les bonnes questions, et on vous envoie une proposition claire sous 48h — sans engagement."
-              }
-            }
-          ]
+          "@type": "Question",
+          "name": "Comment se déroule un projet avec vous ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On commence par un échange sur vos objectifs, avec une réponse sous 48 h. On vous propose ensuite un brief et une proposition clairs, puis on enchaîne : maquettes sur Figma, validation avec vous, développement, mise en ligne et prise en main."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour créer un site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tout dépend du périmètre : une landing page se livre plus vite qu’un site complet avec CMS. Vous recevez un planning précis avec la proposition, et on s’y tient."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sur quels outils construisez-vous les sites ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On conçoit sur Figma, puis on développe sur Webflow, Framer ou Next.js selon ce dont votre projet a vraiment besoin. Chaque site est construit sur mesure, sans template."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "À qui appartient le site une fois livré ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "À vous. Fichiers de design, code, contenus et accès vous appartiennent dès la livraison."
+          }
+        }
+      ],
+      "@id": "https://www.kliv-agency.fr/#faq",
+      "isPartOf": {
+        "@id": "https://www.kliv-agency.fr/#webpage"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.kliv-agency.fr/services/site-web#service",
+      "name": "Création de site web sur mesure",
+      "description": "Conception de sites web sur mesure, performants, accessibles et simples à administrer.",
+      "url": "https://www.kliv-agency.fr/services/site-web",
+      "provider": {
+        "@id": "https://www.kliv-agency.fr/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Seine-et-Marne"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.kliv-agency.fr/services/identite-marque#service",
+      "name": "Identité de marque",
+      "description": "Logo, charte graphique, typographie et direction artistique pour une marque cohérente sur tous ses supports.",
+      "url": "https://www.kliv-agency.fr/services/identite-marque",
+      "provider": {
+        "@id": "https://www.kliv-agency.fr/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Seine-et-Marne"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.kliv-agency.fr/services/outil-metier#service",
+      "name": "Outil métier sur mesure",
+      "description": "Espaces clients, interfaces internes et mini-plateformes sur mesure qui retirent de la friction dans les tâches répétitives.",
+      "url": "https://www.kliv-agency.fr/services/outil-metier",
+      "provider": {
+        "@id": "https://www.kliv-agency.fr/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Seine-et-Marne"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.kliv-agency.fr/services/crm-dashboard#service",
+      "name": "CRM et tableau de bord",
+      "description": "Centralisation des données, suivi de leads, reporting et tableaux de bord pour piloter l'activité.",
+      "url": "https://www.kliv-agency.fr/services/crm-dashboard",
+      "provider": {
+        "@id": "https://www.kliv-agency.fr/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Seine-et-Marne"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.kliv-agency.fr/services/accompagnement#service",
+      "name": "Accompagnement après livraison",
+      "description": "Suivi mensuel, corrections, petites évolutions et conseils après la mise en ligne.",
+      "url": "https://www.kliv-agency.fr/services/accompagnement",
+      "provider": {
+        "@id": "https://www.kliv-agency.fr/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Seine-et-Marne"
         }
       ]
     }
-  </script>
+  ]
+}</script>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -227,829 +299,97 @@
     })(window, document, "clarity", "script", "yj8rdkb7ei");
   </script>
 </head>
-<body>
-
-  <div class="intro" id="kliv-intro" aria-hidden="true">
-    <div class="intro__panel intro__panel--top"></div>
-    <div class="intro__panel intro__panel--bottom"></div>
-
-    <div class="intro__mark">
-      <img
-        class="intro__logo intro__logo--base"
-        src="/assets/logo-white.png"
-        width="246"
-        height="198"
-        alt=""
-      >
-      <span class="intro__logo intro__logo--pigment"></span>
-      <span class="intro__logo intro__logo--grain"></span>
-    </div>
-
-    <span class="intro__axis"></span>
-  </div>
-
-  <!-- Skip link -->
+<body class="kliv-home">
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-
-  <!-- ==============================
-       [01] NAVBAR
-  =============================== -->
   <!--#include navbar-->
-
   <main id="main-content">
-
-    <!-- ==============================
-         [02] HERO
-    =============================== -->
-    <section class="hero" aria-label="Présentation de Kliv Agency">
-      <div class="hero__bg-grid" aria-hidden="true"></div>
-
-      <div class="container hero__content">
-        <h1 class="hero__title">
-          <span class="hero__line animate-reveal" data-delay="1">Le digital est déjà</span>
-          <span class="hero__rotating-wrapper animate-reveal" data-delay="2" aria-live="polite" aria-atomic="true">
-            <span class="hero__rotating-text hero__line--italic">suffisamment complexe.</span>
-          </span>
+    <section class="kliv-hero" aria-labelledby="hero-title">
+      <div class="kliv-hero__content">
+        <h1 id="hero-title" class="kliv-hero__title">
+          <span class="kliv-hero__line"><span>Pourquoi faire confiance à</span><span class="kliv-hero__competitor" data-hero-logos aria-hidden="true"><img src="/assets/tools/hero-lovable.png" width="106" height="109" alt=""><img src="/assets/tools/hero-wix.png" width="106" height="109" alt=""><img src="/assets/tools/hero-wordpress.png" width="106" height="109" alt=""><img src="/assets/tools/hero-shopify.png" width="106" height="109" alt=""><img src="/assets/tools/hero-framer.png" width="106" height="109" alt=""><img src="/assets/tools/hero-figma.png" width="106" height="109" alt=""><img src="/assets/tools/hero-webflow.png" width="106" height="109" alt=""></span></span>
+          <span class="kliv-hero__line kliv-hero__line--serif"><span>Quand vous pouvez faire appel à</span><span class="kliv-hero__logo"><img src="/assets/logo-white.png" width="246" height="198" alt="Kliv, agence web en Seine-et-Marne"></span></span>
         </h1>
-
-        <p class="hero__sub animate-reveal" data-delay="4">
-          Nous créons des sites, identités et outils clairs, utiles<br>
-          et pensés pour évoluer.
-        </p>
-
-        <div class="hero__actions animate-reveal" data-delay="5">
-          <a href="/devis" class="btn btn--primary btn--lg">
-            Parler de votre projet
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="hero__scroll-hint animate-reveal" data-delay="6" aria-hidden="true">
-        <span class="hero__scroll-line"></span>
-        <span>Défiler</span>
+        <p class="kliv-hero__subtitle">Pas de catalogue de solutions.<br>On part de vos objectifs pour construire ce qui mérite vraiment d’exister.</p>
+        <div class="kliv-hero__buttons"><a class="kliv-button" href="#contact">Parlez de votre projet</a><a class="kliv-button kliv-button--blue" href="#realisations">Voir nos réalisations</a></div>
       </div>
     </section>
-
-    <!-- ==============================
-         [04] SERVICES
-    =============================== -->
-    <section class="services section" id="services">
-      <div class="container">
-
-        <div class="section-header">
-          <span class="section-label animate-reveal">Ce que l'on fait</span>
-          <h2 class="section-title animate-reveal" data-delay="1">
-            Cinq façons de rendre<br><em>votre digital plus clair</em>
-          </h2>
-        </div>
-
-        <div class="services__viewport">
-
-          <div class="services__grid" id="servicesGrid">
-
-            <article class="service-card service-card--featured" data-service="01">
-              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
-                <div class="service-card__number">01</div>
-                <div class="service-card__icon" aria-hidden="true">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <rect x="2" y="5" width="24" height="18" rx="2" stroke="#888884" stroke-width="1.5"/>
-                    <path d="M2 10h24" stroke="#888884" stroke-width="1.5"/>
-                    <circle cx="6" cy="7.5" r="1" fill="#888884"/>
-                    <circle cx="10" cy="7.5" r="1" fill="#888884"/>
-                  </svg>
-                </div>
-                <h3 class="service-card__title">Site web</h3>
-                <p class="service-card__desc">
-                  Vitrine, refonte ou plateforme plus complexe : des sites
-                  clairs, rapides et pensés pour être compris, pas seulement admirés.
-                </p>
-                <span class="service-card__toggle-cta">
-                  Découvrir le service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-              </div>
-            </article>
-
-            <article class="service-card" data-service="02">
-              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
-                <div class="service-card__number">02</div>
-                <div class="service-card__icon" aria-hidden="true">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <circle cx="14" cy="9" r="5" stroke="#888884" stroke-width="1.5"/>
-                    <path d="M5 23c0-4.4 4-8 9-8s9 3.6 9 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <h3 class="service-card__title">Identité de marque</h3>
-                <p class="service-card__desc">
-                  Logo, couleurs, typographie, direction artistique. Une
-                  identité cohérente qui raconte la même chose partout.
-                </p>
-                <span class="service-card__toggle-cta">
-                  Découvrir le service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-              </div>
-            </article>
-
-            <article class="service-card" data-service="03">
-              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
-                <div class="service-card__number">03</div>
-                <div class="service-card__icon" aria-hidden="true">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <rect x="3" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                    <rect x="15" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                    <rect x="3" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                    <rect x="15" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                  </svg>
-                </div>
-                <h3 class="service-card__title">Outil métier</h3>
-                <p class="service-card__desc">
-                  Espace client, outil de devis, suivi de production. Des
-                  outils sur-mesure que vos équipes utilisent vraiment.
-                </p>
-                <span class="service-card__toggle-cta">
-                  Découvrir le service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-              </div>
-            </article>
-
-            <article class="service-card" data-service="04">
-              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
-                <div class="service-card__number">04</div>
-                <div class="service-card__icon" aria-hidden="true">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <path d="M6 14c0-4.4 3.6-8 8-8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M22 14c0 4.4-3.6 8-8 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
-                    <circle cx="6" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
-                    <circle cx="22" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
-                    <path d="M10 6l4-4 4 4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M18 22l-4 4-4-4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="service-card__title">CRM &amp; Dashboard</h3>
-                <p class="service-card__desc">
-                  Centraliser vos données, prioriser ce qui compte, suivre
-                  votre activité en un coup d'œil. Pensé pour la décision.
-                </p>
-                <span class="service-card__toggle-cta">
-                  Découvrir le service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-              </div>
-            </article>
-
-            <article class="service-card" data-service="05">
-              <div class="service-card__toggle" role="button" tabindex="0" aria-haspopup="true">
-                <div class="service-card__number">05</div>
-                <div class="service-card__icon" aria-hidden="true">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <circle cx="14" cy="14" r="10" stroke="#888884" stroke-width="1.5"/>
-                    <circle cx="14" cy="14" r="4" stroke="#888884" stroke-width="1.5"/>
-                    <circle cx="14" cy="14" r="1" fill="#888884"/>
-                  </svg>
-                </div>
-                <h3 class="service-card__title">Accompagnement</h3>
-                <p class="service-card__desc">
-                  Suivi mensuel, conseils, évolutions. L'autonomie ne
-                  remplace pas l'accompagnement — on reste disponibles.
-                </p>
-                <span class="service-card__toggle-cta">
-                  Découvrir le service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-              </div>
-            </article>
-
-          </div>
-
-          <div class="services__detail" id="servicesDetail" hidden>
-            <button class="services__detail-close" type="button" id="servicesDetailClose">
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span>Retour aux services</span>
-            </button>
-
-            <div class="service-detail" data-service="01" hidden>
-              <div class="service-detail__icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-                  <rect x="2" y="5" width="24" height="18" rx="2" stroke="#888884" stroke-width="1.5"/>
-                  <path d="M2 10h24" stroke="#888884" stroke-width="1.5"/>
-                  <circle cx="6" cy="7.5" r="1" fill="#888884"/>
-                  <circle cx="10" cy="7.5" r="1" fill="#888884"/>
-                </svg>
-              </div>
-              <h3 class="service-detail__title">Site web</h3>
-              <p class="service-detail__intro">
-                Pour les entreprises qui veulent une présence digitale claire, moderne et
-                crédible, sans se retrouver avec un site figé ou incompréhensible.
-              </p>
-              <div class="service-detail__list">
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Ce que l'on crée</span>
-                  <p>Landing page, site vitrine, refonte, intégration CMS, responsive design.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Ce que le client gagne</span>
-                  <p>Une image plus professionnelle, un parcours plus clair, un outil utilisable.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Ce que Kliv explique</span>
-                  <p>Structure des pages, logique des CTA, modifications simples, bonnes pratiques.</p>
-                </div>
-              </div>
-              <div class="hero__actions">
-                <a href="/services/site-web" class="service-card__toggle-cta">En savoir plus sur ce service →</a>
-                <a href="/devis" class="service-detail__cta">
-                  Obtenir un devis pour ce service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <div class="service-detail" data-service="02" hidden>
-              <div class="service-detail__icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-                  <circle cx="14" cy="9" r="5" stroke="#888884" stroke-width="1.5"/>
-                  <path d="M5 23c0-4.4 4-8 9-8s9 3.6 9 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h3 class="service-detail__title">Identité de marque</h3>
-              <p class="service-detail__intro">
-                Le branding Kliv n'est pas une décoration. Il doit rendre une entreprise
-                plus lisible, plus cohérente et plus facilement reconnaissable sur ses supports.
-              </p>
-              <div class="service-detail__list">
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Livrables possibles</span>
-                  <p>Logo, système couleur, typographies, direction artistique, guidelines.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Approche</span>
-                  <p>Partir du positionnement avant de produire les formes.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Résultat attendu</span>
-                  <p>Une marque plus claire, plus sérieuse et plus facile à décliner.</p>
-                </div>
-              </div>
-              <div class="hero__actions">
-                <a href="/services/identite-marque" class="service-card__toggle-cta">En savoir plus sur ce service →</a>
-                <a href="/devis" class="service-detail__cta">
-                  Obtenir un devis pour ce service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <div class="service-detail" data-service="03" hidden>
-              <div class="service-detail__icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-                  <rect x="3" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                  <rect x="15" y="3" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                  <rect x="3" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                  <rect x="15" y="15" width="10" height="10" rx="2" stroke="#888884" stroke-width="1.5"/>
-                </svg>
-              </div>
-              <h3 class="service-detail__title">Outil métier</h3>
-              <p class="service-detail__intro">
-                Kliv conçoit des interfaces internes, mini plateformes, espaces clients ou
-                outils métier. Le but n'est pas de créer un logiciel compliqué, mais de
-                retirer de la friction dans les tâches répétitives.
-              </p>
-              <div class="service-detail__list">
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Exemples</span>
-                  <p>Espace client, formulaire intelligent, mini CRM, suivi de projet, outil de scoring.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Priorité UX</span>
-                  <p>Créer une interface évidente, même pour une équipe non technique.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Transmission</span>
-                  <p>Documenter les usages et les scénarios pour que l'outil reste vivant.</p>
-                </div>
-              </div>
-              <div class="hero__actions">
-                <a href="/services/outil-metier" class="service-card__toggle-cta">En savoir plus sur ce service →</a>
-                <a href="/devis" class="service-detail__cta">
-                  Obtenir un devis pour ce service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <div class="service-detail" data-service="04" hidden>
-              <div class="service-detail__icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-                  <path d="M6 14c0-4.4 3.6-8 8-8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M22 14c0 4.4-3.6 8-8 8" stroke="#888884" stroke-width="1.5" stroke-linecap="round"/>
-                  <circle cx="6" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
-                  <circle cx="22" cy="14" r="2" stroke="#888884" stroke-width="1.5"/>
-                  <path d="M10 6l4-4 4 4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M18 22l-4 4-4-4" stroke="#888884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <h3 class="service-detail__title">CRM &amp; Dashboard</h3>
-              <p class="service-detail__intro">
-                Les données ne servent à rien si personne ne les comprend. Kliv structure
-                des tableaux de bord et systèmes de suivi qui permettent de prendre de
-                meilleures décisions sans complexifier le quotidien.
-              </p>
-              <div class="service-detail__list">
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Objectif</span>
-                  <p>Centraliser, visualiser, prioriser et suivre les informations clés.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Formats</span>
-                  <p>Dashboard, automatisation, suivi de leads, reporting, base client.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Bénéfice</span>
-                  <p>Moins de dispersion, plus de clarté, des décisions plus rapides.</p>
-                </div>
-              </div>
-              <div class="hero__actions">
-                <a href="/services/crm-dashboard" class="service-card__toggle-cta">En savoir plus sur ce service →</a>
-                <a href="/devis" class="service-detail__cta">
-                  Obtenir un devis pour ce service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <div class="service-detail" data-service="05" hidden>
-              <div class="service-detail__icon" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-                  <circle cx="14" cy="14" r="10" stroke="#888884" stroke-width="1.5"/>
-                  <circle cx="14" cy="14" r="4" stroke="#888884" stroke-width="1.5"/>
-                  <circle cx="14" cy="14" r="1" fill="#888884"/>
-                </svg>
-              </div>
-              <h3 class="service-detail__title">Accompagnement</h3>
-              <p class="service-detail__intro">
-                Kliv donne au client les moyens d'utiliser ses outils au quotidien. Cette
-                autonomie ouvre une relation plus saine : le client revient pour évoluer,
-                optimiser et aller plus loin, pas parce qu'il est bloqué.
-              </p>
-              <div class="service-detail__list">
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Suivi mensuel</span>
-                  <p>Corrections, priorisation, petites évolutions, conseils.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Évolution</span>
-                  <p>Nouvelles pages, contenus, fonctionnalités, automatisations.</p>
-                </div>
-                <div class="service-detail__item">
-                  <span class="service-detail__label">Conseil</span>
-                  <p>Aide à la décision, roadmap digitale, amélioration continue.</p>
-                </div>
-              </div>
-              <div class="hero__actions">
-                <a href="/services/accompagnement" class="service-card__toggle-cta">En savoir plus sur ce service →</a>
-                <a href="/devis" class="service-detail__cta">
-                  Obtenir un devis pour ce service
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
+    <div class="kliv-tools" role="region" aria-label="Nos outils de création et de développement" tabindex="0">
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="kt-wix" viewBox="0 0 512 202"><path d="M0,0.230966635 C0,0.230966635 20.2953443,-2.32903336 33.8255738,9.6568027 C42.1770492,17.0514257 44.6111475,28.8358191 44.6111475,28.8358191 L72.2423607,136.414573 L95.2236066,48.3673601 C97.4562623,39.0086716 101.493508,27.4341142 107.872525,19.6114257 C116.014164,9.64840926 132.540852,9.01890106 134.303475,9.01890106 C136.066098,9.01890106 152.584393,9.64840926 160.717639,19.6114257 C167.096656,27.4341142 171.133902,39.0002781 173.374951,48.3673601 L196.356197,136.414573 L223.979016,28.8358191 C223.979016,28.8358191 226.421508,17.0514257 234.772984,9.6568027 C248.303213,-2.32903336 268.590164,0.230966635 268.590164,0.230966635 L215.677902,201.279098 C215.677902,201.279098 198.227934,202.546508 189.490361,198.072803 C178.016525,192.197393 172.56918,187.664934 165.61941,160.302311 C162.106983,146.307173 158.637677,132.301249 155.211541,118.284737 L153.910557,113.005262 C150.242623,98.048147 146.583082,83.1497863 144.006295,72.7838847 L142.747279,67.7478191 C141.588984,63.1817863 140.791607,60.1097863 140.50623,59.1865076 C139.725639,56.6600814 138.793967,50.641983 134.295082,50.641983 C129.896918,50.641983 128.881311,56.6684748 128.083934,59.1865076 C127.790164,60.1097863 126.992787,63.1733929 125.842885,67.7478191 L124.583869,72.7838847 C121.903919,83.5556208 119.24599,94.3328236 116.610098,105.115426 L115.317508,110.369721 C111.252946,127.028593 107.140142,143.675657 102.979148,160.310704 C96.029377,187.664934 90.5736393,192.205786 79.0998033,198.072803 C70.3622295,202.546508 52.9122623,201.279098 52.9122623,201.279098 L0,0.230966635 L0,0.230966635 Z M318.934033,33.5781142 L318.934033,40.838442 L318.95082,40.838442 L318.95082,162.199229 C318.858492,187.102573 316.449574,192.633852 305.974557,198.366573 C297.832918,202.823491 285.377049,201.136409 285.377049,201.136409 L285.377049,65.1878191 C285.377049,58.3639502 287.492197,53.8902453 295.289705,49.8781797 C299.948066,47.4776552 304.287475,45.6394912 308.803148,42.9200158 C314.972328,39.2269011 318.103082,34.8371306 318.791344,33.7963437 L318.934033,33.5781142 Z M335.737705,0.902442045 C335.737705,0.902442045 363.075148,-3.94057435 376.61377,8.87621254 C384.226623,16.0861797 392.645246,28.3741797 394.550557,31.2111634 L394.911475,31.7483437 L394.953443,31.8154912 L418.79082,67.537983 C419.940721,69.3929338 421.451541,71.4157535 423.868852,71.4157535 C426.27777,71.4157535 427.796984,69.4013273 428.955279,67.537983 L452.784262,31.8154912 L452.82623,31.7483437 L453.187148,31.2111634 C455.092459,28.3741797 463.511082,16.0861797 471.132328,8.86781909 C484.662557,-3.94057435 512,0.894048602 512,0.894048602 L447.227803,101.07818 L511.823738,200.934967 C511.823738,200.934967 483.856787,204.678442 470.318164,191.861655 C461.656131,183.669655 452.784262,170.332475 452.784262,170.332475 L428.946885,134.618376 C427.796984,132.755032 426.27777,130.732213 423.868852,130.732213 C421.451541,130.732213 419.940721,132.746639 418.782426,134.618376 L394.953443,170.332475 C394.953443,170.332475 386.568393,183.669655 377.914754,191.861655 C364.376131,204.678442 335.905574,200.934967 335.905574,200.934967 L400.501508,101.07818 L335.737705,0.902442045 L335.737705,0.902442045 Z M318.866885,0.00434368429 L318.95082,0.00434368429 C318.95082,13.3499175 317.691803,21.2817207 309.634098,27.4425076 C305.893545,30.3173017 301.768637,32.6538077 297.379672,34.3838847 C292.929277,36.1200835 288.854378,38.6961035 285.377049,41.9715568 C285.377049,17.664147 288.927475,8.85942565 298.47082,3.64709778 C304.404984,0.40722893 314.14977,0.0379174548 317.649836,0.00434368429 L318.866885,0.00434368429 L318.866885,0.00434368429 Z"/></symbol></svg>
+      <div class="kliv-tools-marquee"><div class="kliv-tools-track"><ul class="kliv-tools-list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 3.992-.656.213-1.293.405-1.889.578C7.697 3.75 8.951.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.501.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.755-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.871v.002zm2.992 1.289c-.02 0-.06.021-.078.021s-.289.075-.714.21c-.423-1.233-1.176-2.37-2.508-2.37h-.115C12.135.209 11.669 0 11.265 0 8.159 0 6.675 3.877 6.21 5.846c-1.194.365-2.063.636-2.16.674-.675.213-.694.232-.772.87-.075.462-1.83 14.063-1.83 14.063L15.009 24l.927-21.166z"/></svg><span>Shopify</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg><span>Webflow</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg><span>Framer</span></li><li><svg class="kt-wordmark" viewBox="0 0 512 202" role="img" aria-label="Wix"><use href="#kt-wix"/></svg></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg><span>Figma</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg><span>Next.js</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.358 20.162c-1.186-1.07-1.532-3.316-1.038-4.944.856 1.026 2.043 1.352 3.272 1.535 1.897.283 3.76.177 5.522-.678.202-.098.388-.229.608-.36.166.473.209.95.151 1.437-.14 1.185-.738 2.1-1.688 2.794-.38.277-.782.525-1.175.787-1.205.804-1.531 1.747-1.078 3.119l.044.148a3.158 3.158 0 0 1-1.407-1.188 3.31 3.31 0 0 1-.544-1.815c-.004-.32-.004-.642-.048-.958-.106-.769-.472-1.113-1.161-1.133-.707-.02-1.267.411-1.415 1.09-.012.053-.028.104-.045.165h.002zm-5.961-4.445s3.24-1.575 6.49-1.575l2.451-7.565c.092-.366.36-.614.662-.614.302 0 .57.248.662.614l2.45 7.565c3.85 0 6.491 1.575 6.491 1.575L16.088.727C15.93.285 15.663 0 15.303 0H8.697c-.36 0-.615.285-.784.727l-5.516 14.99z"/></svg><span>Astro</span></li></ul><ul class="kliv-tools-list" aria-hidden="true"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 3.992-.656.213-1.293.405-1.889.578C7.697 3.75 8.951.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.501.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.755-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.871v.002zm2.992 1.289c-.02 0-.06.021-.078.021s-.289.075-.714.21c-.423-1.233-1.176-2.37-2.508-2.37h-.115C12.135.209 11.669 0 11.265 0 8.159 0 6.675 3.877 6.21 5.846c-1.194.365-2.063.636-2.16.674-.675.213-.694.232-.772.87-.075.462-1.83 14.063-1.83 14.063L15.009 24l.927-21.166z"/></svg><span>Shopify</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg><span>Webflow</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg><span>Framer</span></li><li><svg class="kt-wordmark" viewBox="0 0 512 202" role="img" aria-label="Wix"><use href="#kt-wix"/></svg></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg><span>Figma</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg><span>Next.js</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.358 20.162c-1.186-1.07-1.532-3.316-1.038-4.944.856 1.026 2.043 1.352 3.272 1.535 1.897.283 3.76.177 5.522-.678.202-.098.388-.229.608-.36.166.473.209.95.151 1.437-.14 1.185-.738 2.1-1.688 2.794-.38.277-.782.525-1.175.787-1.205.804-1.531 1.747-1.078 3.119l.044.148a3.158 3.158 0 0 1-1.407-1.188 3.31 3.31 0 0 1-.544-1.815c-.004-.32-.004-.642-.048-.958-.106-.769-.472-1.113-1.161-1.133-.707-.02-1.267.411-1.415 1.09-.012.053-.028.104-.045.165h.002zm-5.961-4.445s3.24-1.575 6.49-1.575l2.451-7.565c.092-.366.36-.614.662-.614.302 0 .57.248.662.614l2.45 7.565c3.85 0 6.491 1.575 6.491 1.575L16.088.727C15.93.285 15.663 0 15.303 0H8.697c-.36 0-.615.285-.784.727l-5.516 14.99z"/></svg><span>Astro</span></li></ul></div></div>
+    </div>
+    <section class="kliv-services" id="services" aria-labelledby="services-title">
+      <header class="kliv-header kliv-services__header"><h2 class="kliv-heading" id="services-title">Tout ce qu’il faut<em>pour exister en ligne.</em></h2><p class="kliv-copy">Du premier croquis à la mise en ligne, on conçoit, développe et fait évoluer vos sites et outils. Une seule équipe, un seul interlocuteur.</p><a href="#contact" class="kliv-button">Parler de votre projet</a></header>
+      <ol class="kliv-services__list"><li><a class="kliv-service" href="/services/site-web"><span class="kliv-service__number">01</span><h3>Sites vitrines &amp;<br>sur-mesure</h3><p>Un site rapide, beau et simple à modifier, pensé pour transformer vos visiteurs en clients.</p><span class="kliv-service__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+<li><a class="kliv-service" href="/services/site-web"><span class="kliv-service__number">02</span><h3>E-commerce</h3><p>Une boutique qui donne envie d’acheter, du catalogue au paiement, prête à vendre dès le lancement.</p><span class="kliv-service__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+<li><a class="kliv-service" href="/services/identite-marque"><span class="kliv-service__number">03</span><h3>UI/UX &amp; identité<br>visuelle</h3><p>Maquettes, design system et identité : une image cohérente sur tous vos supports.</p><span class="kliv-service__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+<li><a class="kliv-service" href="/services/outil-metier"><span class="kliv-service__number">04</span><h3>Outils &amp;<br>automatisations</h3><p>Applications internes, tableaux de bord et automatisations qui font gagner des heures à vos équipes.</p><span class="kliv-service__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+<li><a class="kliv-service" href="/services/accompagnement"><span class="kliv-service__number">05</span><h3>SEO &amp; maintenance</h3><p>Être trouvé sur Google, rester rapide et sécurisé : on fait vivre votre site après la mise en ligne.</p><span class="kliv-service__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li></ol>
+    </section>
+    <section class="kliv-panel-section" id="approche" aria-labelledby="approach-title">
+      <div class="kliv-blue-panel kliv-approach">
+        <header class="kliv-header"><h2 class="kliv-heading kliv-heading--light" id="approach-title">Pas une agence de plus.<em>Un partenaire qui explique.</em></h2><p class="kliv-copy kliv-copy--on-blue">Pas de jargon, pas de boîte noire. On vous explique chaque choix pour que vous restiez maître de votre projet.</p></header>
+        <dl class="kliv-stats"><div><dt>Délai moyen de réponse et brief projet</dt><dd>48<em>h</em></dd></div><div><dt>Projets livrés en 2025–2026</dt><dd>20<em>+</em></dd></div><div><dt>Sur-mesure, zéro template</dt><dd>100<em>%</em></dd></div></dl>
+        <div class="kliv-pillars"><article class="kliv-pillar"><span class="kliv-pillar__icon" aria-hidden="true">→</span><div><h3>On rend clair avant de rendre beau</h3><p>Chaque décision design ou technique sert votre besoin réel, pas une tendance ou nos préférences esthétiques.</p></div></article>
+<article class="kliv-pillar"><span class="kliv-pillar__icon" aria-hidden="true">→</span><div><h3>Une équipe, pas une agence anonyme</h3><p>Vous parlez directement aux personnes qui conçoivent et développent. Pas de chef de projet inutile entre vous et la production.</p></div></article>
+<article class="kliv-pillar"><span class="kliv-pillar__icon" aria-hidden="true">→</span><div><h3>On livre la capacité de l’utiliser, si besoin</h3><p>Délais tenus, documentation claire, prise en main incluse. On vous laisse un outil que vous savez utiliser, pas une dépendance.</p></div></article></div>
+        <a href="#contact" class="kliv-button kliv-button--white">Parler de votre projet</a>
       </div>
     </section>
-
-    <!-- ==============================
-         [05] MÉTHODE
-    =============================== -->
-    <section class="method section" id="methode">
-      <div class="container">
-
-        <div class="section-header">
-          <span class="section-label animate-reveal">Notre méthode</span>
-          <h2 class="section-title animate-reveal" data-delay="1">
-            Clarifier. Créer. Transmettre.<br><em>Faire évoluer.</em>
-          </h2>
-        </div>
-
-        <div class="method__grid">
-          <div class="method-card animate-reveal" data-delay="0">
-            <div class="method-card__num">01</div>
-            <h3 class="method-card__title">Clarifier</h3>
-            <p class="method-card__desc">Comprendre le contexte, les objectifs, les blocages et les priorités avant de proposer quoi que ce soit.</p>
-          </div>
-          <div class="method-card animate-reveal" data-delay="1">
-            <div class="method-card__num">02</div>
-            <h3 class="method-card__title">Créer</h3>
-            <p class="method-card__desc">Concevoir une solution claire, esthétique, utile et alignée avec le besoin réel — pas avec une tendance.</p>
-          </div>
-          <div class="method-card animate-reveal" data-delay="2">
-            <div class="method-card__num">03</div>
-            <h3 class="method-card__title">Transmettre</h3>
-            <p class="method-card__desc">Livrer avec documentation, explications et prise en main. Un projet livré, c'est un outil que vous savez utiliser.</p>
-          </div>
-          <div class="method-card method-card--accent animate-reveal" data-delay="3">
-            <div class="method-card__num">04</div>
-            <h3 class="method-card__title">Faire évoluer</h3>
-            <p class="method-card__desc">Accompagner les ajustements, les nouvelles pages, les contenus et les optimisations dans le temps.</p>
-          </div>
-        </div>
-
+    <section class="kliv-projects" id="realisations" aria-labelledby="projects-title">
+      <div class="kliv-projects__content"><header class="kliv-header"><h2 class="kliv-heading" id="projects-title">Pensés pour être beaux.<em>Conçus pour être utiles.</em></h2><p class="kliv-copy">Quelques sites récents, conçus sur mesure pour les objectifs de chaque client.</p></header>
+        <div class="kliv-projects__grid"><article class="kliv-project" data-project="arprotect">
+ <div class="kliv-project__visual"><div class="kliv-project__bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="kliv-project__shot"><img src="/assets/projects/arprotect.webp" alt="AR Protect — site web de detailing automobile" width="1600" height="835" loading="lazy" decoding="async"></div></div>
+ <div class="kliv-project__info"><div><h3>AR Protect</h3><p>Detailing automobile · Site vitrine</p></div><!-- URL publique à confirmer : ne pas afficher de bouton sans destination. --></div>
+</article>
+<article class="kliv-project" data-project="washys">
+ <div class="kliv-project__visual"><div class="kliv-project__bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="kliv-project__shot"><img src="/assets/projects/washys.webp" alt="Site Washys" width="1600" height="893" loading="lazy" decoding="async"></div></div>
+ <div class="kliv-project__info"><div><h3>Washys</h3><p>Nettoyage de sneakers · Site vitrine</p></div><!-- URL publique à confirmer : ne pas afficher de bouton sans destination. --></div>
+</article>
+<article class="kliv-project" data-project="asphalte">
+ <div class="kliv-project__visual"><div class="kliv-project__bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="kliv-project__shot"><img src="/assets/projects/asphalte.webp" alt="Site Asphalte" width="1600" height="822" loading="lazy" decoding="async"></div></div>
+ <div class="kliv-project__info"><div><h3>Asphalte</h3><p>Voitures de caractère · Site vitrine</p></div><!-- URL publique à confirmer : ne pas afficher de bouton sans destination. --></div>
+</article>
+<article class="kliv-project" data-project="retro-color">
+ <div class="kliv-project__visual"><div class="kliv-project__bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="kliv-project__shot"><img src="/assets/projects/retro-color.webp" alt="Site Retro Color" width="1600" height="828" loading="lazy" decoding="async"></div></div>
+ <div class="kliv-project__info"><div><h3>Retro Color</h3><p>Traitement du métal · Site vitrine</p></div><!-- URL publique à confirmer : ne pas afficher de bouton sans destination. --></div>
+</article>
+</div>
+        <div class="kliv-projects__cta"><p>Votre projet pourrait être le prochain.</p><a href="#contact" class="kliv-button">Parler de votre projet</a></div>
       </div>
     </section>
-
-    <!-- ==============================
-         [06] POURQUOI KLIV
-    =============================== -->
-    <section class="why-kliv section" id="approche">
-      <div class="container">
-
-        <div class="why-kliv__header">
-          <span class="section-label section-label--light animate-reveal">Notre approche</span>
-          <h2 class="why-kliv__title animate-reveal" data-delay="1">
-            Pas une agence de plus.<br>
-            <em>Un partenaire qui explique.</em>
-          </h2>
-        </div>
-
-        <div class="why-kliv__stats">
-          <div class="stat animate-reveal" data-delay="0">
-            <div class="stat__value">
-              <span class="stat__number" data-count="48">0</span>
-              <span class="stat__unit">h</span>
-            </div>
-            <p class="stat__label">Délai moyen de réponse et brief projet</p>
+    <section class="kliv-panel-section" id="faq" aria-labelledby="faq-title"><div class="kliv-blue-panel kliv-faq"><h2 class="kliv-heading kliv-heading--light" id="faq-title">Vos questions,<em>nos réponses.</em></h2><div class="kliv-faq__list"><details class="kliv-faq__item" name="home-faq"><summary id="faq-question-1" aria-controls="faq-answer-1"><span>Pourquoi choisir Kliv Agency ?</span><span class="kliv-faq__icon" aria-hidden="true"></span></summary><div id="faq-answer-1" class="kliv-faq__answer"><p>Kliv Agency est un studio web basé à Roissy-en-Brie, en Seine-et-Marne. Nous concevons des sites web, des identités de marque et des outils métier sur mesure, puis nous vous accompagnons après la livraison. Vous avez un interlocuteur direct du premier échange au suivi.</p></div></details>
+<details class="kliv-faq__item" name="home-faq"><summary id="faq-question-2" aria-controls="faq-answer-2"><span>Avec qui allons-nous travailler ?</span><span class="kliv-faq__icon" aria-hidden="true"></span></summary><div id="faq-answer-2" class="kliv-faq__answer"><p>Kliv Agency est dirigée par Lucas Dos Santos, entrepreneur individuel installé à Roissy-en-Brie. Vous échangez directement avec le studio, sans intermédiaire entre vous et la production.</p></div></details>
+<details class="kliv-faq__item" name="home-faq"><summary id="faq-question-3" aria-controls="faq-answer-3"><span>Comment se déroule un projet avec vous ?</span><span class="kliv-faq__icon" aria-hidden="true"></span></summary><div id="faq-answer-3" class="kliv-faq__answer"><p>On commence par un échange sur vos objectifs, avec une réponse sous 48 h. On vous propose ensuite un brief et une proposition clairs, puis on enchaîne : maquettes sur Figma, validation avec vous, développement, mise en ligne et prise en main.</p></div></details>
+<details class="kliv-faq__item" name="home-faq"><summary id="faq-question-4" aria-controls="faq-answer-4"><span>Combien de temps faut-il pour créer un site ?</span><span class="kliv-faq__icon" aria-hidden="true"></span></summary><div id="faq-answer-4" class="kliv-faq__answer"><p>Tout dépend du périmètre : une landing page se livre plus vite qu’un site complet avec CMS. Vous recevez un planning précis avec la proposition, et on s’y tient.</p></div></details>
+<details class="kliv-faq__item" name="home-faq"><summary id="faq-question-5" aria-controls="faq-answer-5"><span>Sur quels outils construisez-vous les sites ?</span><span class="kliv-faq__icon" aria-hidden="true"></span></summary><div id="faq-answer-5" class="kliv-faq__answer"><p>On conçoit sur Figma, puis on développe sur Webflow, Framer ou Next.js selon ce dont votre projet a vraiment besoin. Chaque site est construit sur mesure, sans template.</p></div></details>
+<details class="kliv-faq__item" name="home-faq"><summary id="faq-question-6" aria-controls="faq-answer-6"><span>À qui appartient le site une fois livré ?</span><span class="kliv-faq__icon" aria-hidden="true"></span></summary><div id="faq-answer-6" class="kliv-faq__answer"><p>À vous. Fichiers de design, code, contenus et accès vous appartiennent dès la livraison.</p></div></details></div></div></section>
+    <section class="kliv-contact" id="contact" aria-labelledby="contact-title">
+      <div class="kliv-contact__content">
+        <header class="kliv-header"><h2 class="kliv-heading" id="contact-title">Parlons de votre projet.<em>On vous répond sous 48 h.</em></h2><p class="kliv-copy">Laissez-nous un message ou réservez directement un appel de découverte dans notre agenda.</p></header>
+        <div class="kliv-tabs" role="tablist" aria-label="Comment souhaitez-vous nous contacter ?"><button type="button" role="tab" id="message-tab" aria-controls="message-panel" aria-selected="true" tabindex="0">Écrire un message</button><button type="button" role="tab" id="calendar-tab" aria-controls="calendar-panel" aria-selected="false" tabindex="-1">Réserver un appel</button></div>
+        <div class="kliv-contact__card">
+          <div id="message-panel" role="tabpanel" aria-labelledby="message-tab">
+            <form id="contact-form" class="kliv-form" action="/api/contact" method="post">
+              <div class="kliv-form__row"><div class="kliv-field"><label for="nom">Nom et prénom<span class="kliv-sr-only"> (obligatoire)</span></label><input id="nom" name="nom" autocomplete="name" maxlength="120" placeholder="Camille Martin" required></div><div class="kliv-field"><label for="email">Email<span class="kliv-sr-only"> (obligatoire)</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="camille@entreprise.fr" required></div></div>
+              <div class="kliv-form__row"><div class="kliv-field"><label for="societe">Entreprise</label><input id="societe" name="societe" autocomplete="organization" maxlength="120" placeholder="Nom de votre entreprise"></div><div class="kliv-field"><label for="type_projet">Type de projet<span class="kliv-sr-only"> (obligatoire)</span></label><select id="type_projet" name="type_projet" required><option value="">Choisir…</option><option>Site vitrine</option><option>Landing page</option><option>Site e-commerce</option><option>Branding</option><option>Refonte de site</option><option>Autre</option></select></div></div>
+              <div class="kliv-field"><label for="message">Votre projet<span class="kliv-sr-only"> (obligatoire)</span></label><textarea id="message" name="message" rows="5" maxlength="5000" placeholder="Parlez-nous de vos objectifs, de vos délais et de ce que vous imaginez…" required></textarea></div>
+              <div class="kliv-sr-only" aria-hidden="true"><label for="website">Site web</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+              <p id="contact-error" class="kliv-feedback kliv-feedback--error" role="alert" hidden>L’envoi a échoué. Réessayez ou écrivez-nous à <a href="mailto:lucas@kliv-agency.fr">lucas@kliv-agency.fr</a>.</p>
+              <button type="submit" class="kliv-button kliv-button--blue kliv-form__submit">Envoyer le message</button>
+              <p class="kliv-form__privacy">Vos informations servent à répondre à votre demande. <a href="/mentions-legales">Données personnelles</a></p>
+            </form>
+            <div id="contact-success" class="kliv-feedback" role="status" tabindex="-1" hidden><h3>Votre demande est envoyée</h3><p>Merci pour votre message. Nous reviendrons vers vous pour échanger sur votre projet.</p></div>
           </div>
-          <div class="stat animate-reveal" data-delay="1">
-            <div class="stat__value">
-              <span class="stat__number" data-count="20">0</span>
-              <span class="stat__unit">+</span>
-            </div>
-            <p class="stat__label">Projets livrés en 2025–2026</p>
-          </div>
-          <div class="stat animate-reveal" data-delay="2">
-            <div class="stat__value">
-              <span class="stat__number" data-count="100">0</span>
-              <span class="stat__unit">%</span>
-            </div>
-            <p class="stat__label">Sur-mesure</p>
+          <div id="calendar-panel" role="tabpanel" aria-labelledby="calendar-tab" hidden>
+            <div class="kliv-calendar"><iframe data-src="https://calendly.com/lucas-kliv-agency/30min?embed_type=Inline&amp;hide_gdpr_banner=1&amp;primary_color=017eff&amp;text_color=232323" title="Réserver un appel avec Kliv Agency" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+            <p class="kliv-calendar__fallback">L’agenda ne s’affiche pas ? <a href="https://calendly.com/lucas-kliv-agency/30min" target="_blank" rel="noopener noreferrer">Ouvrir Calendly<span class="kliv-sr-only"> (nouvel onglet)</span></a></p>
           </div>
         </div>
-
-        <div class="why-kliv__points">
-          <div class="point animate-reveal" data-delay="0">
-            <div class="point__icon" aria-hidden="true">→</div>
-            <div>
-              <h4>On rend clair avant de rendre beau</h4>
-              <p>Chaque décision design ou technique sert votre besoin réel, pas une tendance ou nos préférences esthétiques.</p>
-            </div>
-          </div>
-          <div class="point animate-reveal" data-delay="1">
-            <div class="point__icon" aria-hidden="true">→</div>
-            <div>
-              <h4>Une équipe, pas une agence anonyme</h4>
-              <p>Vous parlez directement aux personnes qui conçoivent et développent. Pas de chef de projet inutile entre vous et la production.</p>
-            </div>
-          </div>
-          <div class="point animate-reveal" data-delay="2">
-            <div class="point__icon" aria-hidden="true">→</div>
-            <div>
-              <h4>On livre la capacité de l'utiliser</h4>
-              <p>Délais tenus, documentation claire, prise en main incluse. On vous laisse un outil que vous savez utiliser, pas une dépendance.</p>
-            </div>
-          </div>
-        </div>
-
+        <noscript><p>Pour réserver un appel, <a href="https://calendly.com/lucas-kliv-agency/30min">ouvrez notre agenda</a>. Pour nous écrire, <a href="mailto:lucas@kliv-agency.fr">contactez-nous par email</a>.</p></noscript>
       </div>
     </section>
-
-    <!-- ==============================
-         [06] RÉALISATIONS — SÉLECTION (masqué temporairement)
-    =============================== -->
-    <section class="work section" id="realisations" hidden>
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label animate-reveal">Portfolio</span>
-          <h2 class="section-title animate-reveal" data-delay="1">
-            Projets<br><em>récents.</em>
-          </h2>
-        </div>
-
-        <div class="work__list">
-
-          <article class="work-item animate-reveal" data-delay="0">
-            <div class="work-item__media">
-              <img src="/assets/images/arprotect-preview.png" alt="AR Protect — site web détailing automobile" loading="lazy">
-            </div>
-            <div class="work-item__info">
-              <div>
-                <div class="work-item__tags">
-                  <span>Site Web</span>
-                  <span>Détailling Automobile</span>
-                </div>
-                <h3 class="work-item__title">AR Protect</h3>
-              </div>
-              <p class="work-item__year">2026</p>
-            </div>
-          </article>
-
-          <article class="work-item animate-reveal" data-delay="1">
-            <div class="work-item__media">
-              <img src="/assets/images/pepsprin-preview.png" alt="Pep's Print — outil de devis sur-mesure" loading="lazy">
-            </div>
-            <div class="work-item__info">
-              <div>
-                <div class="work-item__tags">
-                  <span>CRM</span>
-                  <span>Outils interne de création de devis</span>
-                </div>
-                <h3 class="work-item__title">Pep's Print</h3>
-              </div>
-              <p class="work-item__year">2025</p>
-            </div>
-          </article>
-
-          <article class="work-item animate-reveal" data-delay="2">
-            <div class="work-item__media">
-              <img src="/assets/images/eventorga-preview.png" alt="EventOrga — marketplace événementiel" loading="lazy">
-            </div>
-            <div class="work-item__info">
-              <div>
-                <div class="work-item__tags">
-                  <span>Site Web</span>
-                  <span>Dashboard suivis client</span>
-                </div>
-                <h3 class="work-item__title">EventOrga</h3>
-              </div>
-              <p class="work-item__year">2026</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==============================
-         [07] PROCESSUS DE TRAVAIL
-    =============================== -->
-    <section class="process section" id="processus">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label animate-reveal">Comment on travaille</span>
-          <h2 class="section-title animate-reveal" data-delay="1">
-            6 étapes,<br><em>zéro surprise.</em>
-          </h2>
-        </div>
-
-        <ol class="process__steps">
-          <li class="process-step animate-reveal" data-delay="0">
-            <div class="process-step__num">01</div>
-            <div class="process-step__content">
-              <h3>Découverte</h3>
-              <p>Un échange de cadrage pour comprendre votre activité, vos objectifs et vos contraintes réelles.</p>
-            </div>
-          </li>
-          <li class="process-step animate-reveal" data-delay="1">
-            <div class="process-step__num">02</div>
-            <div class="process-step__content">
-              <h3>Diagnostic</h3>
-              <p>On identifie les priorités et les enjeux. Ce qui compte vraiment, et ce qui peut attendre.</p>
-            </div>
-          </li>
-          <li class="process-step animate-reveal" data-delay="2">
-            <div class="process-step__num">03</div>
-            <div class="process-step__content">
-              <h3>Direction</h3>
-              <p>Choix créatifs et techniques posés clairement. Vous validez une direction avant qu'on construise.</p>
-            </div>
-          </li>
-          <li class="process-step animate-reveal" data-delay="3">
-            <div class="process-step__num">04</div>
-            <div class="process-step__content">
-              <h3>Production</h3>
-              <p>Design, développement, contenus. Le projet prend forme, avec des points d'étape réguliers.</p>
-            </div>
-          </li>
-          <li class="process-step animate-reveal" data-delay="4">
-            <div class="process-step__num">05</div>
-            <div class="process-step__content">
-              <h3>Transmission</h3>
-              <p>Documentation et formation adaptées à votre niveau. Vous savez utiliser ce qu'on a construit.</p>
-            </div>
-          </li>
-          <li class="process-step animate-reveal" data-delay="5">
-            <div class="process-step__num">06</div>
-            <div class="process-step__content">
-              <h3>Suivi</h3>
-              <p>Un point post-lancement pour corriger, améliorer et prioriser les évolutions à venir.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ==============================
-         [08] TÉMOIGNAGES
-    =============================== -->
-    <!--
-      Section suspendue : pas encore de vrais avis clients à publier (voir audit SEO/GEO
-      du 21/09/2026 — les citations précédentes étaient des placeholders, retirées du HTML
-      pour ne pas être livrées/citées comme des faits réels). Réintégrer ici de vrais
-      témoignages avant de réactiver la section (retirer `hidden`, décommenter le balisage).
-    -->
-
-    <!-- ==============================
-         [09] FAQ
-    =============================== -->
-    <section class="faq section" id="faq">
-      <div class="container">
-
-        <div class="section-header">
-          <span class="section-label animate-reveal">On vous répond</span>
-          <h2 class="section-title animate-reveal" data-delay="1">
-            Vos questions,<br><em>avant qu'elles ne se posent.</em>
-          </h2>
-        </div>
-
-        <div class="faq__list">
-
-          <div class="faq-item animate-reveal" data-delay="0">
-            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-1">
-              <span class="faq-item__question">Combien coûte un projet avec Kliv ?</span>
-              <span class="faq-item__icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-item__body" id="faq-1">
-              <p class="faq-item__answer">Un devis clair vaut mieux qu'une promesse floue. Un site vitrine démarre autour de 600 — 1 500 €, un outil métier ou un CRM se situe plutôt entre 2 000 et 8 000 €. <a href="/devis">Notre page devis</a> vous donne une fourchette en 2 minutes, sans engagement.</p>
-            </div>
-          </div>
-
-          <div class="faq-item animate-reveal" data-delay="1">
-            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-2">
-              <span class="faq-item__question">Combien de temps prend la création d'un site ?</span>
-              <span class="faq-item__icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-item__body" id="faq-2">
-              <p class="faq-item__answer">En moyenne, 2 à 4 semaines pour un site vitrine. Un projet plus complexe (e-commerce, outil métier) demande 4 à 10 semaines selon le périmètre défini ensemble dès la phase de découverte.</p>
-            </div>
-          </div>
-
-          <div class="faq-item animate-reveal" data-delay="2">
-            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-3">
-              <span class="faq-item__question">Est-ce que vous créez aussi l'identité de marque ?</span>
-              <span class="faq-item__icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-item__body" id="faq-3">
-              <p class="faq-item__answer">Oui. Logo, charte graphique, typographie, palette de couleurs — on peut tout concevoir de A à Z, pour que votre site, vos contenus et votre identité racontent la même chose.</p>
-            </div>
-          </div>
-
-          <div class="faq-item animate-reveal" data-delay="3">
-            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-3b">
-              <span class="faq-item__question">Pouvez-vous créer un outil métier ou un CRM sur mesure ?</span>
-              <span class="faq-item__icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-item__body" id="faq-3b">
-              <p class="faq-item__answer">Absolument. C'est l'un de nos cœurs de métier. On conçoit des outils adaptés à vos processus : CRM, dashboard, gestion de devis... Si vous avez un process, on peut le rendre utile.</p>
-            </div>
-          </div>
-
-          <div class="faq-item animate-reveal" data-delay="4">
-            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-4">
-              <span class="faq-item__question">Travaillez-vous avec des outils no-code ou du code ?</span>
-              <span class="faq-item__icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-item__body" id="faq-4">
-              <p class="faq-item__answer">Les deux, selon les besoins. No-code pour aller vite sur des projets ciblés. Code sur mesure quand la complexité, la scalabilité ou l'intégration l'exige. On choisit l'outil pour vous, pas pour nous.</p>
-            </div>
-          </div>
-
-          <div class="faq-item animate-reveal" data-delay="5">
-            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-5">
-              <span class="faq-item__question">Puis-je gérer mon site moi-même après livraison ?</span>
-              <span class="faq-item__icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-item__body" id="faq-5">
-              <p class="faq-item__answer">Oui : transmission, documentation et prise en main incluses. L'autonomie ne remplace pas l'accompagnement, mais elle ne dépend pas de nous non plus.</p>
-            </div>
-          </div>
-
-          <div class="faq-item animate-reveal" data-delay="6">
-            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-6">
-              <span class="faq-item__question">Que se passe-t-il après la mise en ligne ?</span>
-              <span class="faq-item__icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-item__body" id="faq-6">
-              <p class="faq-item__answer">On ne disparaît pas après la livraison. Un point post-lancement est prévu, et un accompagnement mensuel reste disponible si vous voulez faire évoluer ce qu'on a construit ensemble.</p>
-            </div>
-          </div>
-
-          <div class="faq-item animate-reveal" data-delay="7">
-            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-7">
-              <span class="faq-item__question">Je ne sais pas par où commencer, est-ce grave ?</span>
-              <span class="faq-item__icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-item__body" id="faq-7">
-              <p class="faq-item__answer">Non, c'est même le point de départ le plus courant. La phase de découverte sert exactement à ça : clarifier ce dont vous avez besoin, avant de parler solution.</p>
-            </div>
-          </div>
-
-          <div class="faq-item animate-reveal" data-delay="8">
-            <button class="faq-item__trigger" type="button" aria-expanded="false" aria-controls="faq-8">
-              <span class="faq-item__question">Comment démarre un projet avec Kliv ?</span>
-              <span class="faq-item__icon" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="faq-item__body" id="faq-8">
-              <p class="faq-item__answer">Tout commence par un appel de 30 min. On écoute, on pose les bonnes questions, et on vous envoie une proposition claire sous 48h — sans engagement.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ==============================
-         [10] CTA FINAL
-    =============================== -->
-    <section class="cta-final section" aria-label="Prendre contact">
-      <div class="container">
-        <div class="cta-final__card">
-          <div class="cta-final__bg" aria-hidden="true"></div>
-
-          <div class="cta-final__top">
-            <div class="cta-final__copy">
-              <span class="section-label section-label--light animate-reveal">Prêt à démarrer ?</span>
-              <h2 class="cta-final__title animate-reveal" data-delay="1">
-                Parlons de<br><em>votre projet.</em>
-              </h2>
-            </div>
-
-            <div class="cta-final__panel animate-reveal" data-delay="2">
-              <p class="cta-final__panel-text">
-                Pas un formulaire administratif. Une invitation à échanger : un brief, un appel de 30 min, et on vous dit ce qu'on peut faire, sans engagement.
-              </p>
-              <a href="/devis" class="btn btn--primary btn--lg cta-final__panel-btn">
-                Parler de votre projet
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <span class="cta-final__wordmark" aria-hidden="true"></span>
-        </div>
-      </div>
-    </section>
-
   </main>
-
-  <!-- ==============================
-       [10] FOOTER
-  =============================== -->
   <!--#include footer-->
-
-  <script type="module" src="../js/main.js"></script>
-  <script type="module" src="../js/hero-rotator.js"></script>
+  <script type="module" src="../js/home.js"></script>
 </body>
 </html>

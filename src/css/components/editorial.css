@@ -1,0 +1,140 @@
+/* Mise en page des contenus longs, limitée aux articles SEO. */
+.editorial {
+  min-width: 0;
+}
+
+.editorial--guide {
+  max-width: 55rem;
+  margin-inline: auto;
+}
+
+.editorial-hero .hero__title {
+  max-width: 22ch;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  overflow-wrap: break-word;
+}
+
+.editorial > :not(.editorial__table-scroll) {
+  max-width: 72ch;
+}
+
+.editorial .service-detail__intro {
+  max-width: 72ch;
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  border: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-loose);
+}
+
+.editorial > .service-detail__intro:first-child {
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-10);
+}
+
+.editorial > .service-detail__title {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl));
+  line-height: var(--leading-snug);
+  margin: var(--space-16) 0 var(--space-6);
+  max-width: 40ch;
+  text-wrap: balance;
+}
+
+.editorial > .service-detail__label {
+  margin: var(--space-10) 0 var(--space-3);
+  line-height: var(--leading-normal);
+}
+
+.editorial > .editorial__faq-question {
+  margin-top: var(--space-8);
+}
+
+.editorial > ul,
+.editorial > ol {
+  margin: 0 0 var(--space-8);
+  padding-left: var(--space-6);
+  list-style-position: outside;
+  line-height: var(--leading-loose);
+}
+
+.editorial > ul { list-style-type: disc; }
+.editorial > ul.editorial__checklist { list-style-type: square; }
+.editorial > ol { list-style-type: decimal; }
+.editorial > ul li,
+.editorial > ol li { padding-left: var(--space-2); margin-bottom: var(--space-3); }
+.editorial > ul li::marker,
+.editorial > ol li::marker { color: var(--color-accent); }
+.editorial > ul li .service-detail__label {
+  margin-top: var(--space-4);
+}
+.editorial > ul li p { margin-top: var(--space-2); }
+
+.editorial a:not(.btn) {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.editorial__toc {
+  margin: var(--space-10) 0 var(--space-12);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.editorial__toc-title {
+  display: block;
+  margin-bottom: var(--space-4);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+.editorial__toc ol {
+  list-style: decimal;
+  padding-left: var(--space-6);
+}
+.editorial__toc li { margin-top: var(--space-2); padding-left: var(--space-2); }
+.editorial__toc a { display: inline-block; padding: var(--space-1) 0; }
+.editorial [id] { scroll-margin-top: var(--space-24); }
+
+.editorial__table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0 0 var(--space-8);
+  -webkit-overflow-scrolling: touch;
+}
+.editorial__table {
+  width: 100%;
+  min-width: 38rem;
+  border-collapse: collapse;
+  text-align: left;
+  line-height: var(--leading-normal);
+}
+.editorial__table th,
+.editorial__table td {
+  padding: var(--space-4) var(--space-5) var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+.editorial__table thead th { color: var(--color-text-primary); font-weight: 500; }
+.editorial__table tbody th { color: var(--color-text-primary); font-weight: 500; }
+.editorial__table th:first-child { width: 34%; }
+
+.editorial__questions li { margin-bottom: var(--space-6); }
+.editorial__questions li strong { display: block; color: var(--color-text-primary); }
+.editorial__questions li p { margin-top: var(--space-2); }
+
+.editorial--hub > .service-detail__item {
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.editorial--hub > .service-detail__item .service-detail__label { margin-bottom: var(--space-3); }
+.editorial--hub > .service-detail__item p { font-size: var(--text-base); }
+
+@media (max-width: 540px) {
+  .editorial { padding: var(--space-8) var(--space-5); }
+  .editorial > .service-detail__title { margin-top: var(--space-12); }
+  .editorial > ul,
+  .editorial > ol { padding-left: var(--space-5); }
+}

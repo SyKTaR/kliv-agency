@@ -1,28 +1,22 @@
-const navbar = document.getElementById('navbar')
-const toggle = document.querySelector('.navbar__toggle')
-const mobileMenu = document.querySelector('.mobile-menu')
-const mobileLinks = document.querySelectorAll('.mobile-menu a')
-
-// Scroll → fond flouté
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40)
-}, { passive: true })
-
-// Burger menu
-if (toggle && mobileMenu) {
+const nav = document.querySelector('.kliv-nav')
+const toggle = nav?.querySelector('.kliv-nav__toggle')
+const menu = document.getElementById('mobile-navigation')
+if (toggle && menu) {
+  const closeMenu = (restoreFocus = false) => {
+    menu.hidden = true
+    toggle.setAttribute('aria-expanded', 'false')
+    toggle.setAttribute('aria-label', 'Ouvrir le menu')
+    if (restoreFocus) toggle.focus()
+  }
   toggle.addEventListener('click', () => {
-    const isOpen = toggle.classList.toggle('is-open')
-    mobileMenu.classList.toggle('is-open', isOpen)
-    toggle.setAttribute('aria-expanded', isOpen)
-    document.body.style.overflow = isOpen ? 'hidden' : ''
+    const open = toggle.getAttribute('aria-expanded') !== 'true'
+    menu.hidden = !open
+    toggle.setAttribute('aria-expanded', String(open))
+    toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu')
   })
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.classList.remove('is-open')
-      mobileMenu.classList.remove('is-open')
-      toggle.setAttribute('aria-expanded', false)
-      document.body.style.overflow = ''
-    })
-  })
+  menu.addEventListener('click', event => { if (event.target.closest('a')) closeMenu() })
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu.hidden) closeMenu(true) })
+  document.addEventListener('click', event => { if (!nav.contains(event.target)) closeMenu() })
+  nav.addEventListener('focusout', event => { if (!nav.contains(event.relatedTarget)) closeMenu() })
+  window.matchMedia('(min-width: 768px)').addEventListener('change', event => { if (event.matches) closeMenu() })
 }

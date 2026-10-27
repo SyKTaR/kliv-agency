@@ -1,38 +1,13 @@
-  <header role="banner">
-    <nav class="navbar" id="navbar" aria-label="Navigation principale">
-      <div class="navbar__inner container">
-
-        <a href="/" class="navbar__logo" aria-label="Kliv Agency — Accueil">
-          <img src="/assets/logo-anthracite.png" alt="Kliv Agency" class="logo-img">
-        </a>
-
-        <ul class="navbar__links" role="list">
-          <li><a href="/#services">Services</a></li>
-          <li><a href="/#methode">Méthode</a></li>
-          <li><a href="/#approche">Approche</a></li>
-          <li><a href="/#processus">Processus</a></li>
-          <li><a href="/#faq">FAQ</a></li>
-        </ul>
-
-        <div class="navbar__actions">
-          <a href="/devis" class="btn btn--primary btn--sm">Parler de votre projet</a>
-        </div>
-
-        <button class="navbar__toggle" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
-          <span></span><span></span><span></span>
-        </button>
-
-      </div>
-    </nav>
-
-    <div class="mobile-menu" role="dialog" aria-label="Menu de navigation">
-      <a href="/#services">Services</a>
-      <a href="/#methode">Méthode</a>
-      <a href="/#approche">Notre Approche</a>
-      <a href="/#processus">Processus</a>
-      <a href="/#faq">FAQ</a>
-      <div class="mobile-menu__cta">
-        <a href="/devis" class="btn btn--inverse btn--lg">Parler de votre projet</a>
-      </div>
-    </div>
-  </header>
+<header class="kliv-nav" id="navbar">
+  <nav class="kliv-nav__bar" aria-label="Navigation principale">
+    <a class="kliv-nav__brand" href="/" aria-label="Kliv Agency — Accueil"><img src="/assets/logo-anthracite.png" width="246" height="198" alt="Kliv Agency"></a>
+    <ul class="kliv-nav__links">
+      <li><a href="/#services">Services</a></li><li><a href="/#approche">Approche</a></li><li><a href="/#realisations">Réalisations</a></li><li><a href="/#contact">Contact</a></li><li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#contact" class="kliv-button kliv-nav__cta">Démarrer un projet</a>
+    <button class="kliv-nav__toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-navigation"><span></span><span></span></button>
+  </nav>
+  <nav class="kliv-nav__mobile" id="mobile-navigation" aria-label="Navigation mobile" hidden>
+    <a href="/#services">Services</a><a href="/#approche">Approche</a><a href="/#realisations">Réalisations</a><a href="/#contact">Contact</a><a href="/#faq">FAQ</a><a href="/guides">Guides</a>
+  </nav>
+</header>

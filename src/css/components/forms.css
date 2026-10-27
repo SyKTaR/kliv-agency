@@ -1,0 +1,39 @@
+/* Reusable KLIV fields, tabs, feedback, and booking embed. Import after design-system.css. */
+.kliv-tabs { display: grid; grid-template-columns: 1fr 1fr; background: var(--kliv-surface); padding: .375rem; border-radius: var(--kliv-pill); max-width: 100%; }
+.kliv-tabs button { min-height: 44px; padding: .5rem .875rem; border-radius: var(--kliv-pill); font-size: .875rem; font-weight: 700; line-height: 1.35; color: #626262; }
+.kliv-tabs button[aria-selected=true] { background: var(--kliv-ink); color: white; }
+.kliv-contact__card { width: 100%; background: var(--kliv-surface); border-radius: var(--kliv-radius-md); padding: 1.25rem; }
+.kliv-form { display: flex; flex-direction: column; gap: 1.125rem; }
+.kliv-form__row { display: grid; gap: 1.125rem; }
+.kliv-field { display: flex; flex-direction: column; gap: .5rem; min-width: 0; }
+.kliv-field label { font-size: .875rem; font-weight: 700; line-height: 1.2; }
+.kliv-field :is(input, select, textarea) { appearance: none; display: block; width: 100%; min-width: 0; height: 3.25rem; margin: 0; border: 1px solid #e2e2e2; border-radius: .875rem; padding: .875rem 1.125rem; font: 400 1rem/1.4 var(--kliv-font); color: var(--kliv-ink); background-color: white; }
+.kliv-field :is(input, textarea)::placeholder { color: #707070; opacity: 1; }
+.kliv-field select { padding-right: 2.75rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23232323' stroke-width='1.5'/%3E%3C/svg%3E"); background-position: right 1.125rem center; background-repeat: no-repeat; }
+.kliv-field textarea { min-height: 9.375rem; height: auto; resize: vertical; }
+.kliv-field :is(input, select, textarea):focus-visible { outline: 2px solid var(--kliv-blue-action); outline-offset: 2px; }
+.kliv-form__submit { width: 100%; min-height: 3.375rem; margin-top: .375rem; font-size: 1rem; font-weight: 700; }
+.kliv-form__privacy { color: #626262; font-size: .875rem; line-height: 1.5; }
+.kliv-form__privacy a, .kliv-feedback a, .kliv-calendar__fallback a { text-decoration: underline; text-underline-offset: .15em; }
+.kliv-feedback { padding: 2rem 1.5rem; border-radius: var(--kliv-radius-sm); background: white; font-size: 1.0625rem; }
+.kliv-feedback h3 { font-weight: 700; margin-bottom: 1rem; }
+.kliv-feedback--error { background: #ffe8e6; color: #9a1d14; padding: 1rem; font-size: 1rem; }
+.kliv-calendar { background: white; border-radius: var(--kliv-radius-sm); overflow: hidden; }
+.kliv-calendar iframe { display: block; width: 100%; height: 48rem; border: 0; }
+.kliv-calendar__fallback { padding-top: 1rem; font-size: .875rem; line-height: 1.6; }
+
+@media (min-width: 768px) {
+  .kliv-contact__card { padding: 2.25rem; }
+}
+
+@media (min-width: 768px) {
+  .kliv-form__row { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+@media (min-width: 768px) {
+  .kliv-tabs button { font-size: .9375rem; padding-inline: 1.375rem; }
+}
+
+@media (min-width: 768px) {
+  .kliv-calendar iframe { height: 43rem; }
+}

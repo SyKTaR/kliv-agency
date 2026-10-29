@@ -1,0 +1,196 @@
+/* Pages services (nouvelle maquette). Classes .service-* uniquement : aucune collision avec les styles .kliv-page__* encore utilisés par /a-propos. */
+.service-page { --service-sky: #dcecff; --service-card: #efefef; --service-muted: #626262; --service-gutter: 1.25rem; --service-section: clamp(4.5rem, 8vw, 7.5rem); }
+.service-page main { overflow-x: clip; }
+.service-page :where(p) { margin: 0; }
+.service-page :where(h1, h2, h3) { margin: 0; text-wrap: balance; }
+.service-page :where(ul, ol) { margin: 0; padding: 0; list-style: none; }
+.service-wrap { width: min(100%, var(--kliv-content)); margin-inline: auto; padding-inline: var(--service-gutter); box-sizing: border-box; }
+.service-icon { display: block; flex: 0 0 auto; width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Titres de section (même grammaire que la home : romain 700 + Fraunces italique bleu) */
+.service-title { font: 700 clamp(2rem, 4.2vw, 3rem)/1.2 var(--kliv-font); letter-spacing: -.03em; color: var(--kliv-ink); }
+.service-title em { display: block; font-family: var(--kliv-serif); font-style: italic; font-weight: 700; color: var(--kliv-blue); letter-spacing: -.04em; }
+.service-title--light { color: white; }
+.service-lead { max-width: 36rem; color: var(--service-muted); font: 500 1.0625rem/1.65 var(--kliv-font); }
+.service-pill { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.125rem; padding: .25rem .875rem; border-radius: var(--kliv-pill); background: var(--kliv-surface); color: var(--kliv-ink); font: 500 .875rem/1.2 var(--kliv-font); }
+.service-pill::before { content: ''; width: .4375rem; height: .4375rem; border-radius: 50%; background: var(--kliv-blue); flex: 0 0 auto; }
+.service-pill--dark { background: #232323; color: white; }
+.service-pill--flat { padding-inline: 0; background: none; }
+.service-pill--on-blue { background: var(--kliv-blue-action); color: white; }
+.service-pill--on-blue::before { background: white; }
+.service-head { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.service-head--center { align-items: center; text-align: center; }
+.service-head--center .service-lead { max-width: 34rem; }
+
+/* Hero */
+.service-hero { padding: 7.5rem 0 0; }
+.service-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+.service-hero__copy { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.service-breadcrumb { margin-bottom: 1.25rem; font: 500 .875rem/1.4 var(--kliv-font); color: #8a8a8a; }
+.service-breadcrumb ol { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .5rem; }
+.service-breadcrumb li + li::before { content: '/'; margin-right: .5rem; color: #b5b5b5; }
+.service-breadcrumb a { display: inline-flex; align-items: center; min-height: 2.75rem; color: #707070; text-decoration: none; transition: color var(--kliv-duration); }
+.service-breadcrumb a:hover { color: var(--kliv-blue-action); }
+.service-breadcrumb [aria-current] { color: var(--kliv-ink); }
+.service-hero h1 { font: 700 clamp(2.5rem, 9.2vw, 3.625rem)/1.1 var(--kliv-font); letter-spacing: -.035em; color: var(--kliv-ink); overflow-wrap: break-word; }
+.service-hero h1 em { display: block; line-height: 1.02; margin-top: .02em; font-family: var(--kliv-serif); font-style: italic; font-weight: 700; color: var(--kliv-blue); letter-spacing: -.04em; }
+.service-hero__lead { max-width: 34.5rem; margin-top: 1.75rem; color: var(--service-muted); font: 500 1.125rem/1.55 var(--kliv-font); }
+.service-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+.service-actions .kliv-button { gap: .625rem; min-height: 3.125rem; padding-inline: 1.5rem; font-size: 1rem; }
+.service-actions .kliv-button .service-icon { width: .875rem; height: .875rem; stroke-width: 2.25; }
+.service-actions .kliv-button--outline { border-color: #d6d6d6; }
+.service-actions .kliv-button--outline:hover { background: var(--kliv-ink); border-color: var(--kliv-ink); color: white; }
+.service-tags { display: flex; flex-wrap: wrap; gap: .625rem; margin-top: 1.5rem; }
+.service-tag { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.375rem; padding: 0 .875rem; border-radius: var(--kliv-pill); background: var(--kliv-surface); font: 500 .9375rem/1 var(--kliv-font); color: var(--kliv-ink); }
+.service-tag .service-icon, .service-chip .service-icon { width: .875rem; height: .875rem; stroke-width: 2.25; color: var(--kliv-blue); }
+
+/* Sections génériques */
+.service-section { padding-top: var(--service-section); }
+.service-split { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.service-split__head { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.service-cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; }
+.service-card { padding: 1.5rem 1.75rem 1.75rem; border-radius: var(--kliv-radius-md); background: var(--service-card); }
+.service-card__num { display: block; font: italic 700 1.75rem/1.2 var(--kliv-serif); letter-spacing: -.02em; color: var(--kliv-blue); }
+.service-card h3 { margin-top: .5rem; font: 600 1.375rem/1.25 var(--kliv-font); letter-spacing: -.02em; color: var(--kliv-ink); }
+.service-card p { margin-top: 1rem; color: var(--service-muted); font: 500 1rem/1.55 var(--kliv-font); }
+
+/* Le bon choix */
+.service-choice { display: flex; flex-direction: column; gap: .5rem; padding: .75rem; border-radius: var(--kliv-radius-lg); background: var(--service-card); }
+.service-choice li { display: flex; align-items: center; gap: .875rem; min-height: 4.25rem; padding: .75rem 1.125rem .75rem 1rem; border-radius: 1.25rem; background: white; font: 700 1.0625rem/1.35 var(--kliv-font); letter-spacing: -.01em; color: var(--kliv-ink); }
+.service-choice li::before { content: ''; flex: 0 0 auto; width: 2rem; height: 2rem; border-radius: 50%; background: var(--service-sky) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23017eff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/.875rem no-repeat; }
+.service-choice li.is-accent { background: var(--kliv-blue); color: white; }
+.service-choice li.is-accent::before { background-color: white; }
+
+/* Les signes (refonte) */
+.service-signs { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 3rem; }
+.service-sign { flex: 0 0 100%; display: flex; flex-direction: column; gap: 1.5rem; min-height: 0; padding: 1.375rem 1.75rem 1.375rem 1.375rem; border-radius: var(--kliv-radius-md); background: var(--service-card); font: 600 1.0625rem/1.4 var(--kliv-font); letter-spacing: -.01em; color: var(--kliv-ink); }
+.service-sign__num { display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: white; color: var(--kliv-blue); font: 700 .875rem/1 var(--kliv-font); }
+.service-signs__note { margin-top: 3rem; text-align: center; color: var(--service-muted); font: 500 1rem/1.5 var(--kliv-font); }
+
+/* Pour qui (bloc sombre) */
+.service-audience { margin: var(--service-section) 1rem 0; padding: clamp(4rem, 6.4vw, 6.25rem) 0; border-radius: clamp(2rem, 4vw, 3.5rem); background: var(--kliv-dark); color: white; }
+.service-audience .service-cards { margin-top: 3.5rem; align-items: stretch; }
+.service-audience .service-card { display: block; background: #232323; padding: 1.75rem; }
+.service-audience__icon { display: flex; align-items: center; justify-content: center; width: 3.25rem; height: 3.25rem; margin-bottom: 1.25rem; border-radius: .875rem; background: var(--kliv-blue); color: white; }
+.service-audience__icon .service-icon { width: 1.5rem; height: 1.5rem; stroke-width: 1.6; }
+.service-audience .service-card h3 { margin-top: 0; font-size: 1.375rem; color: white; }
+.service-audience .service-card p { color: #ababab; margin-top: .75rem; }
+
+/* Méthode */
+.service-steps { display: flex; flex-direction: column; margin-top: 3rem; counter-reset: step; }
+.service-step { position: relative; display: grid; grid-template-columns: 3.25rem minmax(0, 1fr); column-gap: 1rem; padding-bottom: 2rem; }
+.service-step:last-child { padding-bottom: 0; }
+.service-step::before { content: ''; position: absolute; left: 1.625rem; top: 3.25rem; bottom: 0; width: 2px; margin-left: -1px; background: var(--service-sky); }
+.service-step:last-child::before { display: none; }
+.service-step::before { transform: scaleY(var(--service-line, 1)); transform-origin: 50% 0; } /* --service-line : posée par service-motion.js pendant le tracé, absente sinon */
+.service-step__num { grid-row: 1 / 3; display: flex; align-items: center; justify-content: center; width: 3.25rem; height: 3.25rem; border: 2px solid var(--kliv-blue); border-radius: 50%; background: white; color: var(--kliv-blue-action); font: 700 1rem/1 var(--kliv-font); }
+.service-step:last-child .service-step__num { background: var(--kliv-blue); color: white; }
+.service-step h3 { align-self: end; font: 600 1.25rem/1.3 var(--kliv-font); letter-spacing: -.015em; color: var(--kliv-ink); }
+.service-step p { grid-column: 2; margin-top: .375rem; color: var(--service-muted); font: 500 .9375rem/1.55 var(--kliv-font); }
+
+/* Cas concrets */
+.service-cases { margin-top: var(--service-section); padding: var(--service-section) 0; background: var(--kliv-surface); }
+.service-cases__head { display: flex; flex-direction: column; gap: 1.25rem; align-items: flex-start; }
+.service-cases__aside { max-width: 20rem; color: var(--service-muted); font: 500 1.0625rem/1.55 var(--kliv-font); }
+.service-cases .service-cards { margin-top: 3rem; align-items: stretch; }
+.service-case { display: flex; flex-direction: column; padding: .75rem; border-radius: var(--kliv-radius-lg); background: white; }
+.service-case__tile { display: flex; align-items: center; justify-content: center; height: 11.25rem; border-radius: 1.375rem; background: var(--kliv-blue); color: white; }
+.service-case__tile--dark { background: var(--kliv-dark); }
+.service-case__tile--sky { background: var(--service-sky); color: var(--kliv-blue); }
+.service-case__tile .service-icon { width: 3.25rem; height: 3.25rem; stroke-width: 1.5; }
+.service-case__body { padding: 1.125rem 1rem 1rem; }
+.service-case h3 { font: 600 1.375rem/1.3 var(--kliv-font); letter-spacing: -.02em; color: var(--kliv-ink); }
+.service-case p { margin-top: .625rem; color: var(--service-muted); font: 500 1rem/1.55 var(--kliv-font); }
+
+/* Ce que vous gagnez */
+.service-gain { margin: .5rem 1rem 0; padding: clamp(4rem, 7vw, 6rem) var(--service-gutter); border-radius: clamp(2rem, 4vw, 3.5rem); background: var(--kliv-blue); color: white; text-align: center; }
+.service-gain__inner { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; width: min(100%, 68rem); margin-inline: auto; }
+.service-gain blockquote { margin: 0; font: italic 700 clamp(1.75rem, 3.7vw, 2.75rem)/1.28 var(--kliv-serif); max-width: 56rem; letter-spacing: -.02em; text-wrap: pretty; }
+.service-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .625rem; }
+.service-chip { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.5rem; padding: 0 1rem; border-radius: var(--kliv-pill); background: white; color: var(--kliv-ink); font: 600 .9375rem/1.2 var(--kliv-font); }
+.service-cases + .service-gain { margin-top: .5rem; }
+.service-gain--after-cases { margin-top: .5rem; }
+
+/* FAQ */
+.service-faq { padding-top: calc(var(--service-section) - 1rem); }
+.service-faq__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.service-faq__head { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.service-faq__head .service-lead { max-width: 22rem; }
+.service-faq__head .kliv-button { gap: .625rem; min-height: 3.125rem; padding-inline: 1.5rem; margin-top: .5rem; font-size: 1rem; }
+.service-faq__head .kliv-button .service-icon { width: .875rem; height: .875rem; stroke-width: 2.25; }
+.service-faq .kliv-faq__list { max-width: none; gap: 0; border-top: 1px solid #e3e3e3; }
+.service-faq .kliv-faq__item { padding: 0; border-radius: 0; background: none; border-bottom: 1px solid #e3e3e3; }
+.service-faq .kliv-faq__item summary { min-height: 5.25rem; padding-block: 1.125rem; font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em; cursor: pointer; }
+.service-faq .kliv-faq__item summary h3 { font: inherit; letter-spacing: inherit; margin: 0; }
+.service-faq .kliv-faq__item summary:focus-visible { outline: 3px solid var(--kliv-blue-action); outline-offset: 2px; border-radius: .5rem; }
+.service-faq .kliv-faq__icon { position: relative; width: 2.25rem; height: 2.25rem; transition: background var(--kliv-duration); }
+.service-faq .kliv-faq__icon::before, .service-faq .kliv-faq__icon::after { content: ''; position: absolute; left: 50%; top: 50%; width: .625rem; height: 2px; margin: -1px 0 0 -.3125rem; border: 0; background: var(--kliv-ink); transform: none; transition: transform var(--kliv-duration), opacity var(--kliv-duration); }
+.service-faq .kliv-faq__icon::after { transform: rotate(90deg); }
+.service-faq .kliv-faq__item[open] .kliv-faq__icon { background: var(--kliv-blue-action); }
+.service-faq .kliv-faq__item[data-closing] .kliv-faq__icon { background: var(--kliv-surface); } /* fermeture animée par service-motion.js : l'icône revient aussitôt à « + » */
+.service-faq .kliv-faq__item[open] .kliv-faq__icon::before { background: white; }
+.service-faq .kliv-faq__item[data-closing] .kliv-faq__icon::before { background: var(--kliv-ink); }
+.service-faq .kliv-faq__item[open] .kliv-faq__icon::after { transform: rotate(0); opacity: 0; }
+.service-faq .kliv-faq__item[data-closing] .kliv-faq__icon::after { transform: rotate(90deg); opacity: 1; }
+.service-faq .kliv-faq__answer { padding: 0 3rem 1.5rem 0; font: 500 1rem/1.65 var(--kliv-font); color: var(--service-muted); }
+.service-faq .kliv-faq__answer a { color: var(--kliv-blue-action); text-underline-offset: .2em; }
+
+/* À découvrir */
+.service-more { padding: var(--service-section) 0 var(--service-section); }
+.service-more .service-cards { margin-top: 3rem; align-items: stretch; }
+.service-more__card { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 15rem; padding: 1.75rem; border-radius: var(--kliv-radius-md); background: var(--service-card); color: var(--kliv-ink); text-decoration: none; transition: background var(--kliv-duration); }
+.service-more__top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2.5rem; }
+.service-more__num { font: italic 700 1.375rem/1.2 var(--kliv-serif); color: var(--kliv-blue); }
+.service-more__arrow { display: flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--kliv-ink); color: white; transition: background var(--kliv-duration); }
+.service-more__arrow .service-icon { width: .9375rem; height: .9375rem; stroke-width: 2.25; }
+.service-more__card h3 { font: 600 1.625rem/1.2 var(--kliv-font); letter-spacing: -.025em; }
+.service-more__card p { margin-top: .625rem; color: var(--service-muted); font: 500 .9375rem/1.5 var(--kliv-font); }
+.service-more__card:hover .service-more__arrow { background: var(--kliv-blue-action); }
+.service-more__card:focus-visible { outline: 3px solid var(--kliv-blue-action); outline-offset: 4px; }
+
+@media (min-width: 640px) {
+  .service-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service-signs .service-sign { flex-basis: calc((100% - 2rem) / 3); }
+  .service-more .service-cards, .service-cases .service-cards { grid-template-columns: minmax(0, 1fr); }
+}
+@media (min-width: 700px) {
+  .service-audience .service-cards, .service-cases .service-cards, .service-more .service-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .service-audience .service-card { padding: 1.5rem; }
+  .service-cases__head { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+}
+@media (min-width: 900px) {
+  .service-steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 1.5rem; margin-top: 4.5rem; }
+  .service-step { display: block; padding-bottom: 0; }
+  .service-step::before { left: 3.25rem; right: -1.5rem; top: 1.625rem; bottom: auto; width: auto; height: 2px; margin: -1px 0 0; transform: scaleX(var(--service-line, 1)); transform-origin: 0 50%; }
+  .service-step__num { margin-bottom: 1.25rem; }
+  .service-step h3 { font-size: 1.1875rem; }
+  .service-step p { margin-top: .75rem; padding-right: 0; font-size: 1rem; }
+}
+@media (min-width: 1024px) {
+  .service-wrap { padding-inline: 0; }
+  .service-hero { padding-top: 11rem; }
+  .service-hero__grid { grid-template-columns: minmax(0, 1fr) 35rem; gap: 3rem; }
+  .service-split { grid-template-columns: minmax(0, 1fr) 45rem; gap: 3rem; }
+  .service-split--choice { grid-template-columns: minmax(0, 1fr) 41.25rem; }
+  .service-split--choice .service-split__head { max-width: none; }
+  .service-split--choice .service-lead { max-width: 31rem; }
+  .service-split__head { padding-top: .25rem; max-width: 28rem; }
+  .service-signs .service-sign { flex-basis: calc((100% - 4rem) / 5); min-height: 10.75rem; }
+  .service-cases__aside { margin-bottom: .5rem; }
+  .service-faq__grid { grid-template-columns: minmax(0, 1fr) 46.5rem; gap: 2rem; }
+}
+@media (max-width: 639px) {
+  .service-hero__lead { font-size: 1.0625rem; }
+  .service-actions .kliv-button { flex: 1 1 100%; }
+  .service-card h3 { font-size: 1.25rem; }
+  .service-more__card { min-height: 12.5rem; }
+  .service-more__card h3 { font-size: 1.375rem; }
+  .service-faq .kliv-faq__answer { padding-right: 0; }
+  .service-faq .kliv-faq__item summary { font-size: 1.0625rem; min-height: 4.5rem; }
+  .service-choice li { font-size: 1rem; }
+}
+
+/* Entrée de page : masquage anti-FOUC posé par un script inline du <head> (absent en reduced-motion et sans JS).
+   Levé par service-motion.js dès que les états initiaux sont posés, et de toute façon à 1,4 s par ce filet de secours. */
+.kliv-motion-pending :is(.kliv-nav, .service-breadcrumb, .service-hero h1, .service-hero__lead, .service-actions, .service-tags, .service-visual) { visibility: hidden; animation: service-motion-failsafe 0s linear 1.4s forwards; }
+@keyframes service-motion-failsafe { to { visibility: visible; } }

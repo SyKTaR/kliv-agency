@@ -1,0 +1,135 @@
+/* Page À propos. Réutilise les composants .service-* (hero, pills, titres, cartes, bloc noir, chips) ; seules les pièces propres à la page sont ici (.about-*). */
+.about-page { --about-muted: #555; }
+.about-page .service-icon { stroke-width: 2; }
+.about-badge { margin: 0; box-shadow: 0 .625rem 1.75rem rgba(22, 22, 22, .12); }
+
+/* Hero : photo + pastilles (DOM séparé : chaque pastille est animable seule) */
+.about-hero__lead { max-width: 37rem; font-size: 1.1875rem; line-height: 1.6; }
+.about-page .service-hero h1 { font-size: clamp(2.5rem, 9.2vw, 4rem); line-height: 1.12; }
+.about-hero__stage { position: relative; width: min(100%, 35rem); aspect-ratio: 560 / 500; justify-self: center; }
+.about-hero__photo { position: absolute; inset: 0 7.14% 0 17.86%; overflow: hidden; border-radius: var(--kliv-radius-lg); background: var(--kliv-blue); }
+.about-hero__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.about-hero__place, .about-hero__reply { position: absolute; display: inline-flex; align-items: center; gap: .5rem; min-height: 2.0625rem; padding: 0 .875rem; border-radius: var(--kliv-pill); font: 500 .8125rem/1 var(--kliv-font); white-space: nowrap; }
+.about-hero__place { top: 5.6%; right: 3.9%; background: white; color: var(--kliv-ink); }
+.about-hero__reply { top: 22.2%; left: 7.14%; background: var(--kliv-blue-action); color: white; }
+.about-hero__place .service-icon, .about-hero__reply .service-icon { width: .8125rem; height: .8125rem; stroke-width: 2.25; }
+.about-hero__place .service-icon { color: var(--kliv-blue); }
+.about-hero__id { position: absolute; left: 0; top: 72.2%; display: flex; align-items: center; gap: 1rem; padding: .75rem 1.5rem .75rem .75rem; border-radius: 1.375rem; background: white; }
+.about-hero__avatar { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 3rem; height: 3rem; border-radius: .875rem; background: var(--kliv-blue-action); color: white; font: 700 1rem/1 var(--kliv-font); }
+.about-hero__id p { display: flex; flex-direction: column; gap: .125rem; margin: 0; }
+.about-hero__id strong { font: 700 1rem/1.3 var(--kliv-font); letter-spacing: -.01em; color: var(--kliv-ink); }
+.about-hero__id span:not(.about-hero__avatar) { font: 500 .8125rem/1.3 var(--kliv-font); color: var(--service-muted); }
+
+/* Citation */
+.about-quote { padding-top: clamp(3.5rem, 9.3vw, 8.75rem); }
+.about-quote__inner { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; text-align: center; }
+.about-quote__text { max-width: 64rem; margin: 0; font: italic 700 clamp(1.625rem, 2.65vw, 2.5rem)/1.3 var(--kliv-serif); letter-spacing: -.02em; color: var(--kliv-ink); text-wrap: wrap; }
+.about-quote__tags .service-chip { min-height: 2.25rem; background: var(--kliv-surface); font-size: .875rem; }
+
+/* Qui est derrière */
+.about-who { padding-top: clamp(3.5rem, 7.3vw, 6.875rem); }
+.about-who__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.about-who__photo { position: relative; overflow: hidden; width: 100%; max-width: 32.5rem; aspect-ratio: 520 / 560; border-radius: var(--kliv-radius-lg); background: #e4e4e4; }
+/* Même photo que le hero, recadrée plus serré sur le visage et le profil (zoom + position) */
+.about-who__photo img { position: absolute; left: -22%; top: -8%; width: 140%; height: auto; max-width: none; aspect-ratio: 1; object-fit: cover; object-position: 50% 50%; }
+.about-who__body { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.about-who__text { max-width: 38.5rem; margin-top: 1.5rem; color: var(--about-muted); font: 500 1.0625rem/1.65 var(--kliv-font); }
+.about-facts { width: 100%; margin: 2rem 0 0; border-top: 1px solid #e3e3e3; }
+.about-facts__row { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; align-items: baseline; padding: .9375rem 0; border-bottom: 1px solid #e3e3e3; }
+.about-facts dt { color: var(--service-muted); font: 600 .8125rem/1.4 var(--kliv-font); }
+.about-facts dd { margin: 0; font: 500 1rem/1.4 var(--kliv-font); color: var(--kliv-ink); }
+.about-who__links { display: flex; flex-wrap: wrap; gap: .25rem 1.75rem; margin: .875rem 0 0; }
+.about-who__links a { display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; color: var(--kliv-blue-action); font: 600 .875rem/1.3 var(--kliv-font); text-decoration: none; }
+.about-who__links a:hover { text-decoration: underline; text-underline-offset: .25em; }
+.about-who__links .service-icon { width: .75rem; height: .75rem; stroke-width: 2.25; }
+
+/* Bloc noir : trois métiers */
+.about-studio { margin-top: clamp(3.5rem, 7.7vw, 7.25rem); padding-block: clamp(4rem, 7.4vw, 7rem); }
+.about-studio__head { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+.about-studio__button { gap: .625rem; min-height: 3rem; padding-inline: 1.5rem; font-size: .9375rem; }
+.about-studio__button .service-icon { width: .875rem; height: .875rem; stroke-width: 2.25; }
+.about-studio .service-cards { margin-top: 3rem; }
+.about-studio .service-case__tile--dark { background: #2a2a2a; }
+.about-studio .service-case h3 { font-weight: 700; }
+.about-studio .service-case p { font-size: .9375rem; }
+
+/* Ce que Kliv ne fait pas */
+.about-commit { padding-top: clamp(4.5rem, 9vw, 8.4375rem); }
+.about-commit__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; margin-top: clamp(2rem, 2.2vw, 2.0625rem); }
+.about-commit__card { padding: 1.75rem 1.5rem 1.5rem; border-radius: var(--kliv-radius-md); background: var(--service-card); color: var(--kliv-ink); }
+.about-commit__card h3 { font: 700 1.5rem/1.3 var(--kliv-font); letter-spacing: -.02em; }
+.about-commit__card--blue { background: var(--kliv-blue); color: white; }
+.about-list { margin-top: 1.25rem; }
+.about-list__item { display: flex; align-items: center; gap: .875rem; padding: 1.1875rem 0; border-top: 1px solid rgba(35, 35, 35, .12); font: 700 1.03rem/1.5 var(--kliv-font); letter-spacing: -.005em; }
+.about-list__item:first-child { padding-top: 0; border-top: 0; }
+.about-list__item:last-child { padding-bottom: 0; }
+.about-list__item > .service-icon { width: 2.125rem; height: 2.125rem; padding: .6875rem; border-radius: 50%; background: white; color: var(--kliv-ink); stroke-width: 2.25; }
+.about-commit__card--blue .about-list__item { border-top-color: rgba(255, 255, 255, .16); }
+.about-commit__card--blue .about-list__item > .service-icon { color: var(--kliv-blue); }
+
+/* Principes */
+.about-principles { margin-top: clamp(4rem, 7.3vw, 6.875rem); padding-bottom: clamp(4rem, 7.3vw, 6.875rem); }
+.about-principles .service-cards { margin-top: clamp(2rem, 2.3vw, 2.2rem); }
+.about-principles .service-cases__aside { max-width: 22rem; font-size: 1rem; }
+.about-principle { padding: 1.75rem 1.75rem 2rem; border-radius: var(--kliv-radius-md); background: white; }
+.about-principle__num { display: block; font: italic 700 2.75rem/1.1 var(--kliv-serif); letter-spacing: -.02em; color: var(--kliv-blue); }
+.about-principle h3 { margin-top: 1rem; font: 700 1.375rem/1.3 var(--kliv-font); letter-spacing: -.02em; color: var(--kliv-ink); }
+.about-principle p { margin-top: .875rem; color: var(--service-muted); font: 500 .9375rem/1.6 var(--kliv-font); }
+
+/* Zone d'intervention : illustration 100 % DOM (500 × 400 de référence, positions en %) */
+.about-zone { padding: 3rem 0 clamp(4rem, 7.8vw, 7.375rem); }
+.about-zone__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+.about-zone__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.about-zone__copy .service-title { margin-bottom: .25rem; }
+.about-zone__lead { max-width: 31rem; margin-top: .25rem; }
+.about-zone__copy .service-actions { margin-top: 1.25rem; }
+.about-zone__visual { position: relative; overflow: hidden; width: 100%; max-width: 31.25rem; aspect-ratio: 5 / 4; justify-self: center; border-radius: var(--kliv-radius-md); background: var(--kliv-blue); }
+.about-zone__ring { position: absolute; inset: 0; margin: auto; border-radius: 50%; }
+.about-zone__ring--outer { width: 88%; height: auto; aspect-ratio: 1; fill: none; stroke: white; stroke-width: 1.6; stroke-dasharray: 5 6; overflow: visible; }
+.about-zone__ring--mid { width: 56%; aspect-ratio: 1; background: rgba(255, 255, 255, .1); }
+.about-zone__ring--core { width: 24%; aspect-ratio: 1; background: rgba(255, 255, 255, .16); }
+.about-zone__pin { position: absolute; inset: 0; z-index: 1; margin: auto; display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 50%; background: white; color: var(--kliv-blue); }
+.about-zone__pin .service-icon { width: 1.375rem; height: 1.375rem; stroke-width: 1.75; }
+.about-zone__label { position: absolute; z-index: 1; display: inline-flex; align-items: center; gap: .5rem; min-height: 2rem; padding: 0 .75rem; border-radius: var(--kliv-pill); font: 600 .8125rem/1 var(--kliv-font); white-space: nowrap; }
+.about-zone__label--base { left: 56.4%; top: 46.25%; padding-inline: .8125rem; background: white; color: var(--kliv-ink); box-shadow: 0 .5rem 1.25rem rgba(0, 40, 110, .22); }
+.about-zone__label--county { left: 25.6%; top: 21.75%; background: rgba(255, 255, 255, .22); color: white; font-weight: 500; }
+.about-zone__label--region { left: 11.2%; top: 75.25%; background: rgba(255, 255, 255, .22); color: white; font-weight: 500; }
+.about-zone__label--remote { left: 50%; top: 82.5%; min-height: 2.125rem; padding-inline: .875rem; background: var(--kliv-dark); color: white; box-shadow: 0 .5rem 1.25rem rgba(0, 20, 60, .3); }
+.about-zone__label .service-icon { width: .75rem; height: .75rem; stroke-width: 2.5; }
+
+.about-page .service-wrap :focus-visible { outline: 3px solid var(--kliv-blue-action); outline-offset: 4px; }
+.about-studio :focus-visible { outline-color: white; }
+
+@media (min-width: 640px) {
+  .about-commit__card { padding: 2rem 2rem 2rem; }
+}
+@media (min-width: 700px) {
+  .about-studio__head { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+  .about-commit__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-commit__card--blue .about-list__item { min-height: 4.6875rem; }
+  .about-commit__card .about-list__item { min-height: 4.6875rem; }
+}
+@media (min-width: 900px) {
+  .about-who__grid { grid-template-columns: minmax(0, 32.5rem) minmax(0, 1fr); gap: 4.5rem; }
+  .about-zone__grid { grid-template-columns: minmax(0, 1fr) 31.25rem; gap: 3rem; }
+}
+@media (min-width: 1024px) {
+  .about-hero__stage { width: 35rem; justify-self: end; }
+  .about-hero__lead { max-width: 37rem; font-size: 1.1875rem; line-height: 1.6; }
+.about-page .service-hero h1 { font-size: clamp(2.5rem, 9.2vw, 4rem); line-height: 1.12; }
+}
+@media (max-width: 1279px) {
+  .about-page .service-wrap { padding-inline: 2rem; }
+}
+@media (max-width: 639px) {
+  .about-page .service-wrap { padding-inline: var(--service-gutter); }
+  .about-hero__place, .about-hero__reply { min-height: 2rem; font-size: .75rem; padding-inline: .75rem; }
+  .about-hero__place { right: 0; }
+  .about-hero__reply { left: 0; }
+  .about-hero__photo { inset: 0 3.5% 0 10%; }
+  .about-hero__id { padding-right: 1rem; }
+  .about-zone__label { font-size: .75rem; padding-inline: .625rem; }
+}
+
+/* Entrée de page : mêmes règles anti-FOUC que les pages services (script inline du <head>, absent en reduced-motion) */
+.kliv-motion-pending :is(.about-hero__stage) { visibility: hidden; animation: service-motion-failsafe 0s linear 1.4s forwards; }

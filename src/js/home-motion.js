@@ -73,7 +73,8 @@ mm.add(NO_MOTION, () => {
       } else if (lines.length) {
         // Les spans gardent leur boîte exacte pendant le split (sinon le logo, qui passe à la
         // ligne dans la version statique, remonterait à côté du texte puis sauterait au revert).
-        lines.forEach(el => {
+        // Mobile : le logo suit directement le dernier mot (CSS en ligne) ; pas de boîte figée.
+        if (!small) lines.forEach(el => {
           const { width, height } = el.getBoundingClientRect()
           // 12 px de jeu (marges négatives symétriques : la boîte de mise en page ne change pas) :
           // les mots découpés mesurent un peu plus que le texte continu et feraient sinon passer à la ligne.
@@ -82,12 +83,24 @@ mm.add(NO_MOTION, () => {
         const split = SplitText.create(lines, { type: 'lines', mask: 'lines', aria: 'none' })
         // Le masque ne doit pas rogner jambages (p, q…) ni italiques : clip-path élargi, sans effet sur la mise en page.
         split.masks.forEach(mask => Object.assign(mask.style, { overflow: 'visible', clipPath: 'inset(-.12em -.2em)' }))
+        // Mobile : pendant le split, chaque logo est placé dans la dernière ligne de sa phrase (à côté du « à »).
+        const moved = []
+        if (small) lines.forEach(el => {
+          const host = el.parentElement
+          const logo = host.querySelector('.kliv-hero__competitor, .kliv-hero__logo')
+          const last = split.lines.filter(l => el.contains(l)).pop()
+          if (!logo || !last) return
+          last.appendChild(logo)
+          last.parentElement.style.clipPath = 'none'
+          moved.push([host, logo])
+        })
         // Le split n'est annulé qu'à la première interaction (ou après 8 s) : défaire le DOM
         // pendant la mesure du LCP recréerait les nœuds texte et repousserait le LCP d'~0,7 s.
         // Visuellement l'état est identique (boîtes figées ci-dessus).
         const restore = () => {
           events.forEach(type => window.removeEventListener(type, request))
           clearTimeout(timer)
+          moved.forEach(([host, logo]) => host.appendChild(logo))
           split.revert()
           lines.forEach(el => el.removeAttribute('style'))
         }

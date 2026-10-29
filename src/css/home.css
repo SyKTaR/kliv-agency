@@ -27,6 +27,15 @@ body.kliv-home { overflow-x: clip; background: white; color: var(--kliv-ink); fo
 .kliv-hero__competitor img:not(:first-child) { opacity: 0; }
 .kliv-hero__logo { background: var(--kliv-blue); transform: rotate(17.62deg); }
 .kliv-hero__logo img { width: 78%; height: auto; }
+@media (max-width: 767px) {
+  /* Mobile : le logo est inline, collé au dernier mot de sa phrase (comme sur desktop), à l'échelle du titre. */
+  .kliv-hero__title { font-size: 1.875rem; line-height: 1.12; }
+  .kliv-hero__line { display: block; text-wrap: balance; }
+  .kliv-hero__line > span:first-child { display: inline; }
+  .kliv-hero__competitor, .kliv-hero__logo { display: inline-flex; width: 1.1em; height: 1.1em; margin-left: .3em; vertical-align: -.2em; }
+  .kliv-hero__line--serif { margin-top: .75rem; line-height: 1.2; }
+}
+@media (max-width: 379px) { .kliv-hero__title { font-size: 1.625rem; } }
 .kliv-hero__subtitle { max-width: 37.5rem; text-align: center; font-size: 1rem; line-height: 1.55; font-weight: 500; }
 .kliv-hero__buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; margin-top: -.25rem; }
 .kliv-tools { padding-bottom: 3.5rem; }

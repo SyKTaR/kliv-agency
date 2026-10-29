@@ -134,6 +134,7 @@ body.kliv-home { overflow-x: clip; background: white; color: var(--kliv-ink); fo
   .kliv-projects { padding: 3.125rem 1.5rem 5rem; }
   .kliv-projects__content { gap: 3.5rem; }
   .kliv-projects__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .kliv-projects__grid > .kliv-project:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - .75rem); }
   .kliv-contact { padding: 3.125rem 1.5rem 7rem; }
 }
 @media (min-width: 1024px) {
